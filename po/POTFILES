@@ -1,0 +1,5 @@
+data/org.gnome.Optimizer.desktop.in
+data/org.gnome.Optimizer.appdata.xml.in
+data/org.gnome.Optimizer.gschema.xml
+src/window.uisrc/main.vala
+src/window.vala

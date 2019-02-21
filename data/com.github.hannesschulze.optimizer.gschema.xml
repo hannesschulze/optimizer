@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="optimizer">
+	<schema id="com.github.hannesschulze.optimizer" path="/com/github/hannesschulze/optimizer/">
+	  <key name="window-x" type="i">
+      <default>-1</default>
+      <summary>Most recent x position of Optimizer</summary>
+      <description>Most recent x position of Optimizer</description>
+    </key>
+
+    <key name="window-y" type="i">
+      <default>-1</default>
+      <summary>Most recent y position of Optimizer</summary>
+      <description>Most recent y position of Optimizer</description>
+    </key>
+	</schema>
+</schemalist>
