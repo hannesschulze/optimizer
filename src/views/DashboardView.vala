@@ -1,4 +1,4 @@
-/* AppView.vala
+/* DashboardView.vala
  *
  * Copyright 2019 Hannes Schulze
  *
@@ -16,25 +16,24 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using Optimizer.Configs;
+using Optimizer.Widgets;
+
 namespace Optimizer.Views {
 
     /**
-     * The {@code AppView} class.
+     * The {@code DashboardView} class.
      *
      * @since 1.0.0
      */
-    public class AppView : Gtk.Stack {
-        private DashboardView dashboard_view;
-
+    public class DashboardView : Gtk.Label {
         /**
-         * Constructs a new {@code AppView} object.
+         * Constructs a new {@code DashboardView} object.
          */
-        public AppView () {
-            transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
-            transition_duration = 500;
-
-            dashboard_view = new DashboardView ();
-            add_titled (dashboard_view, "dashboard", _("Dashboard"));
+        public DashboardView () {
+            Object (
+                label: "Hello world!"
+            );
         }
     }
 }
