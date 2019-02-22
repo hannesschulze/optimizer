@@ -5,6 +5,7 @@ optimizer_sources = files(
   'views/DashboardView.vala',
   'views/AppView.vala',
   'widgets/HeaderBar.vala',
+  'widgets/CircularProgressBar.vala',
   'Application.vala',
   'Main.vala',
   'Window.vala',
