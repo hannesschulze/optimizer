@@ -18,6 +18,7 @@
 
 using Optimizer.Configs;
 using Optimizer.Widgets;
+using Optimizer.Utils;
 
 namespace Optimizer.Views {
 
@@ -32,8 +33,6 @@ namespace Optimizer.Views {
         private CircularProgressBar disk_usage;
 
         private Gtk.Grid            network_grid;
-        private double              max_download;
-        private double              max_upload;
         private Gtk.ProgressBar     download_speed;
         private Gtk.ProgressBar     upload_speed;
 
@@ -83,7 +82,7 @@ namespace Optimizer.Views {
             network_grid.attach (lbl_download_speed, 0, 0, 2, 1);
 
             download_speed = new Gtk.ProgressBar ();
-            download_speed.text = "2,7 MB/s";
+            download_speed.text = "-";
             download_speed.show_text = true;
             download_speed.fraction = 0.0;
             network_grid.attach_next_to
@@ -96,7 +95,7 @@ namespace Optimizer.Views {
             network_grid.attach (lbl_upload_speed, 0, 1, 2, 1);
 
             upload_speed = new Gtk.ProgressBar ();
-            upload_speed.text = "1,4 kB/s";
+            upload_speed.text = "-";
             upload_speed.show_text = true;
             upload_speed.fraction = 0.0;
             network_grid.attach_next_to
@@ -104,6 +103,21 @@ namespace Optimizer.Views {
 
             system_info = new SystemInfo ();
             attach (system_info, 1, 2, 1, 1);
+
+            update_resources ();
+            GLib.Timeout.add (1000, update_resources);
+        }
+
+        private bool update_resources () {
+            var resources = Resources.get_instance ();
+
+            cpu_usage.percentage = ((double) resources.get_cpu_usage ()) / 100;
+            ram_usage.percentage = ((double) resources.get_memory_usage ()) / 100;
+            // TODO: Update network progress
+            download_speed.text = resources.get_network_down ();
+            upload_speed.text = resources.get_network_up ();
+
+            return true;
         }
     }
 }
