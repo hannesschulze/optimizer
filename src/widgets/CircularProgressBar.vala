@@ -98,21 +98,26 @@ namespace Optimizer.Widgets {
 
             cr.save ();
 
-            var center_x = get_allocated_width () / 2;
-            var center_y = get_allocated_height () / 2;
-            var radius = calculate_radius ();
+            var center_x = (get_allocated_width () - 2) / 2;
+            var center_y = (get_allocated_height () - 2) / 2;
+            var radius = calculate_radius () - 1;
 
             // Radius fill
+            draw_stroke (cr, radius, 4, 0, center_x, center_y + 1, 1.0, "#ffffff");
             draw_stroke (cr, radius, 7, 0, center_x, center_y, 1.0, "#b7b7b7");
             draw_stroke (cr, radius, 5, 1, center_x, center_y, 1.0, "#ffffff");
-            draw_stroke (cr, radius, 3, 2, center_x, center_y, 1.0, "#e9e9e9");
+            draw_stroke (cr, radius, 3, 2, center_x, center_y, 1.0, "#efefef");
+            draw_stroke (cr, radius, 2, 3, center_x, center_y, 1.0, "#e9e9e9");
+            draw_stroke (cr, radius, 1, 4, center_x, center_y, 1.0, "#e2e2e2");
 
             // Progress fill
             double progress = (double) percentage;
             if (progress > 0.0) {
                 draw_stroke (cr, radius, 7, 0, center_x, center_y, progress, "#2c92e3");
-                draw_stroke (cr, radius, 5, 1, center_x, center_y, progress, "#8dc8f5");
-                draw_stroke (cr, radius, 3, 2, center_x, center_y, progress, "#6dbcfb");
+                draw_stroke (cr, radius, 5, 1, center_x, center_y, progress, "#b3ddfe");
+                draw_stroke (cr, radius, 3, 2, center_x, center_y, progress, "#7bc3fd");
+                draw_stroke (cr, radius, 2, 3, center_x, center_y, progress, "#6dbcfb");
+                draw_stroke (cr, radius, 1, 4, center_x, center_y, progress, "#5db4f9");
             }
 
             // Textual information
