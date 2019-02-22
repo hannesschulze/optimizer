@@ -49,10 +49,14 @@ namespace Optimizer.Widgets {
         [Description(nick = "Description", blurb = "Title of the progress bar")]
         public string description { get; set; }
 
+        [Description(nick = "Custom progress text", blurb = "Custom progress text other than %d PERCENT")]
+        public string custom_progress_text { get; set; default = ""; }
+
         /**
          * Constructs a new {@code CircularProgressBar} object.
          */
         public CircularProgressBar () {
+            set_size_request (200, 200);
             notify.connect (() => {
                 queue_draw ();
             });
@@ -139,7 +143,11 @@ namespace Optimizer.Widgets {
             Pango.cairo_show_layout (cr, layout);
 
             // Percentage
-            layout.set_text (_("%d PERCENT").printf ((int) (percentage * 100.0)), -1);
+            if (custom_progress_text != "") {
+                layout.set_text (custom_progress_text, -1);
+            } else {
+                layout.set_text (_("%d PERCENT").printf ((int) (percentage * 100.0)), -1);
+            }
             font_description = Pango.FontDescription.from_string ("Open Sans 9");
             font_description.set_weight (Pango.Weight.NORMAL);
             layout.set_font_description (font_description);
