@@ -37,12 +37,14 @@ namespace Optimizer.Views {
         private Gtk.ProgressBar     download_speed;
         private Gtk.ProgressBar     upload_speed;
 
+        private SystemInfo          system_info;
+
         /**
          * Constructs a new {@code DashboardView} object.
          */
         public DashboardView () {
             column_spacing = 24;
-            row_spacing = 24;
+            row_spacing = 36;
             valign = Gtk.Align.CENTER;
             column_homogeneous = true;
 
@@ -99,6 +101,9 @@ namespace Optimizer.Views {
             upload_speed.fraction = 0.0;
             network_grid.attach_next_to
                 (upload_speed, lbl_upload_speed, Gtk.PositionType.RIGHT, 5, 1);
+
+            system_info = new SystemInfo ();
+            attach (system_info, 1, 2, 1, 1);
         }
     }
 }

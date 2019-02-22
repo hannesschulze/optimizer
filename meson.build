@@ -23,6 +23,7 @@ optimizer_deps = [
   dependency('granite'),
   dependency('gtk+-3.0'),
   dependency('libgtop-2.0'),
+  meson.get_compiler('vala').find_library('posix'),
 ]
 
 gnome = import('gnome')
