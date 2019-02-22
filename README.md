@@ -34,11 +34,12 @@ These dependencies must be present before building:
  - `debhelper`
  - `libgranite-dev`
  - `libgtk-3-dev`
+ - `libgtop2-dev`
 
 
 Use the following command to install the dependencies:
 ```shell
-sudo apt install elementary-sdk
+sudo apt install elementary-sdk libgtop2-dev
 ```
  
 ### Building
