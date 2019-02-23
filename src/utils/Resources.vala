@@ -34,6 +34,9 @@ namespace Optimizer.Utils {
         private uint64 last_network_down;
         private uint64 last_network_up;
 
+        float last_used_cpu;
+        float last_total_cpu;
+
         public int get_memory_usage () {
             float total_memory;
             float used_memory;
@@ -48,9 +51,6 @@ namespace Optimizer.Utils {
         }
 
         public int get_cpu_usage () {
-            float last_used = 0;
-            float last_total = 0;
-
 			GTop.Cpu cpu;
             GTop.get_cpu (out cpu);
 
@@ -58,13 +58,13 @@ namespace Optimizer.Utils {
 			var idle = (float) (cpu.idle + cpu.iowait);
             var total = used + idle;
 
-            var diff_used = used - last_used;
-            var diff_total = total - last_total;
+            var diff_used = used - last_used_cpu;
+            var diff_total = total - last_total_cpu;
 
             var load = diff_used.abs () / diff_total.abs ();
 
-            last_used = used;
-            last_total = total;
+            last_used_cpu = used;
+            last_total_cpu = total;
 
             return (int) (Math.round (load * 100));
         }
@@ -145,6 +145,8 @@ namespace Optimizer.Utils {
         private Resources () {
             last_network_down = 0;
             last_network_up = 0;
+            last_used_cpu = 0;
+            last_total_cpu = 0;
         }
 
         /**
