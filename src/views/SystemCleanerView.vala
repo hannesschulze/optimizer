@@ -115,10 +115,70 @@ namespace Optimizer.Views {
 
             // Clean Up button
             var clean_up_button = new Gtk.Button.with_label ("Clean Up");
-            clean_up_button.get_style_context ().add_class ("suggested-action");
+            clean_up_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
             clean_up_button.halign = Gtk.Align.CENTER;
             clean_up_button.margin_top = 24;
+            clean_up_button.clicked.connect (clean_up);
             attach (clean_up_button, 0, 3, 5, 1);
+        }
+
+        private void clean_up () {
+            string[] selected_folders = {};
+            bool needs_root = false;
+
+            if (package_caches_checkbox.active) {
+                needs_root = true;
+                selected_folders += "/var/cache/apt/archives/*.deb";
+            }
+            if (crash_reports_checkbox.active) {
+                needs_root = true;
+                selected_folders += "/var/crash/*.crash";
+            }
+            if (application_logs_checkbox.active) {
+                needs_root = true;
+                selected_folders += "/var/log/*";
+            }
+            if (application_caches_checkbox.active) {
+                selected_folders += Path.build_filename (Environment.get_home_dir (), ".cache/*");
+            }
+            if (trash_checkbox.active) {
+                selected_folders += Path.build_filename (Environment.get_home_dir (), ".local/share/Trash/files/*");
+                selected_folders += Path.build_filename (Environment.get_home_dir (), ".local/share/Trash/info/*.trashinfo");
+            }
+
+            if (selected_folders.length > 0) {
+                var message_dialog = new Granite.MessageDialog.with_image_from_icon_name (_("Do you want to continue?"),
+                    _("This will delete the following files:"),
+                    "dialog-warning",
+                    Gtk.ButtonsType.CANCEL);
+                message_dialog.width_request = 600;
+
+                var continue_button = new Gtk.Button.with_label (_("Continue"));
+                continue_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
+                message_dialog.add_action_widget (continue_button, Gtk.ResponseType.ACCEPT);
+
+                var files_list = new Gtk.TextView ();
+                files_list.border_width = 6;
+                files_list.editable = false;
+                files_list.pixels_below_lines = 3;
+                files_list.wrap_mode = Gtk.WrapMode.WORD;
+                files_list.width_request = 300;
+                foreach (string folder in selected_folders) {
+                    if (files_list.buffer.text != "") {
+                        files_list.buffer.text += "\n";
+                    }
+                    files_list.buffer.text += folder;
+                }
+
+                var expander = new Gtk.Expander (_("Details"));
+                expander.add (files_list);
+                message_dialog.custom_bin.add (expander);
+
+                message_dialog.show_all ();
+                if (message_dialog.run () == Gtk.ResponseType.ACCEPT) {
+                }
+                message_dialog.destroy ();
+            }
         }
     }
 }
