@@ -1,4 +1,4 @@
-/* AppView.vala
+/* SystemCleanerView.vala
  *
  * Copyright 2019 Hannes Schulze
  *
@@ -16,29 +16,24 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using Optimizer.Configs;
+using Optimizer.Widgets;
+
 namespace Optimizer.Views {
 
     /**
-     * The {@code AppView} class.
+     * The {@code SystemCleanerView} class.
      *
      * @since 1.0.0
      */
-    public class AppView : Gtk.Stack {
-        private DashboardView dashboard_view;
-        private SystemCleanerView system_cleaner_view;
-
+    public class SystemCleanerView : Gtk.Label {
         /**
-         * Constructs a new {@code AppView} object.
+         * Constructs a new {@code SystemCleanerView} object.
          */
-        public AppView () {
-            transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
-            transition_duration = 500;
-
-            dashboard_view = new DashboardView ();
-            add_titled (dashboard_view, "dashboard", _("Dashboard"));
-
-            system_cleaner_view = new SystemCleanerView ();
-            add_titled (system_cleaner_view, "system-cleaner", _("Cleaner"));
+        public SystemCleanerView () {
+            Object (
+                label: "Hello world!"
+            );
         }
     }
 }

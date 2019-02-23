@@ -4,6 +4,7 @@ optimizer_sources = files(
   'controllers/AppController.vala',
   'utils/Resources.vala',
   'views/DashboardView.vala',
+  'views/SystemCleanerView.vala',
   'views/AppView.vala',
   'widgets/HeaderBar.vala',
   'widgets/CircularProgressBar.vala',
