@@ -25,6 +25,7 @@ namespace Optimizer.Views {
      */
     public class AppView : Gtk.Stack {
         private DashboardView dashboard_view;
+        private SystemCleanerView system_cleaner_view;
 
         /**
          * Constructs a new {@code AppView} object.
@@ -35,6 +36,9 @@ namespace Optimizer.Views {
 
             dashboard_view = new DashboardView ();
             add_titled (dashboard_view, "dashboard", _("Dashboard"));
+
+            system_cleaner_view = new SystemCleanerView ();
+            add_titled (system_cleaner_view, "system-cleaner", _("Cleaner"));
         }
     }
 }
