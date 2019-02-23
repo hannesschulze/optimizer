@@ -49,20 +49,19 @@ namespace Optimizer.Views {
 
             cpu_usage = new CircularProgressBar ();
             cpu_usage.description = "CPU";
-            cpu_usage.percentage = 0.57;
+            cpu_usage.percentage = 0.0;
             cpu_usage.halign = Gtk.Align.END;
             cpu_usage.margin_start = 24;
             attach (cpu_usage, 0, 0, 1, 1);
 
             ram_usage = new CircularProgressBar ();
             ram_usage.description = "RAM";
-            ram_usage.percentage = 0.38;
+            ram_usage.percentage = 0.0;
             attach (ram_usage, 1, 0, 1, 1);
 
             disk_usage = new CircularProgressBar ();
             disk_usage.description = "DISK";
-            disk_usage.percentage = 0.925;
-            disk_usage.custom_progress_text = "346 GiB / 374 GiB";
+            disk_usage.percentage = 0.0;
             disk_usage.halign = Gtk.Align.START;
             disk_usage.margin_end = 24;
             attach (disk_usage, 2, 0, 1, 1);
@@ -121,9 +120,22 @@ namespace Optimizer.Views {
             ram_usage.percentage = memory_usage / 100;
             ram_usage.custom_progress_text = "%s / %s".printf (used_memory, total_memory);
 
-            // Network usage
+            // Disk usage
+            string total_disk = "";
+            string used_disk = "";
+            double fs_usage = (double) resources.get_fs_usage
+                (out used_disk, out total_disk);
+            disk_usage.percentage = fs_usage / 100;
+            disk_usage.custom_progress_text = "%s / %s".printf (used_disk, total_disk);
+
+            // Download speed
+            string download_speed_text = "";
+            double download_speed_progress = (double) resources.get_network_down
+                (out download_speed_text);
+            download_speed.fraction = download_speed_progress / 100;
+            download_speed.text = download_speed_text;
+
             // TODO: Update network progress
-            download_speed.text = resources.get_network_down ();
             upload_speed.text = resources.get_network_up ();
 
             return true;

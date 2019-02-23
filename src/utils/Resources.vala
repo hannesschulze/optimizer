@@ -34,8 +34,11 @@ namespace Optimizer.Utils {
         private uint64 last_network_down;
         private uint64 last_network_up;
 
-        float last_used_cpu;
-        float last_total_cpu;
+        private uint64 max_network_down;
+        private uint64 max_network_up;
+
+        private float last_used_cpu;
+        private float last_total_cpu;
 
         public int get_memory_usage (out string used_memory_text,
                                      out string total_memory_text) {
@@ -73,21 +76,31 @@ namespace Optimizer.Utils {
             return (int) (Math.round (load * 100));
         }
 
-        public string get_fs_usage () {
+        public int get_fs_usage (out string used_disk_space,
+                                 out string total_disk_space) {
+            // TODO: Let the user select a different partition
             var root_mount = GLib.File.new_for_path ("/");
             try {
                 var info = root_mount.query_filesystem_info (GLib.FileAttribute.FILESYSTEM_SIZE, null);
-                var total = GLib.format_size (info.get_attribute_uint64 (GLib.FileAttribute.FILESYSTEM_SIZE));
+                uint64 total_attr = info.get_attribute_uint64 (GLib.FileAttribute.FILESYSTEM_SIZE);
+                float total = (float) (total_attr / 1024 / 1024) / 1000;
+                total_disk_space = GLib.format_size (total_attr, FormatSizeFlags.IEC_UNITS);
+
                 info = root_mount.query_filesystem_info (GLib.FileAttribute.FILESYSTEM_USED, null);
-                var used = GLib.format_size (info.get_attribute_uint64 (GLib.FileAttribute.FILESYSTEM_USED));
-                return used + " / " + total;
+                uint64 used_attr = info.get_attribute_uint64 (GLib.FileAttribute.FILESYSTEM_USED);
+                float used = (float) (used_attr / 1024 / 1024) / 1000;
+                used_disk_space = GLib.format_size (used_attr, FormatSizeFlags.IEC_UNITS);
+
+                return (int) (Math.round ((used / total) * 100));
             } catch (Error e) {
+                total_disk_space = "n/a";
+                used_disk_space = "n/a";
                 warning (e.message);
-                return _("Unknown");
+                return 0;
             }
         }
 
-        public string get_network_down () {
+        public int get_network_down (out string network_down_text) {
             uint64 network_down = 0;
             try {
                 Dir dir = Dir.open ("/sys/class/net", 0);
@@ -106,12 +119,23 @@ namespace Optimizer.Utils {
             }
 
             if (last_network_down != 0) {
-                string res = GLib.format_size (network_down - last_network_down) + "/s";
+                network_down_text = GLib.format_size (network_down - last_network_down, FormatSizeFlags.IEC_UNITS) + "/s";
+
+                if (network_down - last_network_down > max_network_down) {
+                    max_network_down = network_down - last_network_down;
+                }
+
+                float max_size = (float) (max_network_down / 1024);
+                float current_size = (float) ((network_down - last_network_down) / 1024);
+                int fraction = (int) (Math.round ((current_size / max_size) * 100));
+
                 last_network_down = network_down;
-                return res;
+
+                return fraction;
             } else {
                 last_network_down = network_down;
-                return "n/a";
+                network_down_text = "n/a";
+                return 0;
             }
         }
 
@@ -151,6 +175,8 @@ namespace Optimizer.Utils {
             last_network_up = 0;
             last_used_cpu = 0;
             last_total_cpu = 0;
+            max_network_down = 0;
+            max_network_up = 0;
         }
 
         /**
