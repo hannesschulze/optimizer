@@ -44,6 +44,8 @@ namespace Optimizer.Views {
         public DashboardView () {
             column_spacing = 24;
             row_spacing = 36;
+            margin_top = 24;
+            margin_bottom = 24;
             valign = Gtk.Align.CENTER;
             column_homogeneous = true;
 

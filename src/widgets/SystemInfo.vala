@@ -89,7 +89,7 @@ namespace Optimizer.Widgets {
                 (_("CPU Model:"), get_cpu ());
 
             // Cores
-            this.label += "<b>%s</b> %s\n".printf
+            this.label += "<b>%s</b> %s".printf
                 (_("CPU Cores:"), get_cores ());
         }
 
