@@ -28,9 +28,7 @@ namespace Optimizer.Widgets {
      */
     public class HeaderBar : Gtk.HeaderBar {
 
-        public signal void menu_clicked ();
-
-        public Gtk.MenuButton menu_button { get; private set; }
+        public Gtk.StackSwitcher stack_switcher { get; set; }
 
         /**
          * Constructs a new {@code HeaderBar} object.
@@ -39,16 +37,11 @@ namespace Optimizer.Widgets {
          * @see icon_settings
          */
         public HeaderBar () {
-            menu_button = new Gtk.MenuButton ();
-            menu_button.image = new Gtk.Image .from_icon_name ("open-menu-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
-            menu_button.tooltip_text = _("Settings");
-            menu_button.clicked.connect (() => {
-                menu_clicked ();
-            });
+            stack_switcher = new Gtk.StackSwitcher ();
+            stack_switcher.homogeneous = true;
 
-            this.title = "Optimizer";
             this.show_close_button = true;
-            this.pack_end (menu_button);
+            this.custom_title = stack_switcher;
         }
     }
 }

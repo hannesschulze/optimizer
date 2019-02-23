@@ -16,9 +16,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using Optimizer.Configs;
-using Optimizer.Widgets;
-
 namespace Optimizer.Views {
 
     /**
@@ -26,14 +23,18 @@ namespace Optimizer.Views {
      *
      * @since 1.0.0
      */
-    public class AppView : Gtk.Label {
+    public class AppView : Gtk.Stack {
+        private DashboardView dashboard_view;
+
         /**
          * Constructs a new {@code AppView} object.
          */
         public AppView () {
-            Object (
-                label: "Hello world!"
-            );
+            transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
+            transition_duration = 500;
+
+            dashboard_view = new DashboardView ();
+            add_titled (dashboard_view, "dashboard", _("Dashboard"));
         }
     }
 }

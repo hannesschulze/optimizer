@@ -22,6 +22,9 @@ optimizer_deps = [
   dependency('glib-2.0'),
   dependency('granite'),
   dependency('gtk+-3.0'),
+  dependency('libgtop-2.0'),
+  meson.get_compiler('c').find_library('m'),
+  meson.get_compiler('vala').find_library('posix'),
 ]
 
 gnome = import('gnome')
@@ -33,10 +36,13 @@ optimizer_sources += gnome.compile_resources('optimizer-resources',
 )
 
 executable('com.github.hannesschulze.optimizer', optimizer_sources,
-  vala_args: '--target-glib=2.50',
   dependencies: optimizer_deps,
   install: true,
-  c_args: c_args
+  c_args: c_args,
+  vala_args: [
+    '--vapidir=' + meson.source_root() + '/vapi/',
+    '--target-glib=2.50'
+  ]
 )
 
 meson.add_install_script('build-aux/meson/postinstall.py')
