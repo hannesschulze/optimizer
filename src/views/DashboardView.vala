@@ -135,8 +135,12 @@ namespace Optimizer.Views {
             download_speed.fraction = download_speed_progress / 100;
             download_speed.text = download_speed_text;
 
-            // TODO: Update network progress
-            upload_speed.text = resources.get_network_up ();
+            // Upload speed
+            string upload_speed_text = "";
+            double upload_speed_progress = (double) resources.get_network_up
+                (out upload_speed_text);
+            upload_speed.fraction = upload_speed_progress / 100;
+            upload_speed.text = upload_speed_text;
 
             return true;
         }

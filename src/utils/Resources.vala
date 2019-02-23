@@ -139,7 +139,7 @@ namespace Optimizer.Utils {
             }
         }
 
-        public string get_network_up () {
+        public int get_network_up (out string network_up_text) {
             uint64 network_up = 0;
             try {
                 Dir dir = Dir.open ("/sys/class/net", 0);
@@ -158,12 +158,23 @@ namespace Optimizer.Utils {
             }
 
             if (last_network_up != 0) {
-                string res = GLib.format_size (network_up - last_network_up) + "/s";
+                network_up_text = GLib.format_size (network_up - last_network_up, FormatSizeFlags.IEC_UNITS) + "/s";
+
+                if (network_up - last_network_up > max_network_up) {
+                    max_network_up = network_up - last_network_up;
+                }
+
+                float max_size = (float) (max_network_up / 1024);
+                float current_size = (float) ((network_up - last_network_up) / 1024);
+                int fraction = (int) (Math.round ((current_size / max_size) * 100));
+
                 last_network_up = network_up;
-                return res;
+
+                return fraction;
             } else {
                 last_network_up = network_up;
-                return "n/a";
+                network_up_text = "n/a";
+                return 0;
             }
         }
 
