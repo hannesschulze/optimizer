@@ -37,7 +37,8 @@ namespace Optimizer.Utils {
         float last_used_cpu;
         float last_total_cpu;
 
-        public int get_memory_usage () {
+        public int get_memory_usage (out string used_memory_text,
+                                     out string total_memory_text) {
             float total_memory;
             float used_memory;
 
@@ -46,6 +47,9 @@ namespace Optimizer.Utils {
 
     		total_memory = (float) (memory.total / 1024 / 1024) / 1000;
             used_memory = (float) (memory.user / 1024 / 1024) / 1000;
+
+            total_memory_text = GLib.format_size (memory.total, FormatSizeFlags.IEC_UNITS);
+            used_memory_text = GLib.format_size (memory.user, FormatSizeFlags.IEC_UNITS);
 
             return (int) (Math.round ((used_memory / total_memory) * 100));
         }

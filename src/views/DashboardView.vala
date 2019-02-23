@@ -57,7 +57,6 @@ namespace Optimizer.Views {
             ram_usage = new CircularProgressBar ();
             ram_usage.description = "RAM";
             ram_usage.percentage = 0.38;
-            ram_usage.custom_progress_text = "6.0 GiB / 15.6 GiB";
             attach (ram_usage, 1, 0, 1, 1);
 
             disk_usage = new CircularProgressBar ();
@@ -111,8 +110,18 @@ namespace Optimizer.Views {
         private bool update_resources () {
             var resources = Resources.get_instance ();
 
+            // CPU usage
             cpu_usage.percentage = ((double) resources.get_cpu_usage ()) / 100;
-            ram_usage.percentage = ((double) resources.get_memory_usage ()) / 100;
+
+            // Memory usage
+            string total_memory = "";
+            string used_memory = "";
+            double memory_usage = (double) resources.get_memory_usage
+                (out used_memory, out total_memory);
+            ram_usage.percentage = memory_usage / 100;
+            ram_usage.custom_progress_text = "%s / %s".printf (used_memory, total_memory);
+
+            // Network usage
             // TODO: Update network progress
             download_speed.text = resources.get_network_down ();
             upload_speed.text = resources.get_network_up ();
