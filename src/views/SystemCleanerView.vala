@@ -29,6 +29,7 @@ namespace Optimizer.Views {
     public class SystemCleanerView : Gtk.Overlay {
         private Gtk.Grid              main_grid;
         private Granite.Widgets.Toast toast;
+        private Granite.Widgets.Toast result_toast;
         private Gtk.CheckButton       trash_checkbox;
         private Gtk.CheckButton       application_caches_checkbox;
         private Gtk.CheckButton       application_logs_checkbox;
@@ -40,7 +41,9 @@ namespace Optimizer.Views {
          */
         public SystemCleanerView () {
             toast = new Granite.Widgets.Toast ("");
+            result_toast = new Granite.Widgets.Toast ("");
             add_overlay (toast);
+            add_overlay (result_toast);
 
             main_grid = new Gtk.Grid ();
             main_grid.halign = Gtk.Align.CENTER;
@@ -155,6 +158,7 @@ namespace Optimizer.Views {
             }
 
             if (selected_folders.length > 0) {
+                // TODO: Calculate disk space
                 var message_dialog = new Granite.MessageDialog.with_image_from_icon_name (_("Do you want to continue?"),
                     _("This will delete the following files:"),
                     "dialog-warning",
@@ -184,11 +188,72 @@ namespace Optimizer.Views {
 
                 message_dialog.show_all ();
                 if (message_dialog.run () == Gtk.ResponseType.ACCEPT) {
+                    toast.title = _("Deleting selected files...");
+                    toast.send_notification ();
+                    remove_files (selected_folders, needs_root);
                 }
                 message_dialog.destroy ();
             } else {
                 toast.title = _("No items selected");
                 toast.send_notification ();
+            }
+        }
+
+        private void remove_files (string[] files, bool needs_root) {
+            string[] spawn_args = {};
+            if (needs_root) {
+                spawn_args += "pkexec";
+            }
+            spawn_args += "sh";
+            spawn_args += "-c";
+            spawn_args += "rm -r " + string.joinv (" ", files);
+
+            string[] spawn_env = Environ.get ();
+            Pid child_pid;
+
+            try {
+                int standard_input;
+		        int standard_output;
+		        int standard_error;
+
+		        Process.spawn_async_with_pipes ("/",
+			        spawn_args,
+			        spawn_env,
+			        SpawnFlags.SEARCH_PATH | SpawnFlags.DO_NOT_REAP_CHILD,
+			        null,
+			        out child_pid,
+			        out standard_input,
+			        out standard_output,
+			        out standard_error);
+
+		        // stderr:
+		        IOChannel error = new IOChannel.unix_new (standard_error);
+		        bool got_error = false;
+		        error.add_watch (IOCondition.IN | IOCondition.HUP, (channel, condition) => {
+		            if (condition == IOCondition.HUP) {
+		                return false;
+	                }
+
+	                try {
+		                string line;
+		                channel.read_line (out line, null, null);
+		                print ("Output on stderr while trying to delete files: %s", line);
+		                got_error = true;
+	                } catch (Error e) {
+		                return false;
+	                }
+
+			        return true;
+		        });
+
+                ChildWatch.add (child_pid, (pid, status) => {
+	                Process.close_pid (pid);
+	                result_toast.title = _("Finished cleaning up %s").printf
+	                    (got_error ? _("with errors!") : _("with no errors"));
+	                result_toast.send_notification ();
+                });
+            } catch (SpawnError err) {
+                stderr.printf ("Could not spawn command: %s\n", err.message);
             }
         }
     }
