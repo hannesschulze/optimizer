@@ -26,14 +26,33 @@ namespace Optimizer.Views {
      *
      * @since 1.0.0
      */
-    public class ProcessesView : Gtk.Label {
+    public class ProcessesView : Gtk.Box {
+        private Gtk.TreeView    tree_view;
+        private Gtk.ActionBar   action_bar;
+        private Gtk.SearchEntry search_field;
+        private Gtk.Button      end_process_button;
+
         /**
          * Constructs a new {@code ProcessesView} object.
          */
         public ProcessesView () {
             Object (
-                label: "Hello world!"
+                orientation: Gtk.Orientation.VERTICAL
             );
+
+            get_style_context ().add_class ("processes_view");
+
+            tree_view = new Gtk.TreeView ();
+            pack_start (tree_view, true, true, 0);
+
+            action_bar = new Gtk.ActionBar ();
+            pack_end (action_bar, false, true, 0);
+
+            search_field = new Gtk.SearchEntry ();
+            action_bar.pack_start (search_field);
+
+            end_process_button = new Gtk.Button.with_label (_("End Process"));
+            action_bar.pack_end (end_process_button);
         }
     }
 } 
