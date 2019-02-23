@@ -5,6 +5,7 @@ optimizer_sources = files(
   'utils/Resources.vala',
   'views/DashboardView.vala',
   'views/SystemCleanerView.vala',
+  'views/ProcessesView.vala',
   'views/AppView.vala',
   'widgets/HeaderBar.vala',
   'widgets/CircularProgressBar.vala',
