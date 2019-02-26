@@ -42,8 +42,8 @@
 <stop offset="1" stop-opacity="0"/>
 </radialGradient>
 <linearGradient id="paint3_linear" x1="16" y1="13.5" x2="16" y2="27.5" gradientUnits="userSpaceOnUse">
-<stop stop-color="#485A6C"/>
-<stop offset="1" stop-color="#667885"/>
+<stop stop-color="#667885"/>
+<stop offset="1" stop-color="#485A6C"/>
 </linearGradient>
 <linearGradient id="paint4_linear" x1="16" y1="14" x2="16" y2="27" gradientUnits="userSpaceOnUse">
 <stop stop-color="white" stop-opacity="0.26"/>
