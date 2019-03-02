@@ -35,11 +35,12 @@ These dependencies must be present before building:
  - `libgranite-dev`
  - `libgtk-3-dev`
  - `libgtop2-dev`
+ - `libwnck-3-dev`
 
 
 Use the following command to install the dependencies:
 ```shell
-sudo apt install elementary-sdk libgtop2-dev
+sudo apt install elementary-sdk libgtop2-dev libwnck-3-dev
 ```
  
 ### Building
