@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-.processes_view button, .processes_view entry {
+.processes_view actionbar button, .processes_view actionbar entry {
   margin-top: 4px;
   margin-bottom: 4px;
 }
