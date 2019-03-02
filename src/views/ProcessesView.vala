@@ -72,10 +72,12 @@ namespace Optimizer.Views {
                 typeof (string)
             });
 
+            // Search filter
             var search_filter = new Gtk.TreeModelFilter (list_model, null);
             var sort_model = new Gtk.TreeModelSort.with_model (search_filter);
             tree_view.model = sort_model;
 
+            // PID column
             var column = new Gtk.TreeViewColumn.with_attributes ("PID", new Gtk.CellRendererText (), "text", 0);
             column.resizable = true;
             column.fixed_width = 50;
@@ -83,8 +85,9 @@ namespace Optimizer.Views {
             column.sort_column_id = 0;
             tree_view.append_column (column);
 
+            // Memory usage column
             var cell_renderer = new Gtk.CellRendererText ();
-            column = new Gtk.TreeViewColumn.with_attributes ("Resident Memory", cell_renderer, "text", 1);
+            column = new Gtk.TreeViewColumn.with_attributes ("Total Memory", cell_renderer, "text", 1);
             column.set_cell_data_func (cell_renderer, (cell_layout, cell, tree_model, iter) => {
                 var val = Value (typeof (uint64));
                 tree_model.get_value (iter, 1, out val);
@@ -96,6 +99,7 @@ namespace Optimizer.Views {
             column.sort_column_id = 1;
             tree_view.append_column (column);
 
+            // % Memory column
             GTop.Memory memory;
             GTop.get_mem (out memory);
             float total_memory = (float) (memory.total / 1024 / 1024) / 1000;
@@ -116,6 +120,7 @@ namespace Optimizer.Views {
             column.sort_column_id = 1;
             tree_view.append_column (column);
 
+            // User column
             column = new Gtk.TreeViewColumn.with_attributes ("User", new Gtk.CellRendererText (), "text", 2);
             column.resizable = true;
             column.fixed_width = 90;
@@ -123,6 +128,7 @@ namespace Optimizer.Views {
             column.sort_column_id = 2;
             tree_view.append_column (column);
 
+            // CPU usage column
             cell_renderer = new Gtk.CellRendererText ();
             column = new Gtk.TreeViewColumn.with_attributes ("% CPU", cell_renderer, "text", 3);
             column.set_cell_data_func (cell_renderer, (cell_layout, cell, tree_model, iter) => {
@@ -136,6 +142,7 @@ namespace Optimizer.Views {
             column.sort_column_id = 3;
             tree_view.append_column (column);
 
+            // Process column
             cell_renderer = new Gtk.CellRendererText ();
             cell_renderer.ellipsize = Pango.EllipsizeMode.END;
             column = new Gtk.TreeViewColumn.with_attributes ("Process", cell_renderer, "text", 4);
@@ -164,6 +171,7 @@ namespace Optimizer.Views {
                 search_filter.refilter ();
             });
 
+            // Populate the list
             processes_list = new Gee.HashMap<int, Gtk.TreeIter?> ();
 
             var process_manager = ProcessManager.get_instance ();
