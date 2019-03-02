@@ -10,6 +10,7 @@ configure_file(output: 'config.h', configuration: conf)
 config_h_dir = include_directories('.')
 
 c_args = [
+  '-DWNCK_I_KNOW_THIS_IS_UNSTABLE',
   '-include', 'config.h'
 ]
 
@@ -23,6 +24,7 @@ optimizer_deps = [
   dependency('granite'),
   dependency('gtk+-3.0'),
   dependency('libgtop-2.0'),
+  dependency('libwnck-3.0'),
   meson.get_compiler('c').find_library('m'),
   meson.get_compiler('vala').find_library('posix'),
 ]
