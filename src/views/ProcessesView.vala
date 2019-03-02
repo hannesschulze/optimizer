@@ -209,6 +209,24 @@ namespace Optimizer.Views {
                     processes_list.unset (pid);
                 }
             });
+
+            // End Process button
+            end_process_button.clicked.connect (() => {
+                Gtk.TreeModel model;
+                Gtk.TreeIter iter;
+                if (!tree_view.get_selection ().get_selected (out model, out iter)) {
+                    return;
+                }
+                var val = Value (typeof (int));
+                model.get_value (iter, 0, out val);
+
+                Gee.Map<int, Optimizer.Utils.Process> processes = process_manager.get_process_list ();
+                if (!processes.has_key ((int) val)) {
+                    return;
+                }
+
+                processes [(int) val].kill ();
+            });
         }
     }
 }
