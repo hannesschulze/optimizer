@@ -17,6 +17,7 @@
  */
 
 using Optimizer.Configs;
+using Optimizer.Utils;
 
 namespace Optimizer.Widgets {
 
@@ -45,6 +46,7 @@ namespace Optimizer.Widgets {
                 new Variant.string ("/"));
             partition_action.activate.connect ((parameter) => {
                 partition_action.set_state (parameter);
+                Resources.get_instance ().mount_path = parameter.get_string ();
             });
             app.add_action (partition_action);
 
