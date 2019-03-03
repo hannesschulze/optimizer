@@ -1,215 +1,217 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# English translations for com.github.hannesschulze.optimizer package.
+# Copyright (C) 2019 THE com.github.hannesschulze.optimizer'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.hannesschulze.optimizer package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Automatically generated, 2019.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.hannesschulze.optimizer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-03-03 14:37+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2019-03-03 14:37+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: en_GB\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=ASCII\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: data/com.github.hannesschulze.optimizer.desktop.in:3
 msgid "Optimizer"
-msgstr ""
+msgstr "Optimizer"
 
 #: data/com.github.hannesschulze.optimizer.desktop.in:4
 msgid "com.github.hannesschulze.optimizer"
-msgstr ""
+msgstr "com.github.hannesschulze.optimizer"
 
 #: src/configs/Constants.vala:34
 msgid ""
 "Show currently open applications, monitor CPU, memory and network usage and "
 "clean up your system"
 msgstr ""
+"Show currently open applications, monitor CPU, memory and network usage and "
+"clean up your system"
 
 #: src/configs/Constants.vala:35
 msgid "Translators"
-msgstr ""
+msgstr "Translators"
 
 #: src/configs/Constants.vala:40
 msgid "Website"
-msgstr ""
+msgstr "Website"
 
 #: src/views/DashboardView.vala:53
 msgid "CPU"
-msgstr ""
+msgstr "CPU"
 
 #: src/views/DashboardView.vala:60
 msgid "RAM"
-msgstr ""
+msgstr "RAM"
 
 #: src/views/DashboardView.vala:65
 msgid "Disk"
-msgstr ""
+msgstr "Disk"
 
 #: src/views/DashboardView.vala:78
 msgid "Download:"
-msgstr ""
+msgstr "Download:"
 
 #: src/views/DashboardView.vala:91
 msgid "Upload:"
-msgstr ""
+msgstr "Upload:"
 
 #: src/views/SystemCleanerView.vala:63
 msgid "Package Caches"
-msgstr ""
+msgstr "Package Caches"
 
 #: src/views/SystemCleanerView.vala:77
 msgid "Crash Reports"
-msgstr ""
+msgstr "Crash Reports"
 
 #: src/views/SystemCleanerView.vala:91
 msgid "Application Logs"
-msgstr ""
+msgstr "Application Logs"
 
 #: src/views/SystemCleanerView.vala:105
 msgid "Application Caches"
-msgstr ""
+msgstr "Application Caches"
 
 #: src/views/SystemCleanerView.vala:119
 msgid "Trash"
-msgstr ""
+msgstr "Trash"
 
 #: src/views/SystemCleanerView.vala:128
 msgid "Clean Up"
-msgstr ""
+msgstr "Clean Up"
 
 #: src/views/SystemCleanerView.vala:162
 msgid "Do you want to continue?"
-msgstr ""
+msgstr "Do you want to continue?"
 
 #: src/views/SystemCleanerView.vala:163
 msgid "This will delete the following files:"
-msgstr ""
+msgstr "This will delete the following files:"
 
 #: src/views/SystemCleanerView.vala:168
 msgid "Continue"
-msgstr ""
+msgstr "Continue"
 
 #: src/views/SystemCleanerView.vala:185
 msgid "Details"
-msgstr ""
+msgstr "Details"
 
 #: src/views/SystemCleanerView.vala:191
 msgid "Deleting selected files..."
-msgstr ""
+msgstr "Deleting selected files..."
 
 #: src/views/SystemCleanerView.vala:197
 msgid "No items selected"
-msgstr ""
+msgstr "No items selected"
 
 #: src/views/SystemCleanerView.vala:251
 #, c-format
 msgid "Finished cleaning up %s"
-msgstr ""
+msgstr "Finished cleaning up %s"
 
 #: src/views/SystemCleanerView.vala:252
 msgid "with errors!"
-msgstr ""
+msgstr "with errors!"
 
 #: src/views/SystemCleanerView.vala:252
 msgid "with no errors"
-msgstr ""
+msgstr "with no errors"
 
 #: src/views/ProcessesView.vala:68
 msgid "End Process"
-msgstr ""
+msgstr "End Process"
 
 #: src/views/ProcessesView.vala:87
 msgid "PID"
-msgstr ""
+msgstr "PID"
 
 #: src/views/ProcessesView.vala:96
 msgid "Total Memory"
-msgstr ""
+msgstr "Total Memory"
 
 #: src/views/ProcessesView.vala:114
 msgid "% Memory"
-msgstr ""
+msgstr "% Memory"
 
 #: src/views/ProcessesView.vala:130
 msgid "User"
-msgstr ""
+msgstr "User"
 
 #: src/views/ProcessesView.vala:139
 #, c-format
 msgid "% CPU"
-msgstr ""
+msgstr "% CPU"
 
 #: src/views/ProcessesView.vala:154
 msgid "Process"
-msgstr ""
+msgstr "Process"
 
 #: src/views/AppView.vala:39
 msgid "Dashboard"
-msgstr ""
+msgstr "Dashboard"
 
 #: src/views/AppView.vala:42
 msgid "Cleaner"
-msgstr ""
+msgstr "Cleaner"
 
 #: src/views/AppView.vala:45
 msgid "Processes"
-msgstr ""
+msgstr "Processes"
 
 #: src/widgets/CircularProgressBar.vala:149
 #, c-format
 msgid "%d Percent"
-msgstr ""
+msgstr "%d Percent"
 
 #: src/widgets/SystemInfo.vala:42
 msgid "Hostname:"
-msgstr ""
+msgstr "Hostname:"
 
 #: src/widgets/SystemInfo.vala:60
 msgid "Distribution:"
-msgstr ""
+msgstr "Distribution:"
 
 #: src/widgets/SystemInfo.vala:80
 msgid "Architecture:"
-msgstr ""
+msgstr "Architecture:"
 
 #: src/widgets/SystemInfo.vala:85
 msgid "Kernel:"
-msgstr ""
+msgstr "Kernel:"
 
 #: src/widgets/SystemInfo.vala:89
 msgid "CPU Model:"
-msgstr ""
+msgstr "CPU Model:"
 
 #: src/widgets/SystemInfo.vala:93
 msgid "CPU Cores:"
-msgstr ""
+msgstr "CPU Cores:"
 
 #: src/widgets/SystemInfo.vala:117
 msgid "Unknown"
-msgstr ""
+msgstr "Unknown"
 
 #: src/widgets/SystemInfo.vala:133
 msgid "Single-Core"
-msgstr ""
+msgstr "Single-Core"
 
 #: src/widgets/SystemInfo.vala:162
 msgid "Dual-Core"
-msgstr ""
+msgstr "Dual-Core"
 
 #: src/widgets/SystemInfo.vala:164
 msgid "Quad-Core"
-msgstr ""
+msgstr "Quad-Core"
 
 #: src/widgets/SystemInfo.vala:166
 msgid "Cores"
-msgstr ""
+msgstr "Cores"
 
 #: src/Main.vala:37
 msgid "Options"
-msgstr ""
+msgstr "Options"
