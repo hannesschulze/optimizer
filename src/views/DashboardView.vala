@@ -50,19 +50,19 @@ namespace Optimizer.Views {
             column_homogeneous = true;
 
             cpu_usage = new CircularProgressBar ();
-            cpu_usage.description = "CPU";
+            cpu_usage.description = _("CPU").up ();
             cpu_usage.percentage = 0.0;
             cpu_usage.halign = Gtk.Align.END;
             cpu_usage.margin_start = 24;
             attach (cpu_usage, 0, 0, 1, 1);
 
             ram_usage = new CircularProgressBar ();
-            ram_usage.description = "RAM";
+            ram_usage.description = _("RAM").up ();
             ram_usage.percentage = 0.0;
             attach (ram_usage, 1, 0, 1, 1);
 
             disk_usage = new CircularProgressBar ();
-            disk_usage.description = "DISK";
+            disk_usage.description = _("Disk").up ();
             disk_usage.percentage = 0.0;
             disk_usage.halign = Gtk.Align.START;
             disk_usage.margin_end = 24;
