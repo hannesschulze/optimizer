@@ -4,5 +4,6 @@ Icon=com.github.hannesschulze.optimizer
 Exec=com.github.hannesschulze.optimizer
 Terminal=false
 Type=Application
+X-GNOME-Gettext-Domain=com.github.hannesschulze.optimizer
 Categories=GTK;
 StartupNotify=true
