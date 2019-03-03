@@ -43,10 +43,11 @@ namespace Optimizer.Widgets {
         public HeaderBar (Gtk.Application app) {
             SimpleAction partition_action = new SimpleAction.stateful ("partition-action",
                 new GLib.VariantType ("s"),
-                new Variant.string ("/"));
+                new Variant.string (Configs.Settings.get_instance ().monitored_partition));
             partition_action.activate.connect ((parameter) => {
                 partition_action.set_state (parameter);
                 Resources.get_instance ().mount_path = parameter.get_string ();
+                Configs.Settings.get_instance ().monitored_partition = parameter.get_string ();
             });
             app.add_action (partition_action);
 

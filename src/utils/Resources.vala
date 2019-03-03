@@ -189,7 +189,7 @@ namespace Optimizer.Utils {
             last_total_cpu = 0;
             max_network_down = 0;
             max_network_up = 0;
-            mount_path = "/";
+            mount_path = Configs.Settings.get_instance ().monitored_partition;
         }
 
         /**
