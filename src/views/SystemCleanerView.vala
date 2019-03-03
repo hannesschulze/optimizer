@@ -125,7 +125,7 @@ namespace Optimizer.Views {
             main_grid.attach (trash_checkbox, 4, 2, 1, 1);
 
             // Clean Up button
-            var clean_up_button = new Gtk.Button.with_label ("Clean Up");
+            var clean_up_button = new Gtk.Button.with_label (_("Clean Up"));
             clean_up_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
             clean_up_button.halign = Gtk.Align.CENTER;
             clean_up_button.margin_top = 24;

@@ -27,17 +27,17 @@ namespace Optimizer.Configs {
     public class Constants {
 
         public abstract const string ID = "com.github.hannesschulze.optimizer";
-        public abstract const string VERSION = "0.1.0";
+        public abstract const string VERSION = "1.0.0";
         public abstract const string PROGRAME_NAME = "Optimizer";
         public abstract const string APP_YEARS = "2019";
         public abstract const string APP_ICON = "com.github.hannesschulze.optimizer";
-        public abstract const string ABOUT_COMMENTS = "Show currently open applications, monitor CPU, memory and network usage and clean up your system";
-        public abstract const string TRANSLATOR_CREDITS = "Translators";
+        public abstract const string ABOUT_COMMENTS = _("Find out what's eating up your system resources and delete unnecessary files from your disk.");
+        public abstract const string TRANSLATOR_CREDITS = _("Translators");
         public abstract const string MAIN_URL = "https://github.com/hannesschulze/optimizer";
         public abstract const string BUG_URL = "https://github.com/hannesschulze/optimizer/issues";
         public abstract const string HELP_URL = "https://github.com/hannesschulze/optimizer/wiki";
         public abstract const string TRANSLATE_URL = "https://github.com/hannesschulze/optimizer";
-        public abstract const string TEXT_FOR_ABOUT_DIALOG_WEBSITE = "Website";
+        public abstract const string TEXT_FOR_ABOUT_DIALOG_WEBSITE = _("Website");
         public abstract const string TEXT_FOR_ABOUT_DIALOG_WEBSITE_URL = "https://github.com/hannesschulze/optimizer";
         public abstract const string URL_CSS = "/com/github/hannesschulze/optimizer/css/style.css";
         public abstract const string [] ABOUT_AUTHORS = { "Hannes Schulze <haschu0103@gmail.com>" };
