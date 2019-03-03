@@ -6,6 +6,8 @@
 
 <br/>
 
+<img  src="data/screenshot1.png" alt="Screenshot"> <br>
+
 <p align="center">
     <a href="https://appcenter.elementary.io/com.github.hannesschulze.optimizer">
         <img src="https://appcenter.elementary.io/badge.svg">
