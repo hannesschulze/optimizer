@@ -146,7 +146,7 @@ namespace Optimizer.Widgets {
             if (custom_progress_text != "") {
                 layout.set_text (custom_progress_text, -1);
             } else {
-                layout.set_text (_("%d PERCENT").printf ((int) (percentage * 100.0)), -1);
+                layout.set_text (_("%d Percent").printf ((int) (percentage * 100.0)).up (), -1);
             }
             font_description = Pango.FontDescription.from_string ("Open Sans 9");
             font_description.set_weight (Pango.Weight.NORMAL);
