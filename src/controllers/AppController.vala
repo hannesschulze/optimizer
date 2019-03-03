@@ -39,7 +39,10 @@ namespace Optimizer.Controllers {
         public AppController (Gtk.Application application) {
             this.application = application;
             this.window = new Window (this.application);
-            this.headerbar = new HeaderBar ();
+            this.headerbar = new HeaderBar (application);
+            this.headerbar.add_partition ("/");
+            this.headerbar.add_partition ("/home");
+            this.headerbar.add_partition ("/media/test");
             this.app_view = new AppView ();
             this.headerbar.stack_switcher.stack = this.app_view;
 
