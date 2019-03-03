@@ -117,11 +117,11 @@ namespace Optimizer.Widgets {
             // Progress fill
             double progress = (double) percentage;
             if (progress > 0.0) {
-                draw_stroke (cr, radius, 7, 0, center_x, center_y, progress, "#2c92e3");
-                draw_stroke (cr, radius, 5, 1, center_x, center_y, progress, "#b3ddfe");
-                draw_stroke (cr, radius, 3, 2, center_x, center_y, progress, "#7bc3fd");
-                draw_stroke (cr, radius, 2, 3, center_x, center_y, progress, "#6dbcfb");
-                draw_stroke (cr, radius, 1, 4, center_x, center_y, progress, "#5db4f9");
+                draw_stroke (cr, radius, 7, 0, center_x, center_y, progress, "#e76419");
+                draw_stroke (cr, radius, 5, 1, center_x, center_y, progress, "#ffcbac");
+                draw_stroke (cr, radius, 3, 2, center_x, center_y, progress, "#fe9c63");
+                draw_stroke (cr, radius, 2, 3, center_x, center_y, progress, "#fd9356");
+                draw_stroke (cr, radius, 1, 4, center_x, center_y, progress, "#fc8946");
             }
 
             // Textual information
