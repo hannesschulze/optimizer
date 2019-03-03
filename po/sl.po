@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.hannesschulze.optimizer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-03 19:48+0100\n"
+"POT-Creation-Date: 2019-03-03 20:20+0100\n"
 "PO-Revision-Date: 2019-03-03 14:37+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -123,16 +123,20 @@ msgstr ""
 msgid "No items selected"
 msgstr ""
 
-#: src/views/SystemCleanerView.vala:251
+#: src/views/SystemCleanerView.vala:217
+msgid "Finished cleaning up with no errors"
+msgstr ""
+
+#: src/views/SystemCleanerView.vala:263
 #, c-format
 msgid "Finished cleaning up %s"
 msgstr ""
 
-#: src/views/SystemCleanerView.vala:252
+#: src/views/SystemCleanerView.vala:264
 msgid "with errors!"
 msgstr ""
 
-#: src/views/SystemCleanerView.vala:252
+#: src/views/SystemCleanerView.vala:264
 msgid "with no errors"
 msgstr ""
 
