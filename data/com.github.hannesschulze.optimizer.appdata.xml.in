@@ -1,8 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<component type="desktop">
-	<id>com.github.hannesschulze.optimizer.desktop</id>
-	<metadata_license>CC0-1.0</metadata_license>
-	<project_license>GPL-3.0-or-later</project_license>
-	<description>
-	</description>
+<component type="desktop-application">
+  <id>com.github.hannesschulze.optimizer.desktop</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <name>Optimizer</name>
+  <summary>Clean up your system</summary>
+  <description>
+    <p>Find out what's eating up your system resources and delete unnecessary files from your disk.</p>
+  </description>
+  <provides>
+    <binary>com.github.hannesschulze.optimizer</binary>
+  </provides>
+  <releases>
+    <release version="1.0.0" date="2019-03-03">
+      <description>
+        <p>Initial release</p>
+      </description>
+    </release>
+  </releases>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/hannesschulze/optimizer/master/data/screenshot1.png</image>
+    </screenshot>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/hannesschulze/optimizer/master/data/screenshot2.png</image>
+    </screenshot>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/hannesschulze/optimizer/master/data/screenshot3.png</image>
+    </screenshot>
+  </screenshots>
+  <content_rating type="oars-1.1">
+    <content_attribute id="violence-cartoon">none</content_attribute>
+    <content_attribute id="violence-fantasy">none</content_attribute>
+    <content_attribute id="violence-realistic">none</content_attribute>
+    <content_attribute id="violence-bloodshed">none</content_attribute>
+    <content_attribute id="violence-sexual">none</content_attribute>
+    <content_attribute id="violence-desecration">none</content_attribute>
+    <content_attribute id="violence-slavery">none</content_attribute>
+    <content_attribute id="violence-worship">none</content_attribute>
+    <content_attribute id="drugs-alcohol">none</content_attribute>
+    <content_attribute id="drugs-narcotics">none</content_attribute>
+    <content_attribute id="drugs-tobacco">none</content_attribute>
+    <content_attribute id="sex-nudity">none</content_attribute>
+    <content_attribute id="sex-themes">none</content_attribute>
+    <content_attribute id="sex-homosexuality">none</content_attribute>
+    <content_attribute id="sex-prostitution">none</content_attribute>
+    <content_attribute id="sex-adultery">none</content_attribute>
+    <content_attribute id="sex-appearance">none</content_attribute>
+    <content_attribute id="language-profanity">none</content_attribute>
+    <content_attribute id="language-humor">none</content_attribute>
+    <content_attribute id="language-discrimination">none</content_attribute>
+    <content_attribute id="social-chat">none</content_attribute>
+    <content_attribute id="social-info">none</content_attribute>
+    <content_attribute id="social-audio">none</content_attribute>
+    <content_attribute id="social-location">none</content_attribute>
+    <content_attribute id="social-contacts">none</content_attribute>
+    <content_attribute id="money-purchasing">none</content_attribute>
+    <content_attribute id="money-gambling">none</content_attribute>
+  </content_rating>
+  <translation type="gettext">com.github.hannesschulze.optimizer</translation>
+  <developer_name>Hannes Schulze</developer_name>
+  <url type="homepage">https://github.com/hannesschulze/optimizer</url>
+  <url type="bugtracker">https://github.com/hannesschulze/optimizer/issues</url>
+  <custom>
+    <value key="x-appcenter-color-primary">#cc3b02</value>
+    <value key="x-appcenter-color-primary-text">#fff</value>
+  </custom>
 </component>
