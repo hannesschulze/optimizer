@@ -206,7 +206,19 @@ namespace Optimizer.Views {
             }
             spawn_args += "sh";
             spawn_args += "-c";
-            spawn_args += "rm -r " + string.joinv (" ", files);
+
+            string[] new_files = { };
+            foreach (var file in files) {
+                if (!check_empty (file)) {
+                    new_files += file;
+                }
+            }
+            if (new_files.length == 0) {
+                result_toast.title = _("Finished cleaning up with no errors");
+	            result_toast.send_notification ();
+                return;
+            }
+            spawn_args += "rm -r " + string.joinv (" ", new_files);
 
             string[] spawn_env = Environ.get ();
             Pid child_pid;
@@ -254,6 +266,26 @@ namespace Optimizer.Views {
                 });
             } catch (SpawnError err) {
                 stderr.printf ("Could not spawn command: %s\n", err.message);
+            }
+        }
+
+        private bool check_empty (string path) {
+            string[] spawn_args = { "sh", "-c", "ls %s".printf (path) };
+            string[] spawn_env = Environ.get ();
+            string ls_stdout;
+
+            try {
+                Process.spawn_sync ("/", spawn_args, spawn_env,
+                    SpawnFlags.SEARCH_PATH | SpawnFlags.STDERR_TO_DEV_NULL,
+                    null, out ls_stdout);
+
+                if (ls_stdout.length > 0) {
+                    return false;
+                }
+                return true;
+            } catch (SpawnError err) {
+                stderr.printf ("Spawn error: %s\n", err.message);
+                return true;
             }
         }
     }
