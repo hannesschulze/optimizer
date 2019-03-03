@@ -53,6 +53,11 @@ namespace Optimizer.Views {
             tree_view = new Gtk.TreeView ();
             scrolled_window.add (tree_view);
 
+            // Improve readability by darkening the accent color
+            var provider = new Gtk.CssProvider ();
+            provider.load_from_data ("@define-color colorAccent shade (@ORANGE_500, 0.85);");
+            tree_view.get_style_context ().add_provider (provider, Gtk.STYLE_PROVIDER_PRIORITY_USER);
+
             // Action bar with SearchEntry and End-Process-button
             action_bar = new Gtk.ActionBar ();
             pack_end (action_bar, false, true, 0);
@@ -61,6 +66,7 @@ namespace Optimizer.Views {
             action_bar.pack_start (search_field);
 
             end_process_button = new Gtk.Button.with_label (_("End Process"));
+            end_process_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
             action_bar.pack_end (end_process_button);
 
             // Set up the ListStore
