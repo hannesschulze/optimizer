@@ -54,9 +54,13 @@ namespace Optimizer.Views {
             scrolled_window.add (tree_view);
 
             // Improve readability by darkening the accent color
-            var provider = new Gtk.CssProvider ();
-            provider.load_from_data ("@define-color colorAccent shade (@ORANGE_500, 0.85);");
-            tree_view.get_style_context ().add_provider (provider, Gtk.STYLE_PROVIDER_PRIORITY_USER);
+            try {
+                var provider = new Gtk.CssProvider ();
+                provider.load_from_data ("@define-color colorAccent shade (@ORANGE_500, 0.85);");
+                tree_view.get_style_context ().add_provider (provider, Gtk.STYLE_PROVIDER_PRIORITY_USER);
+            } catch (GLib.Error err) {
+                stderr.printf ("Couldn't load CssProvider: %s\n", err.message);
+            }
 
             // Action bar with SearchEntry and End-Process-button
             action_bar = new Gtk.ActionBar ();
@@ -84,7 +88,7 @@ namespace Optimizer.Views {
             tree_view.model = sort_model;
 
             // PID column
-            var column = new Gtk.TreeViewColumn.with_attributes ("PID", new Gtk.CellRendererText (), "text", 0);
+            var column = new Gtk.TreeViewColumn.with_attributes (_("PID"), new Gtk.CellRendererText (), "text", 0);
             column.resizable = true;
             column.fixed_width = 50;
             column.min_width = 37;
@@ -93,7 +97,7 @@ namespace Optimizer.Views {
 
             // Memory usage column
             var cell_renderer = new Gtk.CellRendererText ();
-            column = new Gtk.TreeViewColumn.with_attributes ("Total Memory", cell_renderer, "text", 1);
+            column = new Gtk.TreeViewColumn.with_attributes (_("Total Memory"), cell_renderer, "text", 1);
             column.set_cell_data_func (cell_renderer, (cell_layout, cell, tree_model, iter) => {
                 var val = Value (typeof (uint64));
                 tree_model.get_value (iter, 1, out val);
@@ -111,7 +115,7 @@ namespace Optimizer.Views {
             float total_memory = (float) (memory.total / 1024 / 1024) / 1000;
 
             cell_renderer = new Gtk.CellRendererText ();
-            column = new Gtk.TreeViewColumn.with_attributes ("% Memory", cell_renderer, "text", 1);
+            column = new Gtk.TreeViewColumn.with_attributes (_("% Memory"), cell_renderer, "text", 1);
             column.set_cell_data_func (cell_renderer, (cell_layout, cell, tree_model, iter) => {
                 var val = Value (typeof (uint64));
                 tree_model.get_value (iter, 1, out val);
@@ -127,7 +131,7 @@ namespace Optimizer.Views {
             tree_view.append_column (column);
 
             // User column
-            column = new Gtk.TreeViewColumn.with_attributes ("User", new Gtk.CellRendererText (), "text", 2);
+            column = new Gtk.TreeViewColumn.with_attributes (_("User"), new Gtk.CellRendererText (), "text", 2);
             column.resizable = true;
             column.fixed_width = 90;
             column.min_width = 60;
@@ -136,7 +140,7 @@ namespace Optimizer.Views {
 
             // CPU usage column
             cell_renderer = new Gtk.CellRendererText ();
-            column = new Gtk.TreeViewColumn.with_attributes ("% CPU", cell_renderer, "text", 3);
+            column = new Gtk.TreeViewColumn.with_attributes (_("% CPU"), cell_renderer, "text", 3);
             column.set_cell_data_func (cell_renderer, (cell_layout, cell, tree_model, iter) => {
                 var val = Value (typeof (float));
                 tree_model.get_value (iter, 3, out val);
@@ -151,7 +155,7 @@ namespace Optimizer.Views {
             // Process column
             cell_renderer = new Gtk.CellRendererText ();
             cell_renderer.ellipsize = Pango.EllipsizeMode.END;
-            column = new Gtk.TreeViewColumn.with_attributes ("Process", cell_renderer, "text", 4);
+            column = new Gtk.TreeViewColumn.with_attributes (_("Process"), cell_renderer, "text", 4);
             column.min_width = 90;
             column.sort_column_id = 4;
             tree_view.append_column (column);

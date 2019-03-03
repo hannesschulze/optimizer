@@ -1,17 +1,13 @@
-project('com.github.hannesschulze.optimizer', ['c', 'vala'],        version: '0.1.0',
+project('com.github.hannesschulze.optimizer', ['c', 'vala'],        version: '1.0.0',
   meson_version: '>= 0.40.0',
 )
 
 i18n = import('i18n')
 
-conf = configuration_data()
-conf.set_quoted('GETTEXT_PACKAGE', meson.project_name())
-configure_file(output: 'config.h', configuration: conf)
-config_h_dir = include_directories('.')
+add_global_arguments('-DGETTEXT_PACKAGE="@0@"'.format(meson.project_name()), language:'c')
 
 c_args = [
-  '-DWNCK_I_KNOW_THIS_IS_UNSTABLE',
-  '-include', 'config.h'
+  '-DWNCK_I_KNOW_THIS_IS_UNSTABLE'
 ]
 
 subdir('data')

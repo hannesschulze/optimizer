@@ -1,0 +1,229 @@
+# Marshallese translations for com.github.hannesschulze.optimizer package.
+# Copyright (C) 2019 THE com.github.hannesschulze.optimizer'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.hannesschulze.optimizer package.
+# Automatically generated, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: com.github.hannesschulze.optimizer\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-03 15:20+0100\n"
+"PO-Revision-Date: 2019-03-03 14:37+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: mh\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ASCII\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/com.github.hannesschulze.optimizer.desktop.in:3
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:6
+msgid "Optimizer"
+msgstr ""
+
+#: data/com.github.hannesschulze.optimizer.desktop.in:4
+msgid "com.github.hannesschulze.optimizer"
+msgstr ""
+
+#: data/com.github.hannesschulze.optimizer.desktop.in:6
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:7
+msgid "Clean up your system"
+msgstr ""
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:9
+#: src/configs/Constants.vala:34
+msgid ""
+"Find out what's eating up your system resources and delete unnecessary files "
+"from your disk."
+msgstr ""
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:17
+msgid "Initial release"
+msgstr ""
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:62
+msgid "Hannes Schulze"
+msgstr ""
+
+#: src/configs/Constants.vala:35
+msgid "Translators"
+msgstr ""
+
+#: src/configs/Constants.vala:40
+msgid "Website"
+msgstr ""
+
+#: src/views/DashboardView.vala:53
+msgid "CPU"
+msgstr ""
+
+#: src/views/DashboardView.vala:60
+msgid "RAM"
+msgstr ""
+
+#: src/views/DashboardView.vala:65
+msgid "Disk"
+msgstr ""
+
+#: src/views/DashboardView.vala:78
+msgid "Download:"
+msgstr ""
+
+#: src/views/DashboardView.vala:91
+msgid "Upload:"
+msgstr ""
+
+#: src/views/SystemCleanerView.vala:63
+msgid "Package Caches"
+msgstr ""
+
+#: src/views/SystemCleanerView.vala:77
+msgid "Crash Reports"
+msgstr ""
+
+#: src/views/SystemCleanerView.vala:91
+msgid "Application Logs"
+msgstr ""
+
+#: src/views/SystemCleanerView.vala:105
+msgid "Application Caches"
+msgstr ""
+
+#: src/views/SystemCleanerView.vala:119
+msgid "Trash"
+msgstr ""
+
+#: src/views/SystemCleanerView.vala:128
+msgid "Clean Up"
+msgstr ""
+
+#: src/views/SystemCleanerView.vala:162
+msgid "Do you want to continue?"
+msgstr ""
+
+#: src/views/SystemCleanerView.vala:163
+msgid "This will delete the following files:"
+msgstr ""
+
+#: src/views/SystemCleanerView.vala:168
+msgid "Continue"
+msgstr ""
+
+#: src/views/SystemCleanerView.vala:185
+msgid "Details"
+msgstr ""
+
+#: src/views/SystemCleanerView.vala:191
+msgid "Deleting selected files..."
+msgstr ""
+
+#: src/views/SystemCleanerView.vala:197
+msgid "No items selected"
+msgstr ""
+
+#: src/views/SystemCleanerView.vala:251
+#, c-format
+msgid "Finished cleaning up %s"
+msgstr ""
+
+#: src/views/SystemCleanerView.vala:252
+msgid "with errors!"
+msgstr ""
+
+#: src/views/SystemCleanerView.vala:252
+msgid "with no errors"
+msgstr ""
+
+#: src/views/ProcessesView.vala:68
+msgid "End Process"
+msgstr ""
+
+#: src/views/ProcessesView.vala:87
+msgid "PID"
+msgstr ""
+
+#: src/views/ProcessesView.vala:96
+msgid "Total Memory"
+msgstr ""
+
+#: src/views/ProcessesView.vala:114
+msgid "% Memory"
+msgstr ""
+
+#: src/views/ProcessesView.vala:130
+msgid "User"
+msgstr ""
+
+#: src/views/ProcessesView.vala:139
+#, c-format
+msgid "% CPU"
+msgstr ""
+
+#: src/views/ProcessesView.vala:154
+msgid "Process"
+msgstr ""
+
+#: src/views/AppView.vala:39
+msgid "Dashboard"
+msgstr ""
+
+#: src/views/AppView.vala:42
+msgid "Cleaner"
+msgstr ""
+
+#: src/views/AppView.vala:45
+msgid "Processes"
+msgstr ""
+
+#: src/widgets/CircularProgressBar.vala:149
+#, c-format
+msgid "%d Percent"
+msgstr ""
+
+#: src/widgets/SystemInfo.vala:42
+msgid "Hostname:"
+msgstr ""
+
+#: src/widgets/SystemInfo.vala:60
+msgid "Distribution:"
+msgstr ""
+
+#: src/widgets/SystemInfo.vala:80
+msgid "Architecture:"
+msgstr ""
+
+#: src/widgets/SystemInfo.vala:85
+msgid "Kernel:"
+msgstr ""
+
+#: src/widgets/SystemInfo.vala:89
+msgid "CPU Model:"
+msgstr ""
+
+#: src/widgets/SystemInfo.vala:93
+msgid "CPU Cores:"
+msgstr ""
+
+#: src/widgets/SystemInfo.vala:117
+msgid "Unknown"
+msgstr ""
+
+#: src/widgets/SystemInfo.vala:133
+msgid "Single-Core"
+msgstr ""
+
+#: src/widgets/SystemInfo.vala:162
+msgid "Dual-Core"
+msgstr ""
+
+#: src/widgets/SystemInfo.vala:164
+msgid "Quad-Core"
+msgstr ""
+
+#: src/widgets/SystemInfo.vala:166
+msgid "Cores"
+msgstr ""
+
+#: src/Main.vala:37
+msgid "Options"
+msgstr ""
