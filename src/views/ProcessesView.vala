@@ -54,9 +54,13 @@ namespace Optimizer.Views {
             scrolled_window.add (tree_view);
 
             // Improve readability by darkening the accent color
-            var provider = new Gtk.CssProvider ();
-            provider.load_from_data ("@define-color colorAccent shade (@ORANGE_500, 0.85);");
-            tree_view.get_style_context ().add_provider (provider, Gtk.STYLE_PROVIDER_PRIORITY_USER);
+            try {
+                var provider = new Gtk.CssProvider ();
+                provider.load_from_data ("@define-color colorAccent shade (@ORANGE_500, 0.85);");
+                tree_view.get_style_context ().add_provider (provider, Gtk.STYLE_PROVIDER_PRIORITY_USER);
+            } catch (GLib.Error err) {
+                stderr.printf ("Couldn't load CssProvider: %s\n", err.message);
+            }
 
             // Action bar with SearchEntry and End-Process-button
             action_bar = new Gtk.ActionBar ();
