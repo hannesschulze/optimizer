@@ -12,6 +12,7 @@ desktop_file = i18n.merge_file(
   output: 'com.github.hannesschulze.optimizer.desktop',
   type: 'desktop',
   po_dir: '../po',
+  type: 'desktop',
   install: true,
   install_dir: join_paths(get_option('datadir'), 'applications')
 )
@@ -27,8 +28,9 @@ appstream_file = i18n.merge_file(
   input: 'com.github.hannesschulze.optimizer.appdata.xml.in',
   output: 'com.github.hannesschulze.optimizer.appdata.xml',
   po_dir: '../po',
+  type: 'xml',
   install: true,
-  install_dir: join_paths(get_option('datadir'), 'appdata')
+  install_dir: join_paths(get_option('datadir'), 'metainfo')
 )
 
 appstream_util = find_program('appstream-util', required: false)
