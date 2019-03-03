@@ -12,5 +12,11 @@
       <summary>Most recent y position of Optimizer</summary>
       <description>Most recent y position of Optimizer</description>
     </key>
+
+	  <key name="monitored-partition" type="s">
+	    <default>"/"</default>
+	    <summary>Most recent monitored partition</summary>
+	    <description>Most recent monitored partition</description>
+	  </key>
 	</schema>
 </schemalist>

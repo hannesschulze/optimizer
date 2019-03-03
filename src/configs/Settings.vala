@@ -45,6 +45,13 @@ namespace Optimizer.Configs {
         public int window_y { get; set; }
 
         /**
+         * This property will represent the mount path of the partition that is
+         * monitored in the dashboard view.
+         * Variable of type {@code string} as declared.
+         */
+        public string monitored_partition { get; set; }
+
+        /**
          * Constructs a new {@code Settings} object
          * and sets the default exit folder.
          */

@@ -40,6 +40,8 @@ namespace Optimizer.Utils {
         private float last_used_cpu;
         private float last_total_cpu;
 
+        public string mount_path { get; set; }
+
         public int get_memory_usage (out string used_memory_text,
                                      out string total_memory_text) {
             float total_memory;
@@ -78,8 +80,7 @@ namespace Optimizer.Utils {
 
         public int get_fs_usage (out string used_disk_space,
                                  out string total_disk_space) {
-            // TODO: Let the user select a different partition
-            var root_mount = GLib.File.new_for_path ("/");
+            var root_mount = GLib.File.new_for_path (mount_path);
             try {
                 var info = root_mount.query_filesystem_info (GLib.FileAttribute.FILESYSTEM_SIZE, null);
                 uint64 total_attr = info.get_attribute_uint64 (GLib.FileAttribute.FILESYSTEM_SIZE);
@@ -188,6 +189,7 @@ namespace Optimizer.Utils {
             last_total_cpu = 0;
             max_network_down = 0;
             max_network_up = 0;
+            mount_path = Configs.Settings.get_instance ().monitored_partition;
         }
 
         /**
