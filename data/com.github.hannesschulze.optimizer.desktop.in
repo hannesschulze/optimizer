@@ -2,8 +2,9 @@
 Name=Optimizer
 Icon=com.github.hannesschulze.optimizer
 Exec=com.github.hannesschulze.optimizer
+Comment=Clean up your system
 Terminal=false
 Type=Application
 X-GNOME-Gettext-Domain=com.github.hannesschulze.optimizer
-Categories=GTK;
+Categories=Utility;GTK;
 StartupNotify=true

@@ -1,7 +1,7 @@
 <div align="center">
   <span align="center"> <img width="80" height="70" class="center" src="data/images/icons/64/com.github.hannesschulze.optimizer.svg" alt="Icon"></span>
   <h1 align="center">Optimizer</h1>
-  <h3 align="center">Show currently open applications, monitor CPU, memory and network usage and clean up your system</h3>
+  <h3 align="center">Find out what's eating up your system resources and delete unnecessary files from your disk.</h3>
 </div>
 
 <br/>

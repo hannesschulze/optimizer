@@ -31,7 +31,7 @@ namespace Optimizer.Configs {
         public abstract const string PROGRAME_NAME = "Optimizer";
         public abstract const string APP_YEARS = "2019";
         public abstract const string APP_ICON = "com.github.hannesschulze.optimizer";
-        public abstract const string ABOUT_COMMENTS = _("Show currently open applications, monitor CPU, memory and network usage and clean up your system");
+        public abstract const string ABOUT_COMMENTS = _("Find out what's eating up your system resources and delete unnecessary files from your disk.");
         public abstract const string TRANSLATOR_CREDITS = _("Translators");
         public abstract const string MAIN_URL = "https://github.com/hannesschulze/optimizer";
         public abstract const string BUG_URL = "https://github.com/hannesschulze/optimizer/issues";
