@@ -5,6 +5,10 @@ foreach i : icon_sizes
     join_paths('images', 'icons', i, 'com.github.hannesschulze.optimizer.svg'),
     install_dir: join_paths(get_option('datadir'), 'icons', 'hicolor', i + 'x' + i, 'apps')
   )
+  install_data(
+    join_paths('images', 'icons', i, 'com.github.hannesschulze.optimizer.svg'),
+    install_dir: join_paths(get_option('datadir'), 'icons', 'hicolor', i + 'x' + i + '@2', 'apps')
+  )
 endforeach
 
 desktop_file = i18n.merge_file(
