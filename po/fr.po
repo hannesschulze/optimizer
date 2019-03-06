@@ -1,35 +1,35 @@
 # French translations for com.github.hannesschulze.optimizer package.
 # Copyright (C) 2019 THE com.github.hannesschulze.optimizer'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.hannesschulze.optimizer package.
-# Automatically generated, 2019.
+# NathanBnm, 2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.hannesschulze.optimizer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-03-03 20:20+0100\n"
-"PO-Revision-Date: 2019-03-03 14:37+0100\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2019-03-06 11:30+0100\n"
+"Last-Translator: NathanBnm\n"
+"Language-Team: Français\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: data/com.github.hannesschulze.optimizer.desktop.in:3
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:6
 msgid "Optimizer"
-msgstr ""
+msgstr "Optimizer"
 
 #: data/com.github.hannesschulze.optimizer.desktop.in:4
 msgid "com.github.hannesschulze.optimizer"
-msgstr ""
+msgstr "com.github.hannesschulze.optimizer"
 
 #: data/com.github.hannesschulze.optimizer.desktop.in:6
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:7
 msgid "Clean up your system"
-msgstr ""
+msgstr "Nettoyez votre système"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:9
 #: src/configs/Constants.vala:34
@@ -37,206 +37,208 @@ msgid ""
 "Find out what's eating up your system resources and delete unnecessary files "
 "from your disk."
 msgstr ""
+"Identifiez ce qui utilise les ressources de votre système et supprimez les fichiers "
+"inutiles de votre disque."
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:17
 msgid "Initial release"
-msgstr ""
+msgstr "Version initiale"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:62
 msgid "Hannes Schulze"
-msgstr ""
+msgstr "Hannes Schulze"
 
 #: src/configs/Constants.vala:35
 msgid "Translators"
-msgstr ""
+msgstr "Traducteurs"
 
 #: src/configs/Constants.vala:40
 msgid "Website"
-msgstr ""
+msgstr "Site web"
 
 #: src/views/DashboardView.vala:53
 msgid "CPU"
-msgstr ""
+msgstr "CPU"
 
 #: src/views/DashboardView.vala:60
 msgid "RAM"
-msgstr ""
+msgstr "RAM"
 
 #: src/views/DashboardView.vala:65
 msgid "Disk"
-msgstr ""
+msgstr "Disque"
 
 #: src/views/DashboardView.vala:78
 msgid "Download:"
-msgstr ""
+msgstr "Débit descendant :"
 
 #: src/views/DashboardView.vala:91
 msgid "Upload:"
-msgstr ""
+msgstr "Débit montant :"
 
 #: src/views/SystemCleanerView.vala:63
 msgid "Package Caches"
-msgstr ""
+msgstr "Cache des paquets"
 
 #: src/views/SystemCleanerView.vala:77
 msgid "Crash Reports"
-msgstr ""
+msgstr "Rapports de plantage"
 
 #: src/views/SystemCleanerView.vala:91
 msgid "Application Logs"
-msgstr ""
+msgstr "Journaux d'application"
 
 #: src/views/SystemCleanerView.vala:105
 msgid "Application Caches"
-msgstr ""
+msgstr "Cache des applications"
 
 #: src/views/SystemCleanerView.vala:119
 msgid "Trash"
-msgstr ""
+msgstr "Corbeille"
 
 #: src/views/SystemCleanerView.vala:128
 msgid "Clean Up"
-msgstr ""
+msgstr "Nettoyer"
 
 #: src/views/SystemCleanerView.vala:162
 msgid "Do you want to continue?"
-msgstr ""
+msgstr "Voulez-vous continuer ?"
 
 #: src/views/SystemCleanerView.vala:163
 msgid "This will delete the following files:"
-msgstr ""
+msgstr "Cette action supprimera les fichiers suivants :"
 
 #: src/views/SystemCleanerView.vala:168
 msgid "Continue"
-msgstr ""
+msgstr "Continuer"
 
 #: src/views/SystemCleanerView.vala:185
 msgid "Details"
-msgstr ""
+msgstr "Détails"
 
 #: src/views/SystemCleanerView.vala:191
 msgid "Deleting selected files..."
-msgstr ""
+msgstr "Suppression des fichiers sélectionnés…"
 
 #: src/views/SystemCleanerView.vala:197
 msgid "No items selected"
-msgstr ""
+msgstr "Aucun élément sélectionné"
 
 #: src/views/SystemCleanerView.vala:217
 msgid "Finished cleaning up with no errors"
-msgstr ""
+msgstr "Le nettoyage s'est terminé sans erreur"
 
 #: src/views/SystemCleanerView.vala:263
 #, c-format
 msgid "Finished cleaning up %s"
-msgstr ""
+msgstr "Le nettoyage de %s s'est terminé"
 
 #: src/views/SystemCleanerView.vala:264
 msgid "with errors!"
-msgstr ""
+msgstr "avec des erreurs"
 
 #: src/views/SystemCleanerView.vala:264
 msgid "with no errors"
-msgstr ""
+msgstr "sans erreur"
 
 #: src/views/ProcessesView.vala:72
 msgid "End Process"
-msgstr ""
+msgstr "Arrêter le processus"
 
 #: src/views/ProcessesView.vala:91
 msgid "PID"
-msgstr ""
+msgstr "PID"
 
 #: src/views/ProcessesView.vala:100
 msgid "Total Memory"
-msgstr ""
+msgstr "Mémoire totale"
 
 #: src/views/ProcessesView.vala:118
 msgid "% Memory"
-msgstr ""
+msgstr "% Mémoire"
 
 #: src/views/ProcessesView.vala:134
 msgid "User"
-msgstr ""
+msgstr "Utilisateur"
 
 #: src/views/ProcessesView.vala:143
 #, c-format
 msgid "% CPU"
-msgstr ""
+msgstr "% CPU"
 
 #: src/views/ProcessesView.vala:158
 msgid "Process"
-msgstr ""
+msgstr "Processus"
 
 #: src/views/AppView.vala:39
 msgid "Dashboard"
-msgstr ""
+msgstr "Tableau de bord"
 
 #: src/views/AppView.vala:42
 msgid "Cleaner"
-msgstr ""
+msgstr "Nettoyeur"
 
 #: src/views/AppView.vala:45
 msgid "Processes"
-msgstr ""
+msgstr "processus"
 
 #: src/widgets/HeaderBar.vala:65
 msgid "Monitored partition"
-msgstr ""
+msgstr "Partition surveillée"
 
 #: src/widgets/HeaderBar.vala:66
 msgid "Quit"
-msgstr ""
+msgstr "Quitter"
 
 #: src/widgets/CircularProgressBar.vala:149
 #, c-format
 msgid "%d Percent"
-msgstr ""
+msgstr "%d Pourcent"
 
 #: src/widgets/SystemInfo.vala:42
 msgid "Hostname:"
-msgstr ""
+msgstr "Nom d'hôte :"
 
 #: src/widgets/SystemInfo.vala:60
 msgid "Distribution:"
-msgstr ""
+msgstr "Distribution :"
 
 #: src/widgets/SystemInfo.vala:80
 msgid "Architecture:"
-msgstr ""
+msgstr "Architecture :"
 
 #: src/widgets/SystemInfo.vala:85
 msgid "Kernel:"
-msgstr ""
+msgstr "Noyau :"
 
 #: src/widgets/SystemInfo.vala:89
 msgid "CPU Model:"
-msgstr ""
+msgstr "Modèle du CPU :"
 
 #: src/widgets/SystemInfo.vala:93
 msgid "CPU Cores:"
-msgstr ""
+msgstr "Type de CPU :"
 
 #: src/widgets/SystemInfo.vala:117
 msgid "Unknown"
-msgstr ""
+msgstr "Inconnu"
 
 #: src/widgets/SystemInfo.vala:133
 msgid "Single-Core"
-msgstr ""
+msgstr "Simple-Coeur"
 
 #: src/widgets/SystemInfo.vala:162
 msgid "Dual-Core"
-msgstr ""
+msgstr "Double-Coeur"
 
 #: src/widgets/SystemInfo.vala:164
 msgid "Quad-Core"
-msgstr ""
+msgstr "Quatre-Coeurs"
 
 #: src/widgets/SystemInfo.vala:166
 msgid "Cores"
-msgstr ""
+msgstr "Coeurs"
 
 #: src/Main.vala:37
 msgid "Options"
-msgstr ""
+msgstr "Options"
