@@ -1,4 +1,4 @@
-project('com.github.hannesschulze.optimizer', ['c', 'vala'],        version: '1.0.0',
+project('com.github.hannesschulze.optimizer', ['c', 'vala'],        version: '1.0.1',
   meson_version: '>= 0.40.0',
 )
 

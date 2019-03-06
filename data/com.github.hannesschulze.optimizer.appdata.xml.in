@@ -12,6 +12,11 @@
     <binary>com.github.hannesschulze.optimizer</binary>
   </provides>
   <releases>
+    <release version="1.0.1" date="2019-03-06">
+      <description>
+        <p>French translations thanks to @NathanBnm</p>
+      </description>
+    </release>
     <release version="1.0.0" date="2019-03-03">
       <description>
         <p>Initial release</p>
