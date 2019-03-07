@@ -42,7 +42,7 @@ namespace Optimizer.Views {
          * Constructs a new {@code DashboardView} object.
          */
         public DashboardView () {
-            column_spacing = 24;
+            column_spacing = 48;
             row_spacing = 36;
             margin_top = 24;
             margin_bottom = 24;
@@ -69,11 +69,11 @@ namespace Optimizer.Views {
             attach (disk_usage, 2, 0, 1, 1);
 
             network_grid = new Gtk.Grid ();
-            network_grid.column_homogeneous = true;
             network_grid.column_spacing = 24;
             network_grid.row_spacing = 12;
             network_grid.row_homogeneous = true;
-            attach (network_grid, 1, 1, 1, 1);
+            network_grid.halign = Gtk.Align.CENTER;
+            attach (network_grid, 0, 1, 3, 1);
 
             var lbl_download_speed = new Gtk.Label ("<b>%s</b>".printf (_("Download:")));
             lbl_download_speed.use_markup = true;
@@ -85,6 +85,7 @@ namespace Optimizer.Views {
             download_speed.text = "-";
             download_speed.show_text = true;
             download_speed.fraction = 0.0;
+            download_speed.width_request = 200;
             network_grid.attach_next_to
                 (download_speed, lbl_download_speed, Gtk.PositionType.RIGHT, 5, 1);
 
@@ -98,11 +99,12 @@ namespace Optimizer.Views {
             upload_speed.text = "-";
             upload_speed.show_text = true;
             upload_speed.fraction = 0.0;
+            upload_speed.width_request = 200;
             network_grid.attach_next_to
                 (upload_speed, lbl_upload_speed, Gtk.PositionType.RIGHT, 5, 1);
 
             system_info = new SystemInfo ();
-            attach (system_info, 1, 2, 1, 1);
+            attach (system_info, 0, 2, 3, 1);
 
             update_resources ();
             GLib.Timeout.add (1000, update_resources);
