@@ -131,7 +131,7 @@ msgstr "Le nettoyage s'est terminé sans erreur"
 #: src/views/SystemCleanerView.vala:263
 #, c-format
 msgid "Finished cleaning up %s"
-msgstr "Le nettoyage de %s s'est terminé"
+msgstr "Le nettoyage s'est terminé %s"
 
 #: src/views/SystemCleanerView.vala:264
 msgid "with errors!"
@@ -180,7 +180,7 @@ msgstr "Nettoyeur"
 
 #: src/views/AppView.vala:45
 msgid "Processes"
-msgstr "processus"
+msgstr "Processus"
 
 #: src/widgets/HeaderBar.vala:65
 msgid "Monitored partition"
@@ -225,15 +225,15 @@ msgstr "Inconnu"
 
 #: src/widgets/SystemInfo.vala:133
 msgid "Single-Core"
-msgstr "Simple-Coeur"
+msgstr "Simple Coeur"
 
 #: src/widgets/SystemInfo.vala:162
 msgid "Dual-Core"
-msgstr "Double-Coeur"
+msgstr "Double Coeur"
 
 #: src/widgets/SystemInfo.vala:164
 msgid "Quad-Core"
-msgstr "Quatre-Coeurs"
+msgstr "Quatre Coeurs"
 
 #: src/widgets/SystemInfo.vala:166
 msgid "Cores"
