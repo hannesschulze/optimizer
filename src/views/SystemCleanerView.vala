@@ -134,33 +134,32 @@ namespace Optimizer.Views {
         }
 
         private void clean_up () {
-            string[] selected_folders = {};
+            var selected_folders = new Gee.HashMap<string, string> ();
             bool needs_root = false;
 
             if (package_caches_checkbox.active) {
                 needs_root = true;
-                selected_folders += "/var/cache/apt/archives/*.deb";
+                selected_folders["/var/cache/apt/archives"] = "deb";
             }
             if (crash_reports_checkbox.active) {
                 needs_root = true;
-                selected_folders += "/var/crash/*.crash";
+                selected_folders["/var/crash"] = "crash";
             }
             if (application_logs_checkbox.active) {
                 needs_root = true;
-                selected_folders += "/var/log/*";
+                selected_folders["/var/log"] = "";
             }
             if (application_caches_checkbox.active) {
-                selected_folders += Path.build_filename (Environment.get_home_dir (), ".cache/*");
+                selected_folders[Path.build_filename (Environment.get_home_dir (), ".cache")] = "";
             }
             if (trash_checkbox.active) {
-                selected_folders += Path.build_filename (Environment.get_home_dir (), ".local/share/Trash/files/*");
-                selected_folders += Path.build_filename (Environment.get_home_dir (), ".local/share/Trash/info/*.trashinfo");
+                selected_folders[Path.build_filename (Environment.get_home_dir (), ".local/share/Trash/files")] = "";
+                selected_folders[Path.build_filename (Environment.get_home_dir (), ".local/share/Trash/info")] = "trashinfo";
             }
 
-            if (selected_folders.length > 0) {
-                // TODO: Calculate disk space
+            if (!selected_folders.is_empty) {
                 var message_dialog = new Granite.MessageDialog.with_image_from_icon_name (_("Do you want to continue?"),
-                    _("This will delete the following files:"),
+                    "",
                     "dialog-warning",
                     Gtk.ButtonsType.CANCEL);
                 message_dialog.width_request = 600;
@@ -175,22 +174,52 @@ namespace Optimizer.Views {
                 files_list.pixels_below_lines = 3;
                 files_list.wrap_mode = Gtk.WrapMode.WORD;
                 files_list.width_request = 300;
-                foreach (string folder in selected_folders) {
-                    if (files_list.buffer.text != "") {
-                        files_list.buffer.text += "\n";
-                    }
-                    files_list.buffer.text += folder;
+
+                var files_list_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+                files_list_box.width_request = 300;
+
+                uint64 total_file_size = 0;
+
+                foreach (var folder in selected_folders.entries) {
+                    var file_list = Utils.DiskSpace.get_file_list (folder.key, folder.value);
+
+                    var scrolled_window = new Gtk.ScrolledWindow (null, null);
+                    var list_view = new Gtk.TextView ();
+                    list_view.border_width = 6;
+                    list_view.editable = false;
+                    list_view.wrap_mode = Gtk.WrapMode.WORD;
+                    string current_text_list;
+                    uint64 current_size = Utils.DiskSpace.format_file_list
+                        (file_list.to_array (), out current_text_list);
+                    total_file_size += current_size;
+                    list_view.buffer.text = current_text_list;
+                    scrolled_window.add (list_view);
+                    scrolled_window.height_request = 150;
+
+                    var expander = new Gtk.Expander ("%s (%s)".printf(folder.key,
+                        GLib.format_size (current_size, FormatSizeFlags.IEC_UNITS)));
+                    expander.add (scrolled_window);
+                    files_list_box.pack_start (expander);
                 }
 
-                var expander = new Gtk.Expander (_("Details"));
-                expander.add (files_list);
-                message_dialog.custom_bin.add (expander);
+                message_dialog.secondary_text = _("This will delete the following files (%s):").printf
+                    (GLib.format_size (total_file_size, FormatSizeFlags.IEC_UNITS));
+                message_dialog.custom_bin.add (files_list_box);
 
                 message_dialog.show_all ();
                 if (message_dialog.run () == Gtk.ResponseType.ACCEPT) {
                     toast.title = _("Deleting selected files...");
                     toast.send_notification ();
-                    remove_files (selected_folders, needs_root);
+
+                    string[] folder_names = { };
+                    foreach (var folder in selected_folders.entries) {
+                        var extension = "*";
+                        if (folder.value != "") {
+                            extension += "." + folder.value;
+                        }
+                        folder_names += Path.build_filename (folder.key, extension);
+                    }
+                    remove_files (folder_names, needs_root);
                 }
                 message_dialog.destroy ();
             } else {

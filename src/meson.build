@@ -2,6 +2,7 @@ optimizer_sources = files(
   'configs/Constants.vala',
   'configs/Settings.vala',
   'controllers/AppController.vala',
+  'utils/DiskSpace.vala',
   'utils/Process.vala',
   'utils/ProcessManager.vala',
   'utils/Resources.vala',
