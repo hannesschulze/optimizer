@@ -75,7 +75,6 @@ namespace Optimizer.Utils {
                 if (item != null) {
                     total_size += item.file_size;
                     formatted_list += item.full_path + ": " + GLib.format_size (item.file_size) + "\n";
-                    Posix.usleep (800);
                 }
             }
 
