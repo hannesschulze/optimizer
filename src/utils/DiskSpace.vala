@@ -89,30 +89,35 @@ namespace Optimizer.Utils {
             FileEnumerator enumerator = null;
             try {
                 enumerator = file.enumerate_children (FileAttribute.STANDARD_NAME, 0);
-            } catch (IOError e) {
-                stderr.printf ("Couldn't read contents of directory - ignoring it\n");
+            } catch (GLib.Error e) {
+                stderr.printf ("WARNING: Couldn't read contents of directory - ignoring it\n");
                 return file_list;
             }
             FileInfo file_info;
 
-            while ((file_info = enumerator.next_file ()) != null) {
-                uint64 file_size;
-                var file_path = Path.build_filename (path, file_info.get_name ());
-                var item = File.new_for_path (file_path);
+            try {
+                while ((file_info = enumerator.next_file ()) != null) {
+                    uint64 file_size;
+                    var file_path = Path.build_filename (path, file_info.get_name ());
+                    var item = File.new_for_path (file_path);
 
-                if (item.query_file_type (0) == FileType.DIRECTORY) {
-                    if (extension == "") {
-                        file_list.add_all (get_file_list (file_path, extension));
-                    }
-                } else {
-                    if (check_file (file_path, extension, out file_size)) {
-                        FileSpaceInfo info = FileSpaceInfo ();
-                        info.file_name = file_info.get_name ();
-                        info.full_path = file_path;
-                        info.file_size = file_size;
-                        file_list.add (info);
+                    if (item.query_file_type (0) == FileType.DIRECTORY) {
+                        if (extension == "") {
+                            file_list.add_all (get_file_list (file_path, extension));
+                        }
+                    } else {
+                        if (check_file (file_path, extension, out file_size)) {
+                            FileSpaceInfo info = FileSpaceInfo ();
+                            info.file_name = file_info.get_name ();
+                            info.full_path = file_path;
+                            info.file_size = file_size;
+                            file_list.add (info);
+                        }
                     }
                 }
+            } catch (GLib.Error e) {
+                stderr.printf ("WARNING: Couldn't get next file from the directory - ignoring it\n");
+                return file_list;
             }
 
             return file_list;
