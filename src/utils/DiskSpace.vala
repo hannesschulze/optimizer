@@ -30,9 +30,43 @@ namespace Optimizer.Utils {
             public uint64 file_size;
         }
 
-        //public static string[] get_formatted_file_list (string path) {
-//
-        //}
+        public struct FormattedList {
+            public string heading;
+            public string file_list;
+            public uint64 folder_size;
+        }
+
+        public static async FormattedList[] get_formatted_file_list (Gee.HashMap<string, string> selected_folders) {
+            SourceFunc callback = get_formatted_file_list.callback;
+            FormattedList[] output = {};
+
+            ThreadFunc<bool> run = () => {
+                FormattedList[] result = {};
+
+                foreach (var folder in selected_folders.entries) {
+                    string file_list = "";
+
+                    var list = get_file_list (folder.key, folder.value);
+                    uint64 current_size = format_file_list
+                        (list.to_array (), out file_list);
+
+                    var item = FormattedList ();
+                    item.heading = "%s (%s)".printf(folder.key,
+                        GLib.format_size (current_size, FormatSizeFlags.IEC_UNITS));
+                    item.file_list = file_list;
+                    item.folder_size = current_size;
+                    result += item;
+                }
+
+                output = result;
+                Idle.add ((owned) callback);
+                return true;
+            };
+            new Thread<bool> ("calculating-thread", run);
+
+            yield;
+            return output;
+        }
 
         public static uint64 format_file_list (FileSpaceInfo?[] list, out string formatted_list) {
             uint64 total_size = 0;
@@ -41,22 +75,11 @@ namespace Optimizer.Utils {
                 if (item != null) {
                     total_size += item.file_size;
                     formatted_list += item.full_path + ": " + GLib.format_size (item.file_size) + "\n";
+                    Posix.usleep (800);
                 }
             }
 
             return total_size;
-        }
-
-        public static void print_file_list (FileSpaceInfo?[] list) {
-            uint64 total_size = 0;
-            foreach (var item in list) {
-                if (item != null) {
-                    print ("%s: %s\n", item.full_path, GLib.format_size (item.file_size));
-                    total_size += item.file_size;
-                }
-            }
-
-            print ("Total file size: %s\n", GLib.format_size (total_size));
         }
 
         public static Gee.ArrayList<FileSpaceInfo?> get_file_list (string path, string extension) {
