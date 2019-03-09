@@ -1,0 +1,1 @@
+option('use_fallback_theme', type: 'boolean', value: false, description: 'Use a fallback-theme for circular progress bars')

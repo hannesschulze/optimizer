@@ -10,6 +10,8 @@ c_args = [
   '-DWNCK_I_KNOW_THIS_IS_UNSTABLE'
 ]
 
+use_fallback_theme = get_option ('use_fallback_theme')
+
 subdir('data')
 subdir('po')
 subdir('src')
