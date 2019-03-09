@@ -62,8 +62,6 @@ namespace Optimizer.Widgets {
                 queue_draw ();
             });
 
-            print (Constants.USE_FALLBACK_PROGRESS_BAR_THEME ? "Using fallback theme\n" : "Not using fallback theme\n");
-
             realize.connect (() => {
                 var toplevel_widget = get_toplevel ();
                 if (toplevel_widget is Gtk.Window) {
