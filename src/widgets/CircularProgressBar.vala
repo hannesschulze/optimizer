@@ -29,6 +29,7 @@ namespace Optimizer.Widgets {
     public class CircularProgressBar : Gtk.Bin {
         private const int MIN_DIAMETER = 80;
         private double m_percentage = 0.0;
+        private bool m_is_in_focus = true;
 
         [Description(nick = "Percentage/Value", blurb = "The percentage value [0.0 ... 1.0]")]
         public double percentage {
@@ -59,6 +60,22 @@ namespace Optimizer.Widgets {
             set_size_request (200, 200);
             notify.connect (() => {
                 queue_draw ();
+            });
+
+            realize.connect (() => {
+                var toplevel_widget = get_toplevel ();
+                if (toplevel_widget is Gtk.Window) {
+                    ((Gtk.Window) toplevel_widget).focus_in_event.connect (() => {
+                        m_is_in_focus = true;
+                        queue_draw ();
+                        return false;
+                    });
+                    ((Gtk.Window) toplevel_widget).focus_out_event.connect (() => {
+                        m_is_in_focus = false;
+                        queue_draw ();
+                        return false;
+                    });
+                }
             });
         }
 
@@ -108,20 +125,32 @@ namespace Optimizer.Widgets {
 
             // Radius fill
             draw_stroke (cr, radius, 4, 0, center_x, center_y + 1, 1.0, "#ffffff");
-            draw_stroke (cr, radius, 7, 0, center_x, center_y, 1.0, "#b7b7b7");
-            draw_stroke (cr, radius, 5, 1, center_x, center_y, 1.0, "#ffffff");
-            draw_stroke (cr, radius, 3, 2, center_x, center_y, 1.0, "#efefef");
-            draw_stroke (cr, radius, 2, 3, center_x, center_y, 1.0, "#e9e9e9");
-            draw_stroke (cr, radius, 1, 4, center_x, center_y, 1.0, "#e2e2e2");
+            if (m_is_in_focus) {
+                draw_stroke (cr, radius, 7, 0, center_x, center_y, 1.0, "#b7b7b7");
+                draw_stroke (cr, radius, 5, 1, center_x, center_y, 1.0, "#ffffff");
+                draw_stroke (cr, radius, 3, 2, center_x, center_y, 1.0, "#efefef");
+                draw_stroke (cr, radius, 2, 3, center_x, center_y, 1.0, "#e9e9e9");
+                draw_stroke (cr, radius, 1, 4, center_x, center_y, 1.0, "#e2e2e2");
+            } else {
+                draw_stroke (cr, radius, 7, 0, center_x, center_y, 1.0, "#b8b8b8");
+                draw_stroke (cr, radius, 5, 1, center_x, center_y, 1.0, "#ffffff");
+                draw_stroke (cr, radius, 3, 2, center_x, center_y, 1.0, "#f5f5f5");
+            }
 
             // Progress fill
             double progress = (double) percentage;
             if (progress > 0.0) {
-                draw_stroke (cr, radius, 7, 0, center_x, center_y, progress, "#e76419");
-                draw_stroke (cr, radius, 5, 1, center_x, center_y, progress, "#ffcbac");
-                draw_stroke (cr, radius, 3, 2, center_x, center_y, progress, "#fe9c63");
-                draw_stroke (cr, radius, 2, 3, center_x, center_y, progress, "#fd9356");
-                draw_stroke (cr, radius, 1, 4, center_x, center_y, progress, "#fc8946");
+                if (m_is_in_focus) {
+                    draw_stroke (cr, radius, 7, 0, center_x, center_y, progress, "#e76419");
+                    draw_stroke (cr, radius, 5, 1, center_x, center_y, progress, "#ffcbac");
+                    draw_stroke (cr, radius, 3, 2, center_x, center_y, progress, "#fe9c63");
+                    draw_stroke (cr, radius, 2, 3, center_x, center_y, progress, "#fd9356");
+                    draw_stroke (cr, radius, 1, 4, center_x, center_y, progress, "#fc8946");
+                } else {
+                    draw_stroke (cr, radius, 7, 0, center_x, center_y, progress, "#a7a7a7");
+                    draw_stroke (cr, radius, 5, 1, center_x, center_y, progress, "#e2e2e2");
+                    draw_stroke (cr, radius, 3, 2, center_x, center_y, progress, "#d0d0d0");
+                }
             }
 
             // Textual information
