@@ -26,8 +26,8 @@ namespace Optimizer.Configs {
      */
     public class Constants {
 
-        public abstract const string ID = "com.github.hannesschulze.optimizer";
-        public abstract const string VERSION = "1.0.0";
+        public abstract const string ID = @PROJECT_NAME@;
+        public abstract const string VERSION = @VERSION@;
         public abstract const string PROGRAME_NAME = "Optimizer";
         public abstract const string APP_YEARS = "2019";
         public abstract const string APP_ICON = "com.github.hannesschulze.optimizer";
@@ -42,5 +42,7 @@ namespace Optimizer.Configs {
         public abstract const string URL_CSS = "/com/github/hannesschulze/optimizer/css/style.css";
         public abstract const string [] ABOUT_AUTHORS = { "Hannes Schulze <haschu0103@gmail.com>" };
         public abstract const Gtk.License ABOUT_LICENSE_TYPE = Gtk.License.GPL_3_0;
+        public abstract const bool USE_FALLBACK_PROGRESS_BAR_THEME = @USE_FALLBACK_THEME@;
     }
 }
+

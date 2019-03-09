@@ -1,5 +1,19 @@
+conf_data = configuration_data()
+conf_data.set_quoted('PROJECT_NAME', meson.project_name())
+conf_data.set_quoted('VERSION', meson.project_version())
+if use_fallback_theme
+  conf_data.set('USE_FALLBACK_THEME', 'true')
+else
+  conf_data.set('USE_FALLBACK_THEME', 'false')
+endif
+
+constants_header = configure_file(
+  input: 'configs/Constants.vala.in',
+  output: 'Constants.vala',
+  configuration: conf_data
+)
+
 optimizer_sources = files(
-  'configs/Constants.vala',
   'configs/Settings.vala',
   'controllers/AppController.vala',
   'utils/DiskSpace.vala',
@@ -17,3 +31,5 @@ optimizer_sources = files(
   'Main.vala',
   'Window.vala',
 )
+
+optimizer_sources += constants_header

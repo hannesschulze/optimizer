@@ -62,6 +62,8 @@ namespace Optimizer.Widgets {
                 queue_draw ();
             });
 
+            print (Constants.USE_FALLBACK_PROGRESS_BAR_THEME ? "Using fallback theme\n" : "Not using fallback theme\n");
+
             realize.connect (() => {
                 var toplevel_widget = get_toplevel ();
                 if (toplevel_widget is Gtk.Window) {
@@ -124,32 +126,48 @@ namespace Optimizer.Widgets {
             var radius = calculate_radius () - 1;
 
             // Radius fill
-            draw_stroke (cr, radius, 4, 0, center_x, center_y + 1, 1.0, "#ffffff");
-            if (m_is_in_focus) {
-                draw_stroke (cr, radius, 7, 0, center_x, center_y, 1.0, "#b7b7b7");
-                draw_stroke (cr, radius, 5, 1, center_x, center_y, 1.0, "#ffffff");
-                draw_stroke (cr, radius, 3, 2, center_x, center_y, 1.0, "#efefef");
-                draw_stroke (cr, radius, 2, 3, center_x, center_y, 1.0, "#e9e9e9");
-                draw_stroke (cr, radius, 1, 4, center_x, center_y, 1.0, "#e2e2e2");
+            if (Constants.USE_FALLBACK_PROGRESS_BAR_THEME) {
+                if (m_is_in_focus) {
+                    draw_stroke (cr, radius, 7, 0, center_x, center_y, 1.0, "#D9D9D9");
+                } else {
+                    draw_stroke (cr, radius, 7, 0, center_x, center_y, 1.0, "#EDEDED");
+                }
             } else {
-                draw_stroke (cr, radius, 7, 0, center_x, center_y, 1.0, "#b8b8b8");
-                draw_stroke (cr, radius, 5, 1, center_x, center_y, 1.0, "#ffffff");
-                draw_stroke (cr, radius, 3, 2, center_x, center_y, 1.0, "#f5f5f5");
+                draw_stroke (cr, radius, 4, 0, center_x, center_y + 1, 1.0, "#ffffff");
+                if (m_is_in_focus) {
+                    draw_stroke (cr, radius, 7, 0, center_x, center_y, 1.0, "#b7b7b7");
+                    draw_stroke (cr, radius, 5, 1, center_x, center_y, 1.0, "#ffffff");
+                    draw_stroke (cr, radius, 3, 2, center_x, center_y, 1.0, "#efefef");
+                    draw_stroke (cr, radius, 2, 3, center_x, center_y, 1.0, "#e9e9e9");
+                    draw_stroke (cr, radius, 1, 4, center_x, center_y, 1.0, "#e2e2e2");
+                } else {
+                    draw_stroke (cr, radius, 7, 0, center_x, center_y, 1.0, "#b8b8b8");
+                    draw_stroke (cr, radius, 5, 1, center_x, center_y, 1.0, "#ffffff");
+                    draw_stroke (cr, radius, 3, 2, center_x, center_y, 1.0, "#f5f5f5");
+                }
             }
 
             // Progress fill
             double progress = (double) percentage;
             if (progress > 0.0) {
-                if (m_is_in_focus) {
-                    draw_stroke (cr, radius, 7, 0, center_x, center_y, progress, "#e76419");
-                    draw_stroke (cr, radius, 5, 1, center_x, center_y, progress, "#ffcbac");
-                    draw_stroke (cr, radius, 3, 2, center_x, center_y, progress, "#fe9c63");
-                    draw_stroke (cr, radius, 2, 3, center_x, center_y, progress, "#fd9356");
-                    draw_stroke (cr, radius, 1, 4, center_x, center_y, progress, "#fc8946");
+                if (Constants.USE_FALLBACK_PROGRESS_BAR_THEME) {
+                    if (m_is_in_focus) {
+                        draw_stroke (cr, radius, 7, 0, center_x, center_y, progress, "#F37329");
+                    } else {
+                        draw_stroke (cr, radius, 7, 0, center_x, center_y, progress, "#A7A7A7");
+                    }
                 } else {
-                    draw_stroke (cr, radius, 7, 0, center_x, center_y, progress, "#a7a7a7");
-                    draw_stroke (cr, radius, 5, 1, center_x, center_y, progress, "#e2e2e2");
-                    draw_stroke (cr, radius, 3, 2, center_x, center_y, progress, "#d0d0d0");
+                    if (m_is_in_focus) {
+                        draw_stroke (cr, radius, 7, 0, center_x, center_y, progress, "#e76419");
+                        draw_stroke (cr, radius, 5, 1, center_x, center_y, progress, "#ffcbac");
+                        draw_stroke (cr, radius, 3, 2, center_x, center_y, progress, "#fe9c63");
+                        draw_stroke (cr, radius, 2, 3, center_x, center_y, progress, "#fd9356");
+                        draw_stroke (cr, radius, 1, 4, center_x, center_y, progress, "#fc8946");
+                    } else {
+                        draw_stroke (cr, radius, 7, 0, center_x, center_y, progress, "#a7a7a7");
+                        draw_stroke (cr, radius, 5, 1, center_x, center_y, progress, "#e2e2e2");
+                        draw_stroke (cr, radius, 3, 2, center_x, center_y, progress, "#d0d0d0");
+                    }
                 }
             }
 
