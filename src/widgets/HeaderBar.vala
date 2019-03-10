@@ -58,7 +58,24 @@ namespace Optimizer.Widgets {
             this.custom_title = stack_switcher;
 
             menu_button = new Gtk.MenuButton ();
-            menu_button.image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR);
+            // Check if open-menu is a symbolic icon by default
+            var icon_theme = Gtk.IconTheme.get_default ();
+            var icon_regular = new ThemedIcon.with_default_fallbacks ("open-menu");
+            var icon_info_regular = icon_theme.lookup_by_gicon
+                (icon_regular, 24, Gtk.IconLookupFlags.USE_BUILTIN);
+
+            var icon_symbolic = new ThemedIcon.with_default_fallbacks ("open-menu-symbolic");
+            var icon_info_symbolic = icon_theme.lookup_by_gicon
+                (icon_symbolic, 24, Gtk.IconLookupFlags.USE_BUILTIN);
+
+            if (icon_info_regular.get_filename () == icon_info_symbolic.get_filename ()) {
+                // open-menu is a symbolic icon => Use a smaller version
+                menu_button.image = new Gtk.Image.from_icon_name ("open-menu-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+            } else {
+                // open-menu is a regular icon => Use a larger version
+                menu_button.image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR);
+            }
+
 
             var main_menu = new GLib.Menu ();
             partition_menu = new GLib.Menu ();
