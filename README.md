@@ -61,6 +61,11 @@ sudo ninja install
 com.github.hannesschulze.optimizer
 ```
 
+### Credits
+
+- **Stacer:** This project is heavily inspired by [Stacer](https://oguzhaninan.github.io/Stacer-Web/) (written in Qt). Optimizer aims to provide some of the features in an elementary app with native Gtk widgets.
+- **Monitor:** Some of the logic for the process list is from [Monitor](https://github.com/stsdc/monitor), which is another elementary app. Optimizer is using some of the code in a simplified version - other than Monitor it just uses a process list instead of a neat tree view. Definitely check out this project if you want a monitor!
+
 ### License
 
 This project is licensed under the GPL-3.0 License - see the [COPYING](COPYING) file for details.
