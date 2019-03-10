@@ -120,8 +120,10 @@ namespace Optimizer.Utils {
                 GTop.get_proc_mem (out proc_mem, pid);
                 mem_usage = proc_mem.resident - proc_mem.share;
 
-                Wnck.ResourceUsage resu = Wnck.ResourceUsage.pid_read (Gdk.Display.get_default(), pid);
-                mem_usage += resu.total_bytes_estimate;
+                if (Gdk.Display.get_default () is Gdk.X11.Display) {
+                    Wnck.ResourceUsage resu = Wnck.ResourceUsage.pid_read (Gdk.Display.get_default(), pid);
+                    mem_usage += resu.total_bytes_estimate;
+                }
 
                 // TODO: Show processes from other owners
                 user = Posix.getlogin ();
