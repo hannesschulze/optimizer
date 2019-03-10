@@ -38,6 +38,7 @@ namespace Optimizer.Views {
         private Gtk.CheckButton       application_logs_checkbox;
         private Gtk.CheckButton       crash_reports_checkbox;
         private Gtk.CheckButton       package_caches_checkbox;
+        private string[]?            package_cache_location;
 
         /**
          * Constructs a new {@code SystemCleanerView} object.
@@ -65,74 +66,83 @@ namespace Optimizer.Views {
             add (main_grid);
 
             // Package Caches
-            var package_caches_icon = new Gtk.Image ();
-            package_caches_icon.gicon = new ThemedIcon ("package-x-generic");
-            package_caches_icon.pixel_size = 64;
-            main_grid.attach (package_caches_icon, 0, 0, 1, 1);
+            package_cache_location = get_package_manager_cache ();
+            if (package_cache_location != null) {
+                var package_caches_icon = new Gtk.Image ();
+                package_caches_icon.gicon = new ThemedIcon ("package-x-generic");
+                package_caches_icon.pixel_size = 64;
+                main_grid.attach (package_caches_icon, 0, 0, 1, 1);
 
-            var package_caches_label = new Gtk.Label (_("Package Caches"));
-            package_caches_label.halign = Gtk.Align.CENTER;
-            main_grid.attach (package_caches_label, 0, 1, 1, 1);
+                var package_caches_label = new Gtk.Label (_("Package Caches"));
+                package_caches_label.halign = Gtk.Align.CENTER;
+                main_grid.attach (package_caches_label, 0, 1, 1, 1);
 
-            package_caches_checkbox = new Gtk.CheckButton ();
-            package_caches_checkbox.halign = Gtk.Align.CENTER;
-            main_grid.attach (package_caches_checkbox, 0, 2, 1, 1);
+                package_caches_checkbox = new Gtk.CheckButton ();
+                package_caches_checkbox.halign = Gtk.Align.CENTER;
+                main_grid.attach (package_caches_checkbox, 0, 2, 1, 1);
+            } else {
+                stderr.printf ("WARNING: Deleting package caches is not supported on this platform.\n");
+            }
 
             // Crash Reports
             var crash_reports_icon = new Gtk.Image ();
             crash_reports_icon.gicon = new ThemedIcon ("dialog-error");
             crash_reports_icon.pixel_size = 64;
-            main_grid.attach (crash_reports_icon, 1, 0, 1, 1);
+            if (package_cache_location != null) {
+                main_grid.attach (crash_reports_icon, 1, 0, 1, 1);
+            } else {
+                main_grid.attach (crash_reports_icon, 0, 0, 1, 1);
+            }
 
             var crash_reports_label = new Gtk.Label (_("Crash Reports"));
             crash_reports_label.halign = Gtk.Align.CENTER;
-            main_grid.attach (crash_reports_label, 1, 1, 1, 1);
+            main_grid.attach_next_to (crash_reports_label, crash_reports_icon, Gtk.PositionType.BOTTOM);
 
             crash_reports_checkbox = new Gtk.CheckButton ();
             crash_reports_checkbox.halign = Gtk.Align.CENTER;
-            main_grid.attach (crash_reports_checkbox, 1, 2, 1, 1);
+            main_grid.attach_next_to (crash_reports_checkbox, crash_reports_label, Gtk.PositionType.BOTTOM);
 
             // Application Logs
             var application_logs_icon = new Gtk.Image ();
             application_logs_icon.gicon = new ThemedIcon ("text-x-generic");
             application_logs_icon.pixel_size = 64;
-            main_grid.attach (application_logs_icon, 2, 0, 1, 1);
+            main_grid.attach_next_to (application_logs_icon, crash_reports_icon, Gtk.PositionType.RIGHT);
 
             var application_logs_label = new Gtk.Label (_("Application Logs"));
             application_logs_label.halign = Gtk.Align.CENTER;
-            main_grid.attach (application_logs_label, 2, 1, 1, 1);
+            main_grid.attach_next_to (application_logs_label, application_logs_icon, Gtk.PositionType.BOTTOM);
 
             application_logs_checkbox = new Gtk.CheckButton ();
             application_logs_checkbox.halign = Gtk.Align.CENTER;
-            main_grid.attach (application_logs_checkbox, 2, 2, 1, 1);
+            main_grid.attach_next_to (application_logs_checkbox, application_logs_label, Gtk.PositionType.BOTTOM);
 
             // Application Caches
             var application_caches_icon = new Gtk.Image ();
             application_caches_icon.gicon = new ThemedIcon ("application-x-executable");
             application_caches_icon.pixel_size = 64;
-            main_grid.attach (application_caches_icon, 3, 0, 1, 1);
+            main_grid.attach_next_to (application_caches_icon, application_logs_icon, Gtk.PositionType.RIGHT);
 
             var application_caches_label = new Gtk.Label (_("Application Caches"));
             application_caches_label.halign = Gtk.Align.CENTER;
-            main_grid.attach (application_caches_label, 3, 1, 1, 1);
+            main_grid.attach_next_to (application_caches_label, application_caches_icon, Gtk.PositionType.BOTTOM);
 
             application_caches_checkbox = new Gtk.CheckButton ();
             application_caches_checkbox.halign = Gtk.Align.CENTER;
-            main_grid.attach (application_caches_checkbox, 3, 2, 1, 1);
+            main_grid.attach_next_to (application_caches_checkbox, application_caches_label, Gtk.PositionType.BOTTOM);
 
             // Trash
             var trash_icon = new Gtk.Image ();
             trash_icon.gicon = new ThemedIcon ("user-trash-full");
             trash_icon.pixel_size = 64;
-            main_grid.attach (trash_icon, 4, 0, 1, 1);
+            main_grid.attach_next_to (trash_icon, application_caches_icon, Gtk.PositionType.RIGHT);
 
             var trash_label = new Gtk.Label (_("Trash"));
             trash_label.halign = Gtk.Align.CENTER;
-            main_grid.attach (trash_label, 4, 1, 1, 1);
+            main_grid.attach_next_to (trash_label, trash_icon, Gtk.PositionType.BOTTOM);
 
             trash_checkbox = new Gtk.CheckButton ();
             trash_checkbox.halign = Gtk.Align.CENTER;
-            main_grid.attach (trash_checkbox, 4, 2, 1, 1);
+            main_grid.attach_next_to (trash_checkbox, trash_label, Gtk.PositionType.BOTTOM);
 
             // Clean Up button
             var clean_up_button = new Gtk.Button.with_label (_("Clean Up"));
@@ -140,7 +150,11 @@ namespace Optimizer.Views {
             clean_up_button.halign = Gtk.Align.CENTER;
             clean_up_button.margin_top = 24;
             clean_up_button.clicked.connect (clean_up);
-            main_grid.attach (clean_up_button, 0, 3, 5, 1);
+            if (package_cache_location != null) {
+                main_grid.attach (clean_up_button, 0, 3, 5, 1);
+            } else {
+                main_grid.attach (clean_up_button, 0, 3, 4, 1);
+            }
         }
 
         private void clean_up () {
@@ -149,7 +163,7 @@ namespace Optimizer.Views {
 
             if (package_caches_checkbox.active) {
                 needs_root = true;
-                selected_folders["/var/cache/apt/archives"] = "deb";
+                selected_folders[package_cache_location[0]] = package_cache_location[1];
             }
             if (crash_reports_checkbox.active) {
                 needs_root = true;
@@ -319,6 +333,17 @@ namespace Optimizer.Views {
                 stderr.printf ("Spawn error: %s\n", err.message);
                 return true;
             }
+        }
+
+        private string[]? get_package_manager_cache () {
+            if (Environment.find_program_in_path ("apt-get") != null) {
+                return { "/var/cache/apt/archives", "deb" };
+            }
+            if (Environment.find_program_in_path ("pacman") != null) {
+                return { "/var/cache/pacman/pkg", "xz" };
+            }
+
+            return null;
         }
     }
 }
