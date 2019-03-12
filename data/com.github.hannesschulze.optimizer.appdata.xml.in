@@ -12,6 +12,18 @@
     <binary>com.github.hannesschulze.optimizer</binary>
   </provides>
   <releases>
+    <release version="1.1.0" date="2019-03-12">
+      <description>
+        <p>Get a detailed overview of the deleted files</p>
+        <ul>
+          <li>Calculating the size of the deleted files</li>
+          <li>Showing a detailed list of those files</li>
+          <li>The circular progress bars will now get inactive when the window loses focus</li>
+          <li>Fix a bug where the window is too large when using French translations</li>
+          <li>Fixes for French translations</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.0.1" date="2019-03-06">
       <description>
         <p>French translations thanks to @NathanBnm</p>
