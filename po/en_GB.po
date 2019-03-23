@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.hannesschulze.optimizer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-03 20:20+0100\n"
+"POT-Creation-Date: 2019-03-23 15:19+0100\n"
 "PO-Revision-Date: 2019-03-03 14:37+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -19,6 +19,7 @@ msgstr ""
 
 #: data/com.github.hannesschulze.optimizer.desktop.in:3
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:6
+#: src/configs/Constants.vala:31
 msgid "Optimizer"
 msgstr "Optimizer"
 
@@ -39,10 +40,39 @@ msgid ""
 msgstr ""
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:17
+msgid "Get a detailed overview of the deleted files"
+msgstr ""
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:19
+msgid "Calculating the size of the deleted files"
+msgstr ""
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:20
+msgid "Showing a detailed list of those files"
+msgstr ""
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:21
+msgid ""
+"The circular progress bars will now get inactive when the window loses focus"
+msgstr ""
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:22
+msgid "Fix a bug where the window is too large when using French translations"
+msgstr ""
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:23
+msgid "Fixes for French translations"
+msgstr ""
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:29
+msgid "French translations thanks to @NathanBnm"
+msgstr ""
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:34
 msgid "Initial release"
 msgstr ""
 
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:62
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:79
 msgid "Hannes Schulze"
 msgstr ""
 
@@ -70,73 +100,74 @@ msgstr "Disk"
 msgid "Download:"
 msgstr "Download:"
 
-#: src/views/DashboardView.vala:91
+#: src/views/DashboardView.vala:92
 msgid "Upload:"
 msgstr "Upload:"
 
-#: src/views/SystemCleanerView.vala:63
+#: src/views/SystemCleanerView.vala:76
 msgid "Package Caches"
 msgstr "Package Caches"
 
-#: src/views/SystemCleanerView.vala:77
+#: src/views/SystemCleanerView.vala:97
 msgid "Crash Reports"
 msgstr "Crash Reports"
 
-#: src/views/SystemCleanerView.vala:91
+#: src/views/SystemCleanerView.vala:111
 msgid "Application Logs"
 msgstr "Application Logs"
 
-#: src/views/SystemCleanerView.vala:105
+#: src/views/SystemCleanerView.vala:125
 msgid "Application Caches"
 msgstr "Application Caches"
 
-#: src/views/SystemCleanerView.vala:119
+#: src/views/SystemCleanerView.vala:139
 msgid "Trash"
 msgstr "Trash"
 
-#: src/views/SystemCleanerView.vala:128
+#: src/views/SystemCleanerView.vala:148
 msgid "Clean Up"
 msgstr "Clean Up"
 
-#: src/views/SystemCleanerView.vala:162
+#: src/views/SystemCleanerView.vala:185
 msgid "Do you want to continue?"
 msgstr "Do you want to continue?"
 
-#: src/views/SystemCleanerView.vala:163
-msgid "This will delete the following files:"
-msgstr "This will delete the following files:"
-
-#: src/views/SystemCleanerView.vala:168
+#: src/views/SystemCleanerView.vala:191
 msgid "Continue"
 msgstr "Continue"
 
-#: src/views/SystemCleanerView.vala:185
-msgid "Details"
-msgstr "Details"
+#: src/views/SystemCleanerView.vala:196
+msgid "Calculating file size..."
+msgstr ""
 
-#: src/views/SystemCleanerView.vala:191
+#: src/views/SystemCleanerView.vala:221
+#, fuzzy, c-format
+msgid "This will delete the following files (%s):"
+msgstr "This will delete the following files:"
+
+#: src/views/SystemCleanerView.vala:227
 msgid "Deleting selected files..."
 msgstr "Deleting selected files..."
 
-#: src/views/SystemCleanerView.vala:197
+#: src/views/SystemCleanerView.vala:243
 msgid "No items selected"
 msgstr "No items selected"
 
-#: src/views/SystemCleanerView.vala:217
+#: src/views/SystemCleanerView.vala:263
 #, fuzzy
 msgid "Finished cleaning up with no errors"
 msgstr "Finished cleaning up %s"
 
-#: src/views/SystemCleanerView.vala:263
+#: src/views/SystemCleanerView.vala:309
 #, c-format
 msgid "Finished cleaning up %s"
 msgstr "Finished cleaning up %s"
 
-#: src/views/SystemCleanerView.vala:264
+#: src/views/SystemCleanerView.vala:310
 msgid "with errors!"
 msgstr "with errors!"
 
-#: src/views/SystemCleanerView.vala:264
+#: src/views/SystemCleanerView.vala:310
 msgid "with no errors"
 msgstr "with no errors"
 
@@ -181,15 +212,15 @@ msgstr "Cleaner"
 msgid "Processes"
 msgstr "Processes"
 
-#: src/widgets/HeaderBar.vala:65
+#: src/widgets/HeaderBar.vala:82
 msgid "Monitored partition"
 msgstr ""
 
-#: src/widgets/HeaderBar.vala:66
+#: src/widgets/HeaderBar.vala:83
 msgid "Quit"
 msgstr ""
 
-#: src/widgets/CircularProgressBar.vala:149
+#: src/widgets/CircularProgressBar.vala:194
 #, c-format
 msgid "%d Percent"
 msgstr "%d Percent"
@@ -241,6 +272,9 @@ msgstr "Cores"
 #: src/Main.vala:37
 msgid "Options"
 msgstr "Options"
+
+#~ msgid "Details"
+#~ msgstr "Details"
 
 #~ msgid ""
 #~ "Show currently open applications, monitor CPU, memory and network usage "

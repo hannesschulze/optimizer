@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.hannesschulze.optimizer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-03 20:20+0100\n"
-"PO-Revision-Date: 2019-03-06 11:30+0100\n"
+"POT-Creation-Date: 2019-03-23 15:19+0100\n"
+"PO-Revision-Date: 2019-03-23 15:24+0100\n"
 "Last-Translator: NathanBnm\n"
 "Language-Team: Français\n"
 "Language: fr\n"
@@ -19,8 +19,9 @@ msgstr ""
 
 #: data/com.github.hannesschulze.optimizer.desktop.in:3
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:6
+#: src/configs/Constants.vala:31
 msgid "Optimizer"
-msgstr "Optimizer"
+msgstr "Optimiseur"
 
 #: data/com.github.hannesschulze.optimizer.desktop.in:4
 msgid "com.github.hannesschulze.optimizer"
@@ -37,14 +38,44 @@ msgid ""
 "Find out what's eating up your system resources and delete unnecessary files "
 "from your disk."
 msgstr ""
-"Identifiez ce qui utilise les ressources de votre système et supprimez les fichiers "
-"inutiles de votre disque."
+"Identifiez ce qui utilise les ressources de votre système et supprimez les "
+"fichiers inutiles de votre disque."
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:17
+msgid "Get a detailed overview of the deleted files"
+msgstr "Obtenez un aperçu détaillé des fichiers supprimés"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:19
+msgid "Calculating the size of the deleted files"
+msgstr "Calcul de la taille des fichiers supprimés"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:20
+msgid "Showing a detailed list of those files"
+msgstr "Affichage d'une liste détaillée de ces fichiers"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:21
+msgid ""
+"The circular progress bars will now get inactive when the window loses focus"
+msgstr ""
+"Les barres de progression circulaires deviennent inactives lorsque la fenêtre n'est plus au premier plan."
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:22
+msgid "Fix a bug where the window is too large when using French translations"
+msgstr "Correction d'un bug où la fenêtre est trop grande lors de l'utilisation de traductions en français"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:23
+msgid "Fixes for French translations"
+msgstr "Corrections pour les traductions en français"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:29
+msgid "French translations thanks to @NathanBnm"
+msgstr "Traductions en français grâce à @NathanBnm"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:34
 msgid "Initial release"
 msgstr "Version initiale"
 
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:62
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:79
 msgid "Hannes Schulze"
 msgstr "Hannes Schulze"
 
@@ -72,72 +103,73 @@ msgstr "Disque"
 msgid "Download:"
 msgstr "Débit descendant :"
 
-#: src/views/DashboardView.vala:91
+#: src/views/DashboardView.vala:92
 msgid "Upload:"
 msgstr "Débit montant :"
 
-#: src/views/SystemCleanerView.vala:63
+#: src/views/SystemCleanerView.vala:76
 msgid "Package Caches"
 msgstr "Cache des paquets"
 
-#: src/views/SystemCleanerView.vala:77
+#: src/views/SystemCleanerView.vala:97
 msgid "Crash Reports"
 msgstr "Rapports de plantage"
 
-#: src/views/SystemCleanerView.vala:91
+#: src/views/SystemCleanerView.vala:111
 msgid "Application Logs"
 msgstr "Journaux d'application"
 
-#: src/views/SystemCleanerView.vala:105
+#: src/views/SystemCleanerView.vala:125
 msgid "Application Caches"
 msgstr "Cache des applications"
 
-#: src/views/SystemCleanerView.vala:119
+#: src/views/SystemCleanerView.vala:139
 msgid "Trash"
 msgstr "Corbeille"
 
-#: src/views/SystemCleanerView.vala:128
+#: src/views/SystemCleanerView.vala:148
 msgid "Clean Up"
 msgstr "Nettoyer"
 
-#: src/views/SystemCleanerView.vala:162
+#: src/views/SystemCleanerView.vala:185
 msgid "Do you want to continue?"
 msgstr "Voulez-vous continuer ?"
 
-#: src/views/SystemCleanerView.vala:163
-msgid "This will delete the following files:"
-msgstr "Cette action supprimera les fichiers suivants :"
-
-#: src/views/SystemCleanerView.vala:168
+#: src/views/SystemCleanerView.vala:191
 msgid "Continue"
 msgstr "Continuer"
 
-#: src/views/SystemCleanerView.vala:185
-msgid "Details"
-msgstr "Détails"
+#: src/views/SystemCleanerView.vala:196
+msgid "Calculating file size..."
+msgstr ""
 
-#: src/views/SystemCleanerView.vala:191
+#: src/views/SystemCleanerView.vala:221
+#, fuzzy, c-format
+msgid "This will delete the following files (%s):"
+msgstr "Cette action supprimera les fichiers suivants :"
+
+#: src/views/SystemCleanerView.vala:227
 msgid "Deleting selected files..."
 msgstr "Suppression des fichiers sélectionnés…"
 
-#: src/views/SystemCleanerView.vala:197
+#: src/views/SystemCleanerView.vala:243
 msgid "No items selected"
 msgstr "Aucun élément sélectionné"
 
-#: src/views/SystemCleanerView.vala:217
+#: src/views/SystemCleanerView.vala:263
 msgid "Finished cleaning up with no errors"
 msgstr "Le nettoyage s'est terminé sans erreur"
 
-#: src/views/SystemCleanerView.vala:263
+#: src/views/SystemCleanerView.vala:309
 #, c-format
 msgid "Finished cleaning up %s"
 msgstr "Le nettoyage s'est terminé %s"
 
-#: src/views/SystemCleanerView.vala:264
+#: src/views/SystemCleanerView.vala:310
 msgid "with errors!"
 msgstr "avec des erreurs"
 
-#: src/views/SystemCleanerView.vala:264
+#: src/views/SystemCleanerView.vala:310
 msgid "with no errors"
 msgstr "sans erreur"
 
@@ -182,15 +214,15 @@ msgstr "Nettoyeur"
 msgid "Processes"
 msgstr "Processus"
 
-#: src/widgets/HeaderBar.vala:65
+#: src/widgets/HeaderBar.vala:82
 msgid "Monitored partition"
 msgstr "Partition surveillée"
 
-#: src/widgets/HeaderBar.vala:66
+#: src/widgets/HeaderBar.vala:83
 msgid "Quit"
 msgstr "Quitter"
 
-#: src/widgets/CircularProgressBar.vala:149
+#: src/widgets/CircularProgressBar.vala:194
 #, c-format
 msgid "%d Percent"
 msgstr "%d Pourcent"
