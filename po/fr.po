@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.hannesschulze.optimizer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-23 15:19+0100\n"
+"POT-Creation-Date: 2019-03-23 15:37+0100\n"
 "PO-Revision-Date: 2019-03-23 15:24+0100\n"
 "Last-Translator: NathanBnm\n"
 "Language-Team: Français\n"
@@ -57,11 +57,14 @@ msgstr "Affichage d'une liste détaillée de ces fichiers"
 msgid ""
 "The circular progress bars will now get inactive when the window loses focus"
 msgstr ""
-"Les barres de progression circulaires deviennent inactives lorsque la fenêtre n'est plus au premier plan."
+"Les barres de progression circulaires deviennent inactives lorsque la "
+"fenêtre n'est plus au premier plan."
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:22
 msgid "Fix a bug where the window is too large when using French translations"
-msgstr "Correction d'un bug où la fenêtre est trop grande lors de l'utilisation de traductions en français"
+msgstr ""
+"Correction d'un bug où la fenêtre est trop grande lors de l'utilisation de "
+"traductions en français"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:23
 msgid "Fixes for French translations"
@@ -140,16 +143,18 @@ msgid "Continue"
 msgstr "Continuer"
 
 #: src/views/SystemCleanerView.vala:196
-msgid "Calculating file size..."
-msgstr ""
+#, fuzzy
+msgid "Calculating file size…"
+msgstr "Calcul de la taille des fichiers…"
 
 #: src/views/SystemCleanerView.vala:221
 #, fuzzy, c-format
 msgid "This will delete the following files (%s):"
-msgstr "Cette action supprimera les fichiers suivants :"
+msgstr "Cette action supprimera les fichiers suivants (%s) :"
 
 #: src/views/SystemCleanerView.vala:227
-msgid "Deleting selected files..."
+#, fuzzy
+msgid "Deleting selected files…"
 msgstr "Suppression des fichiers sélectionnés…"
 
 #: src/views/SystemCleanerView.vala:243
