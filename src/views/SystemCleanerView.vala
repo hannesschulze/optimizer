@@ -193,7 +193,7 @@ namespace Optimizer.Views {
                 message_dialog.add_action_widget (continue_button, Gtk.ResponseType.ACCEPT);
 
 
-                calculating_toast.title = _("Calculating file size...");
+                calculating_toast.title = _("Calculating file size…");
                 calculating_toast.send_notification ();
                 Utils.DiskSpace.get_formatted_file_list.begin (selected_folders, (obj, res) => {
                     var files_list_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
@@ -224,7 +224,7 @@ namespace Optimizer.Views {
 
                     message_dialog.show_all ();
                     if (message_dialog.run () == Gtk.ResponseType.ACCEPT) {
-                        status_toast.title = _("Deleting selected files...");
+                        status_toast.title = _("Deleting selected files…");
                         status_toast.send_notification ();
 
                         string[] folder_names = { };

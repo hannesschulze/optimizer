@@ -13,13 +13,14 @@ msgstr ""
 "Language-Team: none\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 2.1.1\n"
 
 #: data/com.github.hannesschulze.optimizer.desktop.in:3
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:6
+#: src/configs/Constants.vala:31
 msgid "Optimizer"
 msgstr "Optimizer"
 
@@ -38,10 +39,39 @@ msgid "Find out what's eating up your system resources and delete unnecessary fi
 msgstr "Bekijk welke processen je systeembronnen opeisen en verwijder onnodige bestanden van je schijf."
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:17
-msgid "Initial release"
-msgstr "Initiële uitgave"
+msgid "Get a detailed overview of the deleted files"
+msgstr ""
 
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:62
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:19
+msgid "Calculating the size of the deleted files"
+msgstr ""
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:20
+msgid "Showing a detailed list of those files"
+msgstr ""
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:21
+msgid ""
+"The circular progress bars will now get inactive when the window loses focus"
+msgstr ""
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:22
+msgid "Fix a bug where the window is too large when using French translations"
+msgstr ""
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:23
+msgid "Fixes for French translations"
+msgstr ""
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:29
+msgid "French translations thanks to @NathanBnm"
+msgstr ""
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:34
+msgid "Initial release"
+msgstr "Initiï¿½le uitgave"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:79
 msgid "Hannes Schulze"
 msgstr "Hannes Schulze"
 
@@ -69,78 +99,79 @@ msgstr "Schijf"
 msgid "Download:"
 msgstr "Download:"
 
-#: src/views/DashboardView.vala:91
+#: src/views/DashboardView.vala:92
 msgid "Upload:"
 msgstr "Upload:"
 
-#: src/views/SystemCleanerView.vala:63
+#: src/views/SystemCleanerView.vala:76
 msgid "Package Caches"
 msgstr "Pakketcaches"
 
-#: src/views/SystemCleanerView.vala:77
+#: src/views/SystemCleanerView.vala:97
 msgid "Crash Reports"
 msgstr "Crashrapportages"
 
-#: src/views/SystemCleanerView.vala:91
+#: src/views/SystemCleanerView.vala:111
 msgid "Application Logs"
 msgstr "Applicatie-logbestanden"
 
-#: src/views/SystemCleanerView.vala:105
+#: src/views/SystemCleanerView.vala:125
 msgid "Application Caches"
 msgstr "Applicatiecaches"
 
-#: src/views/SystemCleanerView.vala:119
+#: src/views/SystemCleanerView.vala:139
 msgid "Trash"
 msgstr "Prullenbak"
 
-#: src/views/SystemCleanerView.vala:128
+#: src/views/SystemCleanerView.vala:148
 msgid "Clean Up"
 msgstr "Opschonen"
 
-#: src/views/SystemCleanerView.vala:162
+#: src/views/SystemCleanerView.vala:185
 msgid "Do you want to continue?"
 msgstr "Wil je doorgaan?"
 
-#: src/views/SystemCleanerView.vala:163
-msgid "This will delete the following files:"
-msgstr "De volgende bestanden worden verwijderd:"
-
-#: src/views/SystemCleanerView.vala:168
+#: src/views/SystemCleanerView.vala:191
 msgid "Continue"
 msgstr "Doorgaan"
 
-#: src/views/SystemCleanerView.vala:185
-msgid "Details"
-msgstr "Details"
+#: src/views/SystemCleanerView.vala:196
+msgid "Calculating file sizeâ€¦"
+msgstr ""
 
-#: src/views/SystemCleanerView.vala:191
-msgid "Deleting selected files..."
-msgstr "Bezig met verwijderen van geselecteerde bestanden..."
+#: src/views/SystemCleanerView.vala:221
+#, c-format
+msgid "This will delete the following files (%s):"
+msgstr "De volgende bestanden worden verwijderd (%s):"
 
-#: src/views/SystemCleanerView.vala:197
+#: src/views/SystemCleanerView.vala:227
+msgid "Deleting selected filesâ€¦"
+msgstr "Bezig met verwijderen van geselecteerde bestandenâ€¦"
+
+#: src/views/SystemCleanerView.vala:243
 msgid "No items selected"
 msgstr "Geen items geselecteerd"
 
-#: src/views/SystemCleanerView.vala:217
+#: src/views/SystemCleanerView.vala:263
 msgid "Finished cleaning up with no errors"
 msgstr "Opschonen voltooid; geen fouten opgetreden"
 
-#: src/views/SystemCleanerView.vala:263
+#: src/views/SystemCleanerView.vala:309
 #, c-format
 msgid "Finished cleaning up %s"
 msgstr "Klaar met opschonen van %s"
 
-#: src/views/SystemCleanerView.vala:264
+#: src/views/SystemCleanerView.vala:310
 msgid "with errors!"
 msgstr "met fouten!"
 
-#: src/views/SystemCleanerView.vala:264
+#: src/views/SystemCleanerView.vala:310
 msgid "with no errors"
 msgstr "zonder fouten"
 
 #: src/views/ProcessesView.vala:72
 msgid "End Process"
-msgstr "Proces beëindigen"
+msgstr "Proces beï¿½indigen"
 
 #: src/views/ProcessesView.vala:91
 msgid "PID"
@@ -179,15 +210,15 @@ msgstr "Opschonen"
 msgid "Processes"
 msgstr "Processen"
 
-#: src/widgets/HeaderBar.vala:65
+#: src/widgets/HeaderBar.vala:82
 msgid "Monitored partition"
 msgstr "Gemonitorde partitie"
 
-#: src/widgets/HeaderBar.vala:66
+#: src/widgets/HeaderBar.vala:83
 msgid "Quit"
 msgstr "Afsluiten"
 
-#: src/widgets/CircularProgressBar.vala:149
+#: src/widgets/CircularProgressBar.vala:194
 #, c-format
 msgid "%d Percent"
 msgstr "%d procent"
