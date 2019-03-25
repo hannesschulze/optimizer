@@ -8,7 +8,7 @@ else
 endif
 
 constants_header = configure_file(
-  input: 'configs/Constants.vala.in',
+  input: 'configs/Constants.vala',
   output: 'Constants.vala',
   configuration: conf_data
 )
