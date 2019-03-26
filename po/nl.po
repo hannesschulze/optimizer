@@ -40,36 +40,36 @@ msgstr "Bekijk welke processen je systeembronnen opeisen en verwijder onnodige b
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:17
 msgid "Get a detailed overview of the deleted files"
-msgstr ""
+msgstr "Bekijk een gedetailleerd overzicht van de verwijderde bestanden"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:19
 msgid "Calculating the size of the deleted files"
-msgstr ""
+msgstr "Bezig met berekenen van grootte van verwijderde bestanden"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:20
 msgid "Showing a detailed list of those files"
-msgstr ""
+msgstr "Gedetailleerde lijst van die bestanden"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:21
 msgid ""
 "The circular progress bars will now get inactive when the window loses focus"
-msgstr ""
+msgstr "De ronde voortgangsbalken zijn nu inactief als het venster de focus verliest"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:22
 msgid "Fix a bug where the window is too large when using French translations"
-msgstr ""
+msgstr "Bug opgelost waarbij het venster te groot was bij gebruik van de Franse vertaling"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:23
 msgid "Fixes for French translations"
-msgstr ""
+msgstr "Foutjes in de Franse vertaling opgelost"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:29
 msgid "French translations thanks to @NathanBnm"
-msgstr ""
+msgstr "Franse vertaling, met dank aan @NathanBnm"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:34
 msgid "Initial release"
-msgstr "Initi�le uitgave"
+msgstr "Initiële uitgave"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:79
 msgid "Hannes Schulze"
@@ -171,7 +171,7 @@ msgstr "zonder fouten"
 
 #: src/views/ProcessesView.vala:72
 msgid "End Process"
-msgstr "Proces be�indigen"
+msgstr "Proces beëindigen"
 
 #: src/views/ProcessesView.vala:91
 msgid "PID"
