@@ -7,134 +7,133 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.hannesschulze.optimizer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-23 15:37+0100\n"
-"PO-Revision-Date: 2019-03-03 14:37+0100\n"
-"Last-Translator: Automatically generated\n"
+"POT-Creation-Date: 2019-03-03 20:20+0100\n"
+"PO-Revision-Date: 2019-03-25 20:25+0100\n"
+"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: none\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.1.1\n"
 
 #: data/com.github.hannesschulze.optimizer.desktop.in:3
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:6
 #: src/configs/Constants.vala:31
 msgid "Optimizer"
-msgstr ""
+msgstr "Optimizer"
 
 #: data/com.github.hannesschulze.optimizer.desktop.in:4
 msgid "com.github.hannesschulze.optimizer"
-msgstr ""
+msgstr "com.github.hannesschulze.optimizer"
 
 #: data/com.github.hannesschulze.optimizer.desktop.in:6
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:7
 msgid "Clean up your system"
-msgstr ""
+msgstr "Schoon je systeem op"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:9
 #: src/configs/Constants.vala:34
-msgid ""
-"Find out what's eating up your system resources and delete unnecessary files "
-"from your disk."
-msgstr ""
+msgid "Find out what's eating up your system resources and delete unnecessary files from your disk."
+msgstr "Bekijk welke processen je systeembronnen opeisen en verwijder onnodige bestanden van je schijf."
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:17
 msgid "Get a detailed overview of the deleted files"
-msgstr ""
+msgstr "Bekijk een gedetailleerd overzicht van de verwijderde bestanden"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:19
 msgid "Calculating the size of the deleted files"
-msgstr ""
+msgstr "Bezig met berekenen van grootte van verwijderde bestanden"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:20
 msgid "Showing a detailed list of those files"
-msgstr ""
+msgstr "Gedetailleerde lijst van die bestanden"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:21
 msgid ""
 "The circular progress bars will now get inactive when the window loses focus"
-msgstr ""
+msgstr "De ronde voortgangsbalken zijn nu inactief als het venster de focus verliest"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:22
 msgid "Fix a bug where the window is too large when using French translations"
-msgstr ""
+msgstr "Bug opgelost waarbij het venster te groot was bij gebruik van de Franse vertaling"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:23
 msgid "Fixes for French translations"
-msgstr ""
+msgstr "Foutjes in de Franse vertaling opgelost"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:29
 msgid "French translations thanks to @NathanBnm"
-msgstr ""
+msgstr "Franse vertaling, met dank aan @NathanBnm"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:34
 msgid "Initial release"
-msgstr ""
+msgstr "Initiële uitgave"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:79
 msgid "Hannes Schulze"
-msgstr ""
+msgstr "Hannes Schulze"
 
 #: src/configs/Constants.vala:35
 msgid "Translators"
-msgstr ""
+msgstr "Vertalers"
 
 #: src/configs/Constants.vala:40
 msgid "Website"
-msgstr ""
+msgstr "Website"
 
 #: src/views/DashboardView.vala:53
 msgid "CPU"
-msgstr ""
+msgstr "CPU"
 
 #: src/views/DashboardView.vala:60
 msgid "RAM"
-msgstr ""
+msgstr "RAM"
 
 #: src/views/DashboardView.vala:65
 msgid "Disk"
-msgstr ""
+msgstr "Schijf"
 
 #: src/views/DashboardView.vala:78
 msgid "Download:"
-msgstr ""
+msgstr "Download:"
 
 #: src/views/DashboardView.vala:92
 msgid "Upload:"
-msgstr ""
+msgstr "Upload:"
 
 #: src/views/SystemCleanerView.vala:76
 msgid "Package Caches"
-msgstr ""
+msgstr "Pakketcaches"
 
 #: src/views/SystemCleanerView.vala:97
 msgid "Crash Reports"
-msgstr ""
+msgstr "Crashrapportages"
 
 #: src/views/SystemCleanerView.vala:111
 msgid "Application Logs"
-msgstr ""
+msgstr "Applicatie-logbestanden"
 
 #: src/views/SystemCleanerView.vala:125
 msgid "Application Caches"
-msgstr ""
+msgstr "Applicatiecaches"
 
 #: src/views/SystemCleanerView.vala:139
 msgid "Trash"
-msgstr ""
+msgstr "Prullenbak"
 
 #: src/views/SystemCleanerView.vala:148
 msgid "Clean Up"
-msgstr ""
+msgstr "Opschonen"
 
 #: src/views/SystemCleanerView.vala:185
 msgid "Do you want to continue?"
-msgstr ""
+msgstr "Wil je doorgaan?"
 
 #: src/views/SystemCleanerView.vala:191
 msgid "Continue"
-msgstr ""
+msgstr "Doorgaan"
 
 #: src/views/SystemCleanerView.vala:196
 msgid "Calculating file size…"
@@ -143,131 +142,132 @@ msgstr ""
 #: src/views/SystemCleanerView.vala:221
 #, c-format
 msgid "This will delete the following files (%s):"
-msgstr ""
+msgstr "De volgende bestanden worden verwijderd (%s):"
 
 #: src/views/SystemCleanerView.vala:227
 msgid "Deleting selected files…"
-msgstr ""
+msgstr "Bezig met verwijderen van geselecteerde bestanden…"
 
 #: src/views/SystemCleanerView.vala:243
 msgid "No items selected"
-msgstr ""
+msgstr "Geen items geselecteerd"
 
 #: src/views/SystemCleanerView.vala:263
 msgid "Finished cleaning up with no errors"
-msgstr ""
+msgstr "Opschonen voltooid; geen fouten opgetreden"
 
 #: src/views/SystemCleanerView.vala:309
 #, c-format
 msgid "Finished cleaning up %s"
-msgstr ""
+msgstr "Klaar met opschonen van %s"
 
 #: src/views/SystemCleanerView.vala:310
 msgid "with errors!"
-msgstr ""
+msgstr "met fouten!"
 
 #: src/views/SystemCleanerView.vala:310
 msgid "with no errors"
-msgstr ""
+msgstr "zonder fouten"
 
 #: src/views/ProcessesView.vala:72
 msgid "End Process"
-msgstr ""
+msgstr "Proces beëindigen"
 
 #: src/views/ProcessesView.vala:91
 msgid "PID"
-msgstr ""
+msgstr "PID"
 
 #: src/views/ProcessesView.vala:100
 msgid "Total Memory"
-msgstr ""
+msgstr "Totaal geheugen"
 
 #: src/views/ProcessesView.vala:118
 msgid "% Memory"
-msgstr ""
+msgstr "% geheugen"
 
 #: src/views/ProcessesView.vala:134
 msgid "User"
-msgstr ""
+msgstr "Gebruiker"
 
 #: src/views/ProcessesView.vala:143
 #, c-format
 msgid "% CPU"
-msgstr ""
+msgstr "% processor"
 
 #: src/views/ProcessesView.vala:158
 msgid "Process"
-msgstr ""
+msgstr "Proces"
 
 #: src/views/AppView.vala:39
 msgid "Dashboard"
-msgstr ""
+msgstr "Overzicht"
 
 #: src/views/AppView.vala:42
 msgid "Cleaner"
-msgstr ""
+msgstr "Opschonen"
 
 #: src/views/AppView.vala:45
 msgid "Processes"
-msgstr ""
+msgstr "Processen"
 
 #: src/widgets/HeaderBar.vala:82
 msgid "Monitored partition"
-msgstr ""
+msgstr "Gemonitorde partitie"
 
 #: src/widgets/HeaderBar.vala:83
 msgid "Quit"
-msgstr ""
+msgstr "Afsluiten"
 
 #: src/widgets/CircularProgressBar.vala:194
 #, c-format
 msgid "%d Percent"
-msgstr ""
+msgstr "%d procent"
 
 #: src/widgets/SystemInfo.vala:42
 msgid "Hostname:"
-msgstr ""
+msgstr "Hostnaam:"
 
 #: src/widgets/SystemInfo.vala:60
 msgid "Distribution:"
-msgstr ""
+msgstr "Distributie:"
 
 #: src/widgets/SystemInfo.vala:80
 msgid "Architecture:"
-msgstr ""
+msgstr "Architectuur:"
 
 #: src/widgets/SystemInfo.vala:85
 msgid "Kernel:"
-msgstr ""
+msgstr "Kernel:"
 
 #: src/widgets/SystemInfo.vala:89
 msgid "CPU Model:"
-msgstr ""
+msgstr "CPU-model:"
 
 #: src/widgets/SystemInfo.vala:93
 msgid "CPU Cores:"
-msgstr ""
+msgstr "Aantal CPU-kernen:"
 
 #: src/widgets/SystemInfo.vala:117
 msgid "Unknown"
-msgstr ""
+msgstr "Onbekend"
 
 #: src/widgets/SystemInfo.vala:133
 msgid "Single-Core"
-msgstr ""
+msgstr "Single-core"
 
 #: src/widgets/SystemInfo.vala:162
 msgid "Dual-Core"
-msgstr ""
+msgstr "Dual-core"
 
 #: src/widgets/SystemInfo.vala:164
 msgid "Quad-Core"
-msgstr ""
+msgstr "Quad-core"
 
 #: src/widgets/SystemInfo.vala:166
 msgid "Cores"
-msgstr ""
+msgstr "Kernen"
 
 #: src/Main.vala:37
 msgid "Options"
-msgstr ""
+msgstr "Opties"
+
