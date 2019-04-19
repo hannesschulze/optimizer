@@ -233,7 +233,7 @@ msgstr "Nombre de la máquina:"
 
 #: src/widgets/SystemInfo.vala:60
 msgid "Distribution:"
-msgstr "Distribución"
+msgstr "Distribución:"
 
 #: src/widgets/SystemInfo.vala:80
 msgid "Architecture:"
