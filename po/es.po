@@ -109,19 +109,19 @@ msgstr "Subida:"
 
 #: src/views/SystemCleanerView.vala:76
 msgid "Package Caches"
-msgstr "Caché de paquetes"
+msgstr "Caché de Paquetes"
 
 #: src/views/SystemCleanerView.vala:97
 msgid "Crash Reports"
-msgstr "Informes de fallos"
+msgstr "Informes de Fallos"
 
 #: src/views/SystemCleanerView.vala:111
 msgid "Application Logs"
-msgstr "Informes de aplicación"
+msgstr "Informes de Aplicación"
 
 #: src/views/SystemCleanerView.vala:125
 msgid "Application Caches"
-msgstr "Caché de aplicaciones"
+msgstr "Caché de Aplicaciones"
 
 #: src/views/SystemCleanerView.vala:139
 msgid "Trash"
@@ -175,7 +175,7 @@ msgstr "sin errores"
 
 #: src/views/ProcessesView.vala:72
 msgid "End Process"
-msgstr "Finalizar proceso"
+msgstr "Finalizar Proceso"
 
 #: src/views/ProcessesView.vala:91
 msgid "PID"
@@ -183,7 +183,7 @@ msgstr "PID"
 
 #: src/views/ProcessesView.vala:100
 msgid "Total Memory"
-msgstr "Memoria total"
+msgstr "Memoria Total"
 
 #: src/views/ProcessesView.vala:118
 msgid "% Memory"
