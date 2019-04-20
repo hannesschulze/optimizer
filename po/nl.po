@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.hannesschulze.optimizer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-03 20:20+0100\n"
+"POT-Creation-Date: 2019-04-20 21:23+0200\n"
 "PO-Revision-Date: 2019-03-25 20:25+0100\n"
 "Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: none\n"
@@ -20,7 +20,6 @@ msgstr ""
 
 #: data/com.github.hannesschulze.optimizer.desktop.in:3
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:6
-#: src/configs/Constants.vala:31
 msgid "Optimizer"
 msgstr "Optimizer"
 
@@ -35,8 +34,12 @@ msgstr "Schoon je systeem op"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:9
 #: src/configs/Constants.vala:34
-msgid "Find out what's eating up your system resources and delete unnecessary files from your disk."
-msgstr "Bekijk welke processen je systeembronnen opeisen en verwijder onnodige bestanden van je schijf."
+msgid ""
+"Find out what's eating up your system resources and delete unnecessary files "
+"from your disk."
+msgstr ""
+"Bekijk welke processen je systeembronnen opeisen en verwijder onnodige "
+"bestanden van je schijf."
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:17
 msgid "Get a detailed overview of the deleted files"
@@ -53,11 +56,14 @@ msgstr "Gedetailleerde lijst van die bestanden"
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:21
 msgid ""
 "The circular progress bars will now get inactive when the window loses focus"
-msgstr "De ronde voortgangsbalken zijn nu inactief als het venster de focus verliest"
+msgstr ""
+"De ronde voortgangsbalken zijn nu inactief als het venster de focus verliest"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:22
 msgid "Fix a bug where the window is too large when using French translations"
-msgstr "Bug opgelost waarbij het venster te groot was bij gebruik van de Franse vertaling"
+msgstr ""
+"Bug opgelost waarbij het venster te groot was bij gebruik van de Franse "
+"vertaling"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:23
 msgid "Fixes for French translations"
@@ -103,69 +109,69 @@ msgstr "Download:"
 msgid "Upload:"
 msgstr "Upload:"
 
-#: src/views/SystemCleanerView.vala:76
+#: src/views/SystemCleanerView.vala:77
 msgid "Package Caches"
 msgstr "Pakketcaches"
 
-#: src/views/SystemCleanerView.vala:97
+#: src/views/SystemCleanerView.vala:98
 msgid "Crash Reports"
 msgstr "Crashrapportages"
 
-#: src/views/SystemCleanerView.vala:111
+#: src/views/SystemCleanerView.vala:112
 msgid "Application Logs"
 msgstr "Applicatie-logbestanden"
 
-#: src/views/SystemCleanerView.vala:125
+#: src/views/SystemCleanerView.vala:126
 msgid "Application Caches"
 msgstr "Applicatiecaches"
 
-#: src/views/SystemCleanerView.vala:139
+#: src/views/SystemCleanerView.vala:140
 msgid "Trash"
 msgstr "Prullenbak"
 
-#: src/views/SystemCleanerView.vala:148
+#: src/views/SystemCleanerView.vala:149
 msgid "Clean Up"
 msgstr "Opschonen"
 
-#: src/views/SystemCleanerView.vala:185
+#: src/views/SystemCleanerView.vala:186
 msgid "Do you want to continue?"
 msgstr "Wil je doorgaan?"
 
-#: src/views/SystemCleanerView.vala:191
+#: src/views/SystemCleanerView.vala:192
 msgid "Continue"
 msgstr "Doorgaan"
 
-#: src/views/SystemCleanerView.vala:196
+#: src/views/SystemCleanerView.vala:197
 msgid "Calculating file size…"
 msgstr ""
 
-#: src/views/SystemCleanerView.vala:221
+#: src/views/SystemCleanerView.vala:223
 #, c-format
 msgid "This will delete the following files (%s):"
 msgstr "De volgende bestanden worden verwijderd (%s):"
 
-#: src/views/SystemCleanerView.vala:227
+#: src/views/SystemCleanerView.vala:229
 msgid "Deleting selected files…"
 msgstr "Bezig met verwijderen van geselecteerde bestanden…"
 
-#: src/views/SystemCleanerView.vala:243
+#: src/views/SystemCleanerView.vala:247
 msgid "No items selected"
 msgstr "Geen items geselecteerd"
 
-#: src/views/SystemCleanerView.vala:263
+#: src/views/SystemCleanerView.vala:267
 msgid "Finished cleaning up with no errors"
 msgstr "Opschonen voltooid; geen fouten opgetreden"
 
-#: src/views/SystemCleanerView.vala:309
+#: src/views/SystemCleanerView.vala:313
 #, c-format
 msgid "Finished cleaning up %s"
 msgstr "Klaar met opschonen van %s"
 
-#: src/views/SystemCleanerView.vala:310
+#: src/views/SystemCleanerView.vala:314
 msgid "with errors!"
 msgstr "met fouten!"
 
-#: src/views/SystemCleanerView.vala:310
+#: src/views/SystemCleanerView.vala:314
 msgid "with no errors"
 msgstr "zonder fouten"
 
@@ -270,4 +276,3 @@ msgstr "Kernen"
 #: src/Main.vala:37
 msgid "Options"
 msgstr "Opties"
-

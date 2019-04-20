@@ -38,7 +38,8 @@ namespace Optimizer.Views {
         private Gtk.CheckButton       application_logs_checkbox;
         private Gtk.CheckButton       crash_reports_checkbox;
         private Gtk.CheckButton       package_caches_checkbox;
-        private string[]?            package_cache_location;
+        private string[]?             package_cache_location;
+        private Gtk.Button            clean_up_button;
 
         /**
          * Constructs a new {@code SystemCleanerView} object.
@@ -145,7 +146,7 @@ namespace Optimizer.Views {
             main_grid.attach_next_to (trash_checkbox, trash_label, Gtk.PositionType.BOTTOM);
 
             // Clean Up button
-            var clean_up_button = new Gtk.Button.with_label (_("Clean Up"));
+            clean_up_button = new Gtk.Button.with_label (_("Clean Up"));
             clean_up_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
             clean_up_button.halign = Gtk.Align.CENTER;
             clean_up_button.margin_top = 24;
@@ -194,6 +195,7 @@ namespace Optimizer.Views {
 
 
                 calculating_toast.title = _("Calculating file size…");
+                clean_up_button.sensitive = false;
                 calculating_toast.send_notification ();
                 Utils.DiskSpace.get_formatted_file_list.begin (selected_folders, (obj, res) => {
                     var files_list_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
@@ -236,6 +238,8 @@ namespace Optimizer.Views {
                             folder_names += Path.build_filename (folder.key, extension);
                         }
                         remove_files (folder_names, needs_root);
+                    } else {
+                        clean_up_button.sensitive = true;
                     }
                     message_dialog.destroy ();
                 });
@@ -309,6 +313,7 @@ namespace Optimizer.Views {
 	                result_toast.title = _("Finished cleaning up %s").printf
 	                    (got_error ? _("with errors!") : _("with no errors"));
 	                result_toast.send_notification ();
+                    clean_up_button.sensitive = true;
                 });
             } catch (SpawnError err) {
                 stderr.printf ("Could not spawn command: %s\n", err.message);

@@ -21,7 +21,6 @@ msgstr ""
 
 #: data/com.github.hannesschulze.optimizer.desktop.in:3
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:6
-#: src/configs/Constants.vala:31
 msgid "Optimizer"
 msgstr "Optimizatorius"
 
@@ -111,69 +110,69 @@ msgstr "Atsiuntimas:"
 msgid "Upload:"
 msgstr "Išsiuntimas:"
 
-#: src/views/SystemCleanerView.vala:76
+#: src/views/SystemCleanerView.vala:77
 msgid "Package Caches"
 msgstr "Paketų podėliai"
 
-#: src/views/SystemCleanerView.vala:97
+#: src/views/SystemCleanerView.vala:98
 msgid "Crash Reports"
 msgstr "Pranešimai apie triktis"
 
-#: src/views/SystemCleanerView.vala:111
+#: src/views/SystemCleanerView.vala:112
 msgid "Application Logs"
 msgstr "Programų žurnalai"
 
-#: src/views/SystemCleanerView.vala:125
+#: src/views/SystemCleanerView.vala:126
 msgid "Application Caches"
 msgstr "Programų podėliai"
 
-#: src/views/SystemCleanerView.vala:139
+#: src/views/SystemCleanerView.vala:140
 msgid "Trash"
 msgstr "Šiukšlinė"
 
-#: src/views/SystemCleanerView.vala:148
+#: src/views/SystemCleanerView.vala:149
 msgid "Clean Up"
 msgstr "Išvalyti"
 
-#: src/views/SystemCleanerView.vala:185
+#: src/views/SystemCleanerView.vala:186
 msgid "Do you want to continue?"
 msgstr "Ar norite tęsti?"
 
-#: src/views/SystemCleanerView.vala:191
+#: src/views/SystemCleanerView.vala:192
 msgid "Continue"
 msgstr "Tęsti"
 
-#: src/views/SystemCleanerView.vala:196
+#: src/views/SystemCleanerView.vala:197
 msgid "Calculating file size…"
 msgstr "Apskaičiuojamas failų dydis…"
 
-#: src/views/SystemCleanerView.vala:221
+#: src/views/SystemCleanerView.vala:223
 #, c-format
 msgid "This will delete the following files (%s):"
 msgstr "Tai ištrins šiuos failus (%s):"
 
-#: src/views/SystemCleanerView.vala:227
+#: src/views/SystemCleanerView.vala:229
 msgid "Deleting selected files…"
 msgstr "Ištrinami pasirinkti failai…"
 
-#: src/views/SystemCleanerView.vala:243
+#: src/views/SystemCleanerView.vala:247
 msgid "No items selected"
 msgstr "Nepasirinkta jokių elementų"
 
-#: src/views/SystemCleanerView.vala:263
+#: src/views/SystemCleanerView.vala:267
 msgid "Finished cleaning up with no errors"
 msgstr "Išvalymas užbaigtas be klaidų"
 
-#: src/views/SystemCleanerView.vala:309
+#: src/views/SystemCleanerView.vala:313
 #, c-format
 msgid "Finished cleaning up %s"
 msgstr "Išvalymas užbaigtas %s"
 
-#: src/views/SystemCleanerView.vala:310
+#: src/views/SystemCleanerView.vala:314
 msgid "with errors!"
 msgstr "su klaidomis!"
 
-#: src/views/SystemCleanerView.vala:310
+#: src/views/SystemCleanerView.vala:314
 msgid "with no errors"
 msgstr "be klaidų"
 
