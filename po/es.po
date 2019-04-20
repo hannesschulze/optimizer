@@ -19,7 +19,6 @@ msgstr ""
 
 #: data/com.github.hannesschulze.optimizer.desktop.in:3
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:6
-#: src/configs/Constants.vala:31
 msgid "Optimizer"
 msgstr "Optimizador"
 
@@ -107,69 +106,69 @@ msgstr "Bajada:"
 msgid "Upload:"
 msgstr "Subida:"
 
-#: src/views/SystemCleanerView.vala:76
+#: src/views/SystemCleanerView.vala:77
 msgid "Package Caches"
 msgstr "Caché de Paquetes"
 
-#: src/views/SystemCleanerView.vala:97
+#: src/views/SystemCleanerView.vala:98
 msgid "Crash Reports"
 msgstr "Informes de Fallos"
 
-#: src/views/SystemCleanerView.vala:111
+#: src/views/SystemCleanerView.vala:112
 msgid "Application Logs"
 msgstr "Informes de Aplicación"
 
-#: src/views/SystemCleanerView.vala:125
+#: src/views/SystemCleanerView.vala:126
 msgid "Application Caches"
 msgstr "Caché de Aplicaciones"
 
-#: src/views/SystemCleanerView.vala:139
+#: src/views/SystemCleanerView.vala:140
 msgid "Trash"
 msgstr "Papelera"
 
-#: src/views/SystemCleanerView.vala:148
+#: src/views/SystemCleanerView.vala:149
 msgid "Clean Up"
 msgstr "Limpiar"
 
-#: src/views/SystemCleanerView.vala:185
+#: src/views/SystemCleanerView.vala:186
 msgid "Do you want to continue?"
 msgstr "¿Deseas continuar?"
 
-#: src/views/SystemCleanerView.vala:191
+#: src/views/SystemCleanerView.vala:192
 msgid "Continue"
 msgstr "Continuar"
 
-#: src/views/SystemCleanerView.vala:196
+#: src/views/SystemCleanerView.vala:197
 msgid "Calculating file size…"
 msgstr "Calculando tamaño de archivos…"
 
-#: src/views/SystemCleanerView.vala:221
+#: src/views/SystemCleanerView.vala:223
 #, c-format
 msgid "This will delete the following files (%s):"
 msgstr "Esto eliminirá los siguientes archivos (%s):"
 
-#: src/views/SystemCleanerView.vala:227
+#: src/views/SystemCleanerView.vala:229
 msgid "Deleting selected files…"
 msgstr "Eliminando archivos seleccionados…"
 
-#: src/views/SystemCleanerView.vala:243
+#: src/views/SystemCleanerView.vala:247
 msgid "No items selected"
 msgstr "Ningún elemento seleccionado"
 
-#: src/views/SystemCleanerView.vala:263
+#: src/views/SystemCleanerView.vala:267
 msgid "Finished cleaning up with no errors"
 msgstr "Limpieza terminada sin errores"
 
-#: src/views/SystemCleanerView.vala:309
+#: src/views/SystemCleanerView.vala:313
 #, c-format
 msgid "Finished cleaning up %s"
 msgstr "Limpieza terminada %s"
 
-#: src/views/SystemCleanerView.vala:310
+#: src/views/SystemCleanerView.vala:314
 msgid "with errors!"
 msgstr "con errores"
 
-#: src/views/SystemCleanerView.vala:310
+#: src/views/SystemCleanerView.vala:314
 msgid "with no errors"
 msgstr "sin errores"
 

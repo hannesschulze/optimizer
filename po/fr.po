@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.hannesschulze.optimizer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-23 15:37+0100\n"
+"POT-Creation-Date: 2019-04-20 21:23+0200\n"
 "PO-Revision-Date: 2019-03-23 15:24+0100\n"
 "Last-Translator: NathanBnm\n"
 "Language-Team: Français\n"
@@ -19,7 +19,6 @@ msgstr ""
 
 #: data/com.github.hannesschulze.optimizer.desktop.in:3
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:6
-#: src/configs/Constants.vala:31
 msgid "Optimizer"
 msgstr "Optimiseur"
 
@@ -110,71 +109,71 @@ msgstr "Débit descendant :"
 msgid "Upload:"
 msgstr "Débit montant :"
 
-#: src/views/SystemCleanerView.vala:76
+#: src/views/SystemCleanerView.vala:77
 msgid "Package Caches"
 msgstr "Cache des paquets"
 
-#: src/views/SystemCleanerView.vala:97
+#: src/views/SystemCleanerView.vala:98
 msgid "Crash Reports"
 msgstr "Rapports de plantage"
 
-#: src/views/SystemCleanerView.vala:111
+#: src/views/SystemCleanerView.vala:112
 msgid "Application Logs"
 msgstr "Journaux d'application"
 
-#: src/views/SystemCleanerView.vala:125
+#: src/views/SystemCleanerView.vala:126
 msgid "Application Caches"
 msgstr "Cache des applications"
 
-#: src/views/SystemCleanerView.vala:139
+#: src/views/SystemCleanerView.vala:140
 msgid "Trash"
 msgstr "Corbeille"
 
-#: src/views/SystemCleanerView.vala:148
+#: src/views/SystemCleanerView.vala:149
 msgid "Clean Up"
 msgstr "Nettoyer"
 
-#: src/views/SystemCleanerView.vala:185
+#: src/views/SystemCleanerView.vala:186
 msgid "Do you want to continue?"
 msgstr "Voulez-vous continuer ?"
 
-#: src/views/SystemCleanerView.vala:191
+#: src/views/SystemCleanerView.vala:192
 msgid "Continue"
 msgstr "Continuer"
 
-#: src/views/SystemCleanerView.vala:196
+#: src/views/SystemCleanerView.vala:197
 #, fuzzy
 msgid "Calculating file size…"
 msgstr "Calcul de la taille des fichiers…"
 
-#: src/views/SystemCleanerView.vala:221
+#: src/views/SystemCleanerView.vala:223
 #, fuzzy, c-format
 msgid "This will delete the following files (%s):"
 msgstr "Cette action supprimera les fichiers suivants (%s) :"
 
-#: src/views/SystemCleanerView.vala:227
+#: src/views/SystemCleanerView.vala:229
 #, fuzzy
 msgid "Deleting selected files…"
 msgstr "Suppression des fichiers sélectionnés…"
 
-#: src/views/SystemCleanerView.vala:243
+#: src/views/SystemCleanerView.vala:247
 msgid "No items selected"
 msgstr "Aucun élément sélectionné"
 
-#: src/views/SystemCleanerView.vala:263
+#: src/views/SystemCleanerView.vala:267
 msgid "Finished cleaning up with no errors"
 msgstr "Le nettoyage s'est terminé sans erreur"
 
-#: src/views/SystemCleanerView.vala:309
+#: src/views/SystemCleanerView.vala:313
 #, c-format
 msgid "Finished cleaning up %s"
 msgstr "Le nettoyage s'est terminé %s"
 
-#: src/views/SystemCleanerView.vala:310
+#: src/views/SystemCleanerView.vala:314
 msgid "with errors!"
 msgstr "avec des erreurs"
 
-#: src/views/SystemCleanerView.vala:310
+#: src/views/SystemCleanerView.vala:314
 msgid "with no errors"
 msgstr "sans erreur"
 
