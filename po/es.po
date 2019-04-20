@@ -7,10 +7,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.hannesschulze.optimizer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-20 21:23+0200\n"
-"PO-Revision-Date: 2019-03-03 14:37+0100\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"POT-Creation-Date: 2019-03-23 15:37+0100\n"
+"PO-Revision-Date: 2019-04-19 11:46+0200\n"
+"Last-Translator: SrGMC\n"
+"Language-Team: Español\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,16 +20,16 @@ msgstr ""
 #: data/com.github.hannesschulze.optimizer.desktop.in:3
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:6
 msgid "Optimizer"
-msgstr ""
+msgstr "Optimizador"
 
 #: data/com.github.hannesschulze.optimizer.desktop.in:4
 msgid "com.github.hannesschulze.optimizer"
-msgstr ""
+msgstr "com.github.hannesschulze.optimizer"
 
 #: data/com.github.hannesschulze.optimizer.desktop.in:6
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:7
 msgid "Clean up your system"
-msgstr ""
+msgstr "Limpiar tu sistema"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:9
 #: src/configs/Constants.vala:34
@@ -37,236 +37,239 @@ msgid ""
 "Find out what's eating up your system resources and delete unnecessary files "
 "from your disk."
 msgstr ""
+"Descubre qué está consumiendo los recursos de tu sistema y elimina archivos innecesarios "
+"de tu disco."
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:17
 msgid "Get a detailed overview of the deleted files"
-msgstr ""
+msgstr "Obtén una vista general detallada de los archivos eliminados"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:19
 msgid "Calculating the size of the deleted files"
-msgstr ""
+msgstr "Calculando tamaño de archivos eliminados"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:20
 msgid "Showing a detailed list of those files"
-msgstr ""
+msgstr "Mostrando vista detallada de esos archivos"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:21
 msgid ""
 "The circular progress bars will now get inactive when the window loses focus"
 msgstr ""
+"Las barras de progreso circulares se desactivarán cuando la ventana pierda su enfoque."
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:22
 msgid "Fix a bug where the window is too large when using French translations"
-msgstr ""
+msgstr "Se ha corregido un error por el que la ventana era demasiado grande con las traducciones al francés."
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:23
 msgid "Fixes for French translations"
-msgstr ""
+msgstr "Arreglos para las traducciones francesas"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:29
 msgid "French translations thanks to @NathanBnm"
-msgstr ""
+msgstr "Traducciones al francés gracias a @NathanBnm"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:34
 msgid "Initial release"
-msgstr ""
+msgstr "Lanzamiento Inicial"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:79
 msgid "Hannes Schulze"
-msgstr ""
+msgstr "Hannes Schulze"
 
 #: src/configs/Constants.vala:35
 msgid "Translators"
-msgstr ""
+msgstr "Traductores"
 
 #: src/configs/Constants.vala:40
 msgid "Website"
-msgstr ""
+msgstr "Página web"
 
 #: src/views/DashboardView.vala:53
 msgid "CPU"
-msgstr ""
+msgstr "CPU"
 
 #: src/views/DashboardView.vala:60
 msgid "RAM"
-msgstr ""
+msgstr "RAM"
 
 #: src/views/DashboardView.vala:65
 msgid "Disk"
-msgstr ""
+msgstr "Disco"
 
 #: src/views/DashboardView.vala:78
 msgid "Download:"
-msgstr ""
+msgstr "Bajada:"
 
 #: src/views/DashboardView.vala:92
 msgid "Upload:"
-msgstr ""
+msgstr "Subida:"
 
 #: src/views/SystemCleanerView.vala:77
 msgid "Package Caches"
-msgstr ""
+msgstr "Caché de Paquetes"
 
 #: src/views/SystemCleanerView.vala:98
 msgid "Crash Reports"
-msgstr ""
+msgstr "Informes de Fallos"
 
 #: src/views/SystemCleanerView.vala:112
 msgid "Application Logs"
-msgstr ""
+msgstr "Informes de Aplicación"
 
 #: src/views/SystemCleanerView.vala:126
 msgid "Application Caches"
-msgstr ""
+msgstr "Caché de Aplicaciones"
 
 #: src/views/SystemCleanerView.vala:140
 msgid "Trash"
-msgstr ""
+msgstr "Papelera"
 
 #: src/views/SystemCleanerView.vala:149
 msgid "Clean Up"
-msgstr ""
+msgstr "Limpiar"
 
 #: src/views/SystemCleanerView.vala:186
 msgid "Do you want to continue?"
-msgstr ""
+msgstr "¿Deseas continuar?"
 
 #: src/views/SystemCleanerView.vala:192
 msgid "Continue"
-msgstr ""
+msgstr "Continuar"
 
 #: src/views/SystemCleanerView.vala:197
 msgid "Calculating file size…"
-msgstr ""
+msgstr "Calculando tamaño de archivos…"
 
 #: src/views/SystemCleanerView.vala:223
 #, c-format
 msgid "This will delete the following files (%s):"
-msgstr ""
+msgstr "Esto eliminirá los siguientes archivos (%s):"
 
 #: src/views/SystemCleanerView.vala:229
 msgid "Deleting selected files…"
-msgstr ""
+msgstr "Eliminando archivos seleccionados…"
 
 #: src/views/SystemCleanerView.vala:247
 msgid "No items selected"
-msgstr ""
+msgstr "Ningún elemento seleccionado"
 
 #: src/views/SystemCleanerView.vala:267
 msgid "Finished cleaning up with no errors"
-msgstr ""
+msgstr "Limpieza terminada sin errores"
 
 #: src/views/SystemCleanerView.vala:313
 #, c-format
 msgid "Finished cleaning up %s"
-msgstr ""
+msgstr "Limpieza terminada %s"
 
 #: src/views/SystemCleanerView.vala:314
 msgid "with errors!"
-msgstr ""
+msgstr "con errores"
 
 #: src/views/SystemCleanerView.vala:314
 msgid "with no errors"
-msgstr ""
+msgstr "sin errores"
 
 #: src/views/ProcessesView.vala:72
 msgid "End Process"
-msgstr ""
+msgstr "Finalizar Proceso"
 
 #: src/views/ProcessesView.vala:91
 msgid "PID"
-msgstr ""
+msgstr "PID"
 
 #: src/views/ProcessesView.vala:100
 msgid "Total Memory"
-msgstr ""
+msgstr "Memoria Total"
 
 #: src/views/ProcessesView.vala:118
 msgid "% Memory"
-msgstr ""
+msgstr "% Memoria"
 
 #: src/views/ProcessesView.vala:134
 msgid "User"
-msgstr ""
+msgstr "Usuario"
 
 #: src/views/ProcessesView.vala:143
 #, c-format
 msgid "% CPU"
-msgstr ""
+msgstr "% CPU"
 
 #: src/views/ProcessesView.vala:158
 msgid "Process"
-msgstr ""
+msgstr "Proceso"
 
 #: src/views/AppView.vala:39
 msgid "Dashboard"
-msgstr ""
+msgstr "Inicio"
 
 #: src/views/AppView.vala:42
 msgid "Cleaner"
-msgstr ""
+msgstr "Limpieza"
 
 #: src/views/AppView.vala:45
 msgid "Processes"
-msgstr ""
+msgstr "Procesos"
 
 #: src/widgets/HeaderBar.vala:82
 msgid "Monitored partition"
-msgstr ""
+msgstr "Particion supervisada"
 
 #: src/widgets/HeaderBar.vala:83
 msgid "Quit"
-msgstr ""
+msgstr "Salir"
 
 #: src/widgets/CircularProgressBar.vala:194
 #, c-format
 msgid "%d Percent"
-msgstr ""
+msgstr "%d Por ciento"
 
 #: src/widgets/SystemInfo.vala:42
 msgid "Hostname:"
-msgstr ""
+msgstr "Nombre de la máquina:"
 
 #: src/widgets/SystemInfo.vala:60
 msgid "Distribution:"
-msgstr ""
+msgstr "Distribución:"
 
 #: src/widgets/SystemInfo.vala:80
 msgid "Architecture:"
-msgstr ""
+msgstr "Arquitectura:"
 
 #: src/widgets/SystemInfo.vala:85
 msgid "Kernel:"
-msgstr ""
+msgstr "Kernel:"
 
 #: src/widgets/SystemInfo.vala:89
 msgid "CPU Model:"
-msgstr ""
+msgstr "Modelo de CPU:"
 
 #: src/widgets/SystemInfo.vala:93
 msgid "CPU Cores:"
-msgstr ""
+msgstr "Nucleos:"
 
 #: src/widgets/SystemInfo.vala:117
 msgid "Unknown"
-msgstr ""
+msgstr "Desconocido"
 
 #: src/widgets/SystemInfo.vala:133
 msgid "Single-Core"
-msgstr ""
+msgstr "Mononúcleo"
 
 #: src/widgets/SystemInfo.vala:162
 msgid "Dual-Core"
-msgstr ""
+msgstr "Doble núcleo"
 
 #: src/widgets/SystemInfo.vala:164
 msgid "Quad-Core"
-msgstr ""
+msgstr "Cuádruple núcleo"
 
 #: src/widgets/SystemInfo.vala:166
 msgid "Cores"
-msgstr ""
+msgstr "Núcleos"
 
 #: src/Main.vala:37
 msgid "Options"
-msgstr ""
+msgstr "Opciones"
