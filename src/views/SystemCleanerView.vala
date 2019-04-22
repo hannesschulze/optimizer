@@ -298,68 +298,73 @@ namespace Optimizer.Views {
             }
 
             if (!selected_folders.is_empty) {
-                var message_dialog = new Granite.MessageDialog.with_image_from_icon_name (_("Do you want to continue?"),
-                    "",
-                    "dialog-warning",
-                    Gtk.ButtonsType.CANCEL);
-                message_dialog.width_request = 600;
-
-                var continue_button = new Gtk.Button.with_label (_("Continue"));
-                continue_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
-                message_dialog.add_action_widget (continue_button, Gtk.ResponseType.ACCEPT);
-
-                clean_up_button.sensitive = false;
-
                 Utils.DiskSpace.FormattedList[] selected_folder_list = { };
+                uint64 total_file_size = 0;
                 foreach (var selected_folder in selected_folders.entries) {
                     if (folder_list.has_key (selected_folder.key)) {
                         selected_folder_list += folder_list[selected_folder.key];
+                        total_file_size += folder_list[selected_folder.key].folder_size;
                     }
                 }
+                if (total_file_size != 0) {
+                    var message_dialog = new Granite.MessageDialog.with_image_from_icon_name (_("Do you want to continue?"),
+                        "",
+                        "dialog-warning",
+                        Gtk.ButtonsType.CANCEL);
+                    message_dialog.width_request = 600;
 
-                var files_list_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-                files_list_box.width_request = 300;
+                    var continue_button = new Gtk.Button.with_label (_("Continue"));
+                    continue_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
+                    message_dialog.add_action_widget (continue_button, Gtk.ResponseType.ACCEPT);
 
-                uint64 total_file_size = 0;
+                    clean_up_button.sensitive = false;
 
-                foreach (var folder in selected_folder_list) {
-                    var scrolled_window = new Gtk.ScrolledWindow (null, null);
-                    var list_view = new Gtk.TextView ();
-                    list_view.border_width = 6;
-                    list_view.editable = false;
-                    list_view.wrap_mode = Gtk.WrapMode.WORD;
-                    total_file_size += folder.folder_size;
-                    list_view.buffer.text = folder.file_list;
-                    scrolled_window.add (list_view);
-                    scrolled_window.height_request = 150;
+                    var files_list_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+                    files_list_box.width_request = 300;
 
-                    var expander = new Gtk.Expander (folder.heading);
-                    expander.add (scrolled_window);
-                    files_list_box.pack_start (expander);
-                }
+                    foreach (var folder in selected_folder_list) {
+                        if (folder.folder_size != 0) {
+                            var scrolled_window = new Gtk.ScrolledWindow (null, null);
+                            var list_view = new Gtk.TextView ();
+                            list_view.border_width = 6;
+                            list_view.editable = false;
+                            list_view.wrap_mode = Gtk.WrapMode.WORD;
+                            list_view.buffer.text = folder.file_list;
+                            scrolled_window.add (list_view);
+                            scrolled_window.height_request = 150;
 
-                message_dialog.secondary_text = _("This will delete the following files (%s):").printf
-                    (GLib.format_size (total_file_size, FormatSizeFlags.IEC_UNITS));
-                message_dialog.custom_bin.add (files_list_box);
-
-                message_dialog.show_all ();
-                if (message_dialog.run () == Gtk.ResponseType.ACCEPT) {
-                    status_toast.title = _("Deleting selected files…");
-                    status_toast.send_notification ();
-
-                    string[] folder_names = { };
-                    foreach (var folder in selected_folders.entries) {
-                        var extension = "*";
-                        if (folder.value != "") {
-                            extension += "." + folder.value;
+                            var expander = new Gtk.Expander (folder.heading);
+                            expander.add (scrolled_window);
+                            files_list_box.pack_start (expander);
                         }
-                        folder_names += Path.build_filename (folder.key, extension);
                     }
-                    remove_files (folder_names, needs_root);
+
+                    message_dialog.secondary_text = _("This will delete the following files (%s):").printf
+                        (GLib.format_size (total_file_size, FormatSizeFlags.IEC_UNITS));
+                    message_dialog.custom_bin.add (files_list_box);
+
+                    message_dialog.show_all ();
+                    if (message_dialog.run () == Gtk.ResponseType.ACCEPT) {
+                        status_toast.title = _("Deleting selected files…");
+                        status_toast.send_notification ();
+
+                        string[] folder_names = { };
+                        foreach (var folder in selected_folders.entries) {
+                            var extension = "*";
+                            if (folder.value != "") {
+                                extension += "." + folder.value;
+                            }
+                            folder_names += Path.build_filename (folder.key, extension);
+                        }
+                        remove_files (folder_names, needs_root);
+                    } else {
+                        clean_up_button.sensitive = true;
+                    }
+                    message_dialog.destroy ();
                 } else {
-                    clean_up_button.sensitive = true;
+                    error_toast.title = _("The selected items are already empty");
+                    error_toast.send_notification ();
                 }
-                message_dialog.destroy ();
             } else {
                 error_toast.title = _("No items selected");
                 error_toast.send_notification ();
