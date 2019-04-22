@@ -131,9 +131,9 @@ namespace Optimizer.Widgets {
             if (dark) {
                 if (Constants.USE_FALLBACK_PROGRESS_BAR_THEME) {
                     if (m_is_in_focus) {
-                        draw_stroke (cr, radius, 7, 0, center_x, center_y, 1.0, "#D9D9D9");
+                        draw_stroke (cr, radius, 7, 0, center_x, center_y, 1.0, "#262626");
                     } else {
-                        draw_stroke (cr, radius, 7, 0, center_x, center_y, 1.0, "#EDEDED");
+                        draw_stroke (cr, radius, 7, 0, center_x, center_y, 1.0, "#121212");
                     }
                 } else {
                     draw_stroke (cr, radius, 4, 0, center_x, center_y + 1, 1.0, "#454c54");
@@ -180,7 +180,7 @@ namespace Optimizer.Widgets {
                         if (m_is_in_focus) {
                             draw_stroke (cr, radius, 7, 0, center_x, center_y, progress, "#F37329");
                         } else {
-                            draw_stroke (cr, radius, 7, 0, center_x, center_y, progress, "#A7A7A7");
+                            draw_stroke (cr, radius, 7, 0, center_x, center_y, progress, "#585858");
                         }
                     } else {
                         if (m_is_in_focus) {
