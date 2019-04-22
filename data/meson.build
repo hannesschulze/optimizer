@@ -16,7 +16,6 @@ desktop_file = i18n.merge_file(
   output: 'com.github.hannesschulze.optimizer.desktop',
   type: 'desktop',
   po_dir: '../po',
-  type: 'desktop',
   install: true,
   install_dir: join_paths(get_option('datadir'), 'applications')
 )
