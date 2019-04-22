@@ -90,7 +90,6 @@ namespace Optimizer.Views {
             // PID column
             var column = new Gtk.TreeViewColumn.with_attributes (_("PID"), new Gtk.CellRendererText (), "text", 0);
             column.resizable = true;
-            column.fixed_width = 50;
             column.min_width = 37;
             column.sort_column_id = 0;
             tree_view.append_column (column);
@@ -104,7 +103,6 @@ namespace Optimizer.Views {
                 (cell as Gtk.CellRendererText).text = GLib.format_size ((uint64) val, GLib.FormatSizeFlags.IEC_UNITS);
             });
             column.resizable = true;
-            column.fixed_width = 90;
             column.min_width = 60;
             column.sort_column_id = 1;
             tree_view.append_column (column);
@@ -125,7 +123,6 @@ namespace Optimizer.Views {
                 (cell as Gtk.CellRendererText).text = "%.1f%%".printf ((used_memory / total_memory) * 100);
             });
             column.resizable = true;
-            column.fixed_width = 75;
             column.min_width = 60;
             column.sort_column_id = 1;
             tree_view.append_column (column);
@@ -133,7 +130,6 @@ namespace Optimizer.Views {
             // User column
             column = new Gtk.TreeViewColumn.with_attributes (_("User"), new Gtk.CellRendererText (), "text", 2);
             column.resizable = true;
-            column.fixed_width = 90;
             column.min_width = 60;
             column.sort_column_id = 2;
             tree_view.append_column (column);
@@ -147,7 +143,6 @@ namespace Optimizer.Views {
                 (cell as Gtk.CellRendererText).text = "%.1f%%".printf ((float) val * 100);
             });
             column.resizable = true;
-            column.fixed_width = 65;
             column.min_width = 60;
             column.sort_column_id = 3;
             tree_view.append_column (column);
