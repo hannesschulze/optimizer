@@ -18,5 +18,11 @@
 	    <summary>Most recent monitored partition</summary>
 	    <description>Most recent monitored partition</description>
 	  </key>
+
+    <key name="dark-theme" type="b">
+	    <default>false</default>
+	    <summary>Use a dark theme</summary>
+	    <description>Use a dark theme</description>
+	  </key>
 	</schema>
 </schemalist>

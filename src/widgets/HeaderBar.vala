@@ -94,6 +94,11 @@ namespace Optimizer.Widgets {
             mode_switch.valign = Gtk.Align.CENTER;
             mode_switch.bind_property ("active", gtk_settings, "gtk_application_prefer_dark_theme");
             mode_switch.margin_end = 6;
+            mode_switch.active = gtk_settings.gtk_application_prefer_dark_theme;
+            mode_switch.notify["active"].connect (() => {
+                Configs.Settings.get_instance ().dark_theme =
+                    gtk_settings.gtk_application_prefer_dark_theme;
+            });
             pack_end (mode_switch);
         }
 
