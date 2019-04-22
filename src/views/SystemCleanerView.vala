@@ -31,7 +31,6 @@ namespace Optimizer.Views {
         private Gtk.Box                    main_box;
         private Granite.Widgets.Toast      error_toast;
         private Granite.Widgets.Toast      status_toast;
-        private Granite.Widgets.Toast      calculating_toast;
         private Granite.Widgets.Toast      result_toast;
         private Gtk.Box                    toast_box;
         private Gtk.CheckButton            trash_checkbox;
@@ -47,7 +46,7 @@ namespace Optimizer.Views {
         private Gtk.Revealer               storage_label_revealer;
         private Gtk.Revealer               storage_bar_revealer;
         private CustomStorageBar           storage_bar;
-        private Utils.DiskSpace.FormattedList[] folder_list;
+        private Gee.HashMap<string, Utils.DiskSpace.FormattedList?> folder_list;
 
         /**
          * Constructs a new {@code SystemCleanerView} object.
@@ -57,12 +56,10 @@ namespace Optimizer.Views {
             last_toggled = { false, false, false, false, false };
 
             error_toast = new Granite.Widgets.Toast ("");
-            calculating_toast = new Granite.Widgets.Toast ("");
             status_toast = new Granite.Widgets.Toast ("");
             result_toast = new Granite.Widgets.Toast ("");
             toast_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
             toast_box.pack_start (error_toast, false, false, 0);
-            toast_box.pack_start (calculating_toast, false, false, 0);
             toast_box.pack_start (status_toast, false, false, 0);
             toast_box.pack_start (result_toast, false, false, 0);
             toast_box.valign = Gtk.Align.START;
@@ -121,8 +118,8 @@ namespace Optimizer.Views {
             all_folders[Path.build_filename (Environment.get_home_dir (), ".local/share/Trash/info")] = "trashinfo";
 
             Utils.DiskSpace.get_formatted_file_list.begin (all_folders, (obj, res) => {
-                folder_list = Utils.DiskSpace.get_formatted_file_list.end (res);
-                handle_formatted_list ();
+                var unordered_folders = Utils.DiskSpace.get_formatted_file_list.end (res);
+                handle_formatted_list (unordered_folders);
 
                 storage_label_revealer.reveal_child = false;
                 storage_bar_revealer.reveal_child = true;
@@ -232,8 +229,9 @@ namespace Optimizer.Views {
             }
         }
 
-        private void handle_formatted_list () {
-            foreach (var folder in folder_list) {
+        private void handle_formatted_list (Utils.DiskSpace.FormattedList[] unordered_folders) {
+            folder_list = new Gee.HashMap<string, Utils.DiskSpace.FormattedList?> ();
+            foreach (var folder in unordered_folders) {
                 if (folder.path == package_cache_location[0]) {
                     storage_bar.update_block_size (CustomStorageBar.ItemDescription.PACKAGE_CACHES, folder.folder_size);
                 } else if (folder.path == "/var/crash") {
@@ -245,6 +243,7 @@ namespace Optimizer.Views {
                 } else if (folder.path == Path.build_filename (Environment.get_home_dir (), ".local/share/Trash/files")) {
                     storage_bar.update_block_size (CustomStorageBar.ItemDescription.TRASH, folder.folder_size);
                 }
+                folder_list[folder.path] = folder;
             }
             storage_bar.show_all ();
         }
@@ -306,12 +305,20 @@ namespace Optimizer.Views {
                 message_dialog.add_action_widget (continue_button, Gtk.ResponseType.ACCEPT);
 
                 clean_up_button.sensitive = false;
+
+                Utils.DiskSpace.FormattedList[] selected_folder_list = { };
+                foreach (var selected_folder in selected_folders.entries) {
+                    if (folder_list.has_key (selected_folder.key)) {
+                        selected_folder_list += folder_list[selected_folder.key];
+                    }
+                }
+
                 var files_list_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
                 files_list_box.width_request = 300;
 
                 uint64 total_file_size = 0;
 
-                foreach (var folder in folder_list) {
+                foreach (var folder in selected_folder_list) {
                     var scrolled_window = new Gtk.ScrolledWindow (null, null);
                     var list_view = new Gtk.TextView ();
                     list_view.border_width = 6;
