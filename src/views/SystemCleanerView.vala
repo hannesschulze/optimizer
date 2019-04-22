@@ -27,21 +27,26 @@ namespace Optimizer.Views {
      * @since 1.0.0
      */
     public class SystemCleanerView : Gtk.Overlay {
-        private Gtk.Grid              main_grid;
-        private Granite.Widgets.Toast error_toast;
-        private Granite.Widgets.Toast calculating_toast;
-        private Granite.Widgets.Toast status_toast;
-        private Granite.Widgets.Toast result_toast;
-        private Gtk.Box               toast_box;
-        private Gtk.CheckButton       trash_checkbox;
-        private Gtk.CheckButton       application_caches_checkbox;
-        private Gtk.CheckButton       application_logs_checkbox;
-        private Gtk.CheckButton       crash_reports_checkbox;
-        private Gtk.CheckButton       package_caches_checkbox;
-        private string[]?             package_cache_location;
-        private Gtk.CheckButton       select_all_btn;
-        private Gtk.Button            clean_up_button;
-        private bool[]                last_toggled;
+        private Gtk.Grid                   main_grid;
+        private Gtk.Box                    main_box;
+        private Granite.Widgets.Toast      error_toast;
+        private Granite.Widgets.Toast      status_toast;
+        private Granite.Widgets.Toast      calculating_toast;
+        private Granite.Widgets.Toast      result_toast;
+        private Gtk.Box                    toast_box;
+        private Gtk.CheckButton            trash_checkbox;
+        private Gtk.CheckButton            application_caches_checkbox;
+        private Gtk.CheckButton            application_logs_checkbox;
+        private Gtk.CheckButton            crash_reports_checkbox;
+        private Gtk.CheckButton            package_caches_checkbox;
+        private string[]?                  package_cache_location;
+        private Gtk.CheckButton            select_all_btn;
+        private Gtk.Button                 clean_up_button;
+        private bool[]                     last_toggled;
+
+        private Gtk.Revealer               storage_label_revealer;
+        private Gtk.Revealer               storage_bar_revealer;
+        private Granite.Widgets.StorageBar storage_bar;
 
         /**
          * Constructs a new {@code SystemCleanerView} object.
@@ -63,12 +68,52 @@ namespace Optimizer.Views {
 
             main_grid = new Gtk.Grid ();
             main_grid.halign = Gtk.Align.CENTER;
-            main_grid.valign = Gtk.Align.CENTER;
+            main_grid.valign = Gtk.Align.FILL;
             main_grid.column_homogeneous = true;
             main_grid.column_spacing = 36;
             main_grid.row_spacing = 12;
             main_grid.expand = true;
-            add (main_grid);
+
+            main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 12);
+            main_box.pack_end (main_grid, true, true);
+            add (main_box);
+
+            // Storage Bar
+            var storage_spinner = new Gtk.Spinner ();
+            storage_spinner.active = true;
+            var storage_label = new Gtk.Label (_("Calculating file size…"));
+            var storage_label_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 12);
+            storage_label_box.pack_start (storage_spinner, false, true);
+            storage_label_box.pack_start (storage_label, false, true);
+            storage_label_box.halign = Gtk.Align.CENTER;
+            storage_label_revealer = new Gtk.Revealer ();
+            storage_label_revealer.add (storage_label_box);
+            storage_label_revealer.transition_type = Gtk.RevealerTransitionType.NONE;
+            storage_label_revealer.reveal_child = true;
+
+            storage_bar = new Granite.Widgets.StorageBar (Utils.DiskSpace.get_total_disk_space ());
+            storage_bar.margin_start = 24;
+            storage_bar.margin_end = 24;
+            storage_bar_revealer = new Gtk.Revealer ();
+            storage_bar_revealer.transition_duration = 400;
+            storage_bar_revealer.reveal_child = false;
+            storage_bar_revealer.add (storage_bar);
+
+            var storage_bar_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+            storage_bar_box.margin_top = 48;
+            storage_bar_box.pack_start (storage_label_revealer);
+            storage_bar_box.pack_start (storage_bar_revealer);
+            storage_bar_box.valign = Gtk.Align.START;
+
+            main_box.pack_start (storage_bar_box, false, true);
+
+            Timeout.add_seconds (5, () => {
+                storage_label_revealer.reveal_child = false;
+                storage_bar_revealer.reveal_child = true;
+                clean_up_button.sensitive = true;
+
+                return false;
+            });
 
             // Package Caches
             package_cache_location = get_package_manager_cache ();
@@ -164,6 +209,7 @@ namespace Optimizer.Views {
             clean_up_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
             clean_up_button.valign = Gtk.Align.CENTER;
             clean_up_button.clicked.connect (clean_up);
+            clean_up_button.sensitive = false;
             clean_up_box.pack_start (clean_up_button, false, true);
 
             if (package_cache_location != null) {
