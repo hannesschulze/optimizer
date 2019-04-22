@@ -85,6 +85,16 @@ namespace Optimizer.Widgets {
             menu = new Gtk.Popover.from_model (null, main_menu);
             menu_button.popover = menu;
             pack_end (menu_button);
+
+            var gtk_settings = Gtk.Settings.get_default ();
+
+            var mode_switch = new Granite.ModeSwitch.from_icon_name ("display-brightness-symbolic", "weather-clear-night-symbolic");
+            mode_switch.primary_icon_tooltip_text = ("Light background");
+            mode_switch.secondary_icon_tooltip_text = ("Dark background");
+            mode_switch.valign = Gtk.Align.CENTER;
+            mode_switch.bind_property ("active", gtk_settings, "gtk_application_prefer_dark_theme");
+            mode_switch.margin_end = 6;
+            pack_end (mode_switch);
         }
 
         public void add_partition (string partition_path) {
