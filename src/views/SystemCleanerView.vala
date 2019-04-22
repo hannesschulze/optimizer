@@ -47,11 +47,13 @@ namespace Optimizer.Views {
         private Gtk.Revealer               storage_label_revealer;
         private Gtk.Revealer               storage_bar_revealer;
         private Granite.Widgets.StorageBar storage_bar;
+        private Utils.DiskSpace.FormattedList[] folder_list;
 
         /**
          * Constructs a new {@code SystemCleanerView} object.
          */
         public SystemCleanerView () {
+            package_cache_location = get_package_manager_cache ();
             last_toggled = { false, false, false, false, false };
 
             error_toast = new Granite.Widgets.Toast ("");
@@ -107,16 +109,27 @@ namespace Optimizer.Views {
 
             main_box.pack_start (storage_bar_box, false, true);
 
-            Timeout.add_seconds (5, () => {
+            // Start calculating!
+            var all_folders = new Gee.HashMap<string, string> ();
+            if (package_cache_location != null) {
+                all_folders[package_cache_location[0]] = package_cache_location[1];
+            }
+            all_folders["/var/crash"] = "crash";
+            all_folders["/var/log"] = "";
+            all_folders[Path.build_filename (Environment.get_home_dir (), ".cache")] = "";
+            all_folders[Path.build_filename (Environment.get_home_dir (), ".local/share/Trash/files")] = "";
+            all_folders[Path.build_filename (Environment.get_home_dir (), ".local/share/Trash/info")] = "trashinfo";
+
+            Utils.DiskSpace.get_formatted_file_list.begin (all_folders, (obj, res) => {
+                folder_list = Utils.DiskSpace.get_formatted_file_list.end (res);
+                handle_formatted_list ();
+
                 storage_label_revealer.reveal_child = false;
                 storage_bar_revealer.reveal_child = true;
                 clean_up_button.sensitive = true;
-
-                return false;
             });
 
             // Package Caches
-            package_cache_location = get_package_manager_cache ();
             if (package_cache_location != null) {
                 var package_caches_icon = new Gtk.Image ();
                 package_caches_icon.gicon = new ThemedIcon ("package-x-generic");
@@ -219,6 +232,10 @@ namespace Optimizer.Views {
             }
         }
 
+        private void handle_formatted_list () {
+
+        }
+
         private void select_all () {
             if (select_all_btn.active) {
                 last_toggled[0] = trash_checkbox.active;
@@ -275,56 +292,50 @@ namespace Optimizer.Views {
                 continue_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
                 message_dialog.add_action_widget (continue_button, Gtk.ResponseType.ACCEPT);
 
-
-                calculating_toast.title = _("Calculating file size…");
                 clean_up_button.sensitive = false;
-                calculating_toast.send_notification ();
-                Utils.DiskSpace.get_formatted_file_list.begin (selected_folders, (obj, res) => {
-                    var files_list_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-                    files_list_box.width_request = 300;
+                var files_list_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+                files_list_box.width_request = 300;
 
-                    uint64 total_file_size = 0;
-                    Utils.DiskSpace.FormattedList[] folder_list = Utils.DiskSpace.get_formatted_file_list.end (res);
+                uint64 total_file_size = 0;
 
-                    foreach (var folder in folder_list) {
-                        var scrolled_window = new Gtk.ScrolledWindow (null, null);
-                        var list_view = new Gtk.TextView ();
-                        list_view.border_width = 6;
-                        list_view.editable = false;
-                        list_view.wrap_mode = Gtk.WrapMode.WORD;
-                        total_file_size += folder.folder_size;
-                        list_view.buffer.text = folder.file_list;
-                        scrolled_window.add (list_view);
-                        scrolled_window.height_request = 150;
+                foreach (var folder in folder_list) {
+                    var scrolled_window = new Gtk.ScrolledWindow (null, null);
+                    var list_view = new Gtk.TextView ();
+                    list_view.border_width = 6;
+                    list_view.editable = false;
+                    list_view.wrap_mode = Gtk.WrapMode.WORD;
+                    total_file_size += folder.folder_size;
+                    list_view.buffer.text = folder.file_list;
+                    scrolled_window.add (list_view);
+                    scrolled_window.height_request = 150;
 
-                        var expander = new Gtk.Expander (folder.heading);
-                        expander.add (scrolled_window);
-                        files_list_box.pack_start (expander);
-                    }
+                    var expander = new Gtk.Expander (folder.heading);
+                    expander.add (scrolled_window);
+                    files_list_box.pack_start (expander);
+                }
 
-                    message_dialog.secondary_text = _("This will delete the following files (%s):").printf
-                        (GLib.format_size (total_file_size, FormatSizeFlags.IEC_UNITS));
-                    message_dialog.custom_bin.add (files_list_box);
+                message_dialog.secondary_text = _("This will delete the following files (%s):").printf
+                    (GLib.format_size (total_file_size, FormatSizeFlags.IEC_UNITS));
+                message_dialog.custom_bin.add (files_list_box);
 
-                    message_dialog.show_all ();
-                    if (message_dialog.run () == Gtk.ResponseType.ACCEPT) {
-                        status_toast.title = _("Deleting selected files…");
-                        status_toast.send_notification ();
+                message_dialog.show_all ();
+                if (message_dialog.run () == Gtk.ResponseType.ACCEPT) {
+                    status_toast.title = _("Deleting selected files…");
+                    status_toast.send_notification ();
 
-                        string[] folder_names = { };
-                        foreach (var folder in selected_folders.entries) {
-                            var extension = "*";
-                            if (folder.value != "") {
-                                extension += "." + folder.value;
-                            }
-                            folder_names += Path.build_filename (folder.key, extension);
+                    string[] folder_names = { };
+                    foreach (var folder in selected_folders.entries) {
+                        var extension = "*";
+                        if (folder.value != "") {
+                            extension += "." + folder.value;
                         }
-                        remove_files (folder_names, needs_root);
-                    } else {
-                        clean_up_button.sensitive = true;
+                        folder_names += Path.build_filename (folder.key, extension);
                     }
-                    message_dialog.destroy ();
-                });
+                    remove_files (folder_names, needs_root);
+                } else {
+                    clean_up_button.sensitive = true;
+                }
+                message_dialog.destroy ();
             } else {
                 error_toast.title = _("No items selected");
                 error_toast.send_notification ();
