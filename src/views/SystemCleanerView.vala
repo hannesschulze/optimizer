@@ -46,7 +46,7 @@ namespace Optimizer.Views {
 
         private Gtk.Revealer               storage_label_revealer;
         private Gtk.Revealer               storage_bar_revealer;
-        private Granite.Widgets.StorageBar storage_bar;
+        private CustomStorageBar           storage_bar;
         private Utils.DiskSpace.FormattedList[] folder_list;
 
         /**
@@ -93,7 +93,7 @@ namespace Optimizer.Views {
             storage_label_revealer.transition_type = Gtk.RevealerTransitionType.NONE;
             storage_label_revealer.reveal_child = true;
 
-            storage_bar = new Granite.Widgets.StorageBar (Utils.DiskSpace.get_total_disk_space ());
+            storage_bar = new CustomStorageBar (Utils.DiskSpace.get_total_disk_space ());
             storage_bar.margin_start = 24;
             storage_bar.margin_end = 24;
             storage_bar_revealer = new Gtk.Revealer ();
@@ -233,7 +233,20 @@ namespace Optimizer.Views {
         }
 
         private void handle_formatted_list () {
-
+            foreach (var folder in folder_list) {
+                if (folder.path == package_cache_location[0]) {
+                    storage_bar.update_block_size (CustomStorageBar.ItemDescription.PACKAGE_CACHES, folder.folder_size);
+                } else if (folder.path == "/var/crash") {
+                    storage_bar.update_block_size (CustomStorageBar.ItemDescription.CRASH_REPORTS, folder.folder_size);
+                } else if (folder.path == "/var/log") {
+                    storage_bar.update_block_size (CustomStorageBar.ItemDescription.APPLICATION_LOGS, folder.folder_size);
+                } else if (folder.path == Path.build_filename (Environment.get_home_dir (), ".cache")) {
+                    storage_bar.update_block_size (CustomStorageBar.ItemDescription.APPLICATION_CACHES, folder.folder_size);
+                } else if (folder.path == Path.build_filename (Environment.get_home_dir (), ".local/share/Trash/files")) {
+                    storage_bar.update_block_size (CustomStorageBar.ItemDescription.TRASH, folder.folder_size);
+                }
+            }
+            storage_bar.show_all ();
         }
 
         private void select_all () {

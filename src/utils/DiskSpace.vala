@@ -34,6 +34,7 @@ namespace Optimizer.Utils {
             public string heading;
             public string file_list;
             public uint64 folder_size;
+            public string path;
         }
 
         public static async FormattedList[] get_formatted_file_list (Gee.HashMap<string, string> selected_folders) {
@@ -55,6 +56,7 @@ namespace Optimizer.Utils {
                         GLib.format_size (current_size, FormatSizeFlags.IEC_UNITS));
                     item.file_list = file_list;
                     item.folder_size = current_size;
+                    item.path = folder.key;
                     result += item;
                 }
 
