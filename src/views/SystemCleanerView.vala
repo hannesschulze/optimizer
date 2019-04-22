@@ -39,12 +39,16 @@ namespace Optimizer.Views {
         private Gtk.CheckButton       crash_reports_checkbox;
         private Gtk.CheckButton       package_caches_checkbox;
         private string[]?             package_cache_location;
+        private Gtk.CheckButton       select_all_btn;
         private Gtk.Button            clean_up_button;
+        private bool[]                last_toggled;
 
         /**
          * Constructs a new {@code SystemCleanerView} object.
          */
         public SystemCleanerView () {
+            last_toggled = { false, false, false, false, false };
+
             error_toast = new Granite.Widgets.Toast ("");
             calculating_toast = new Granite.Widgets.Toast ("");
             status_toast = new Granite.Widgets.Toast ("");
@@ -145,16 +149,48 @@ namespace Optimizer.Views {
             trash_checkbox.halign = Gtk.Align.CENTER;
             main_grid.attach_next_to (trash_checkbox, trash_label, Gtk.PositionType.BOTTOM);
 
+            var clean_up_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 24);
+            clean_up_box.halign = Gtk.Align.CENTER;
+            clean_up_box.margin_top = 24;
+
+            // Select all checkbox
+            select_all_btn = new Gtk.CheckButton.with_label (_("Select all"));
+            select_all_btn.valign = Gtk.Align.CENTER;
+            select_all_btn.toggled.connect (select_all);
+            clean_up_box.pack_start (select_all_btn, false, true);
+
             // Clean Up button
             clean_up_button = new Gtk.Button.with_label (_("Clean Up"));
             clean_up_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
-            clean_up_button.halign = Gtk.Align.CENTER;
-            clean_up_button.margin_top = 24;
+            clean_up_button.valign = Gtk.Align.CENTER;
             clean_up_button.clicked.connect (clean_up);
+            clean_up_box.pack_start (clean_up_button, false, true);
+
             if (package_cache_location != null) {
-                main_grid.attach (clean_up_button, 0, 3, 5, 1);
+                main_grid.attach (clean_up_box, 0, 3, 5, 1);
             } else {
-                main_grid.attach (clean_up_button, 0, 3, 4, 1);
+                main_grid.attach (clean_up_box, 0, 3, 4, 1);
+            }
+        }
+
+        private void select_all () {
+            if (select_all_btn.active) {
+                last_toggled[0] = trash_checkbox.active;
+                last_toggled[1] = application_caches_checkbox.active;
+                last_toggled[2] = application_logs_checkbox.active;
+                last_toggled[3] = crash_reports_checkbox.active;
+                last_toggled[4] = package_caches_checkbox.active;
+                trash_checkbox.active = true;
+                application_caches_checkbox.active = true;
+                application_logs_checkbox.active = true;
+                crash_reports_checkbox.active = true;
+                package_caches_checkbox.active = true;
+            } else {
+                trash_checkbox.active = last_toggled[0];
+                application_caches_checkbox.active = last_toggled[1];
+                application_logs_checkbox.active = last_toggled[2];
+                crash_reports_checkbox.active = last_toggled[3];
+                package_caches_checkbox.active = last_toggled[4];
             }
         }
 
