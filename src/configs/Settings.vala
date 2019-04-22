@@ -52,6 +52,13 @@ namespace Optimizer.Configs {
         public string monitored_partition { get; set; }
 
         /**
+         * This property is set to true when the user selected a dark theme using
+         * the ModeSwitch.
+         * Variable of type {@code bool} as declared.
+         */
+        public bool dark_theme { get; set; }
+
+        /**
          * Constructs a new {@code Settings} object
          * and sets the default exit folder.
          */

@@ -124,47 +124,98 @@ namespace Optimizer.Widgets {
             var radius = calculate_radius () - 1;
 
             // Radius fill
-            if (Constants.USE_FALLBACK_PROGRESS_BAR_THEME) {
-                if (m_is_in_focus) {
-                    draw_stroke (cr, radius, 7, 0, center_x, center_y, 1.0, "#D9D9D9");
+            var settings = Gtk.Settings.get_default();
+		    var theme = Environment.get_variable("GTK_THEME");
+            var dark = settings.gtk_application_prefer_dark_theme || (theme != null && theme.has_suffix(":dark"));
+
+            if (dark) {
+                if (Constants.USE_FALLBACK_PROGRESS_BAR_THEME) {
+                    if (m_is_in_focus) {
+                        draw_stroke (cr, radius, 7, 0, center_x, center_y, 1.0, "#262626");
+                    } else {
+                        draw_stroke (cr, radius, 7, 0, center_x, center_y, 1.0, "#121212");
+                    }
                 } else {
-                    draw_stroke (cr, radius, 7, 0, center_x, center_y, 1.0, "#EDEDED");
+                    draw_stroke (cr, radius, 4, 0, center_x, center_y + 1, 1.0, "#454c54");
+                    if (m_is_in_focus) {
+                        draw_stroke (cr, radius, 7, 0, center_x, center_y, 1.0, "#2c2f34");
+                        draw_stroke (cr, radius, 5, 1, center_x, center_y, 1.0, "#4f5863");
+                        draw_stroke (cr, radius, 3, 2, center_x, center_y, 1.0, "#393e43");
+                        draw_stroke (cr, radius, 2, 3, center_x, center_y, 1.0, "#383c42");
+                        draw_stroke (cr, radius, 1, 4, center_x, center_y, 1.0, "#373b40");
+                    } else {
+                        draw_stroke (cr, radius, 7, 0, center_x, center_y, 1.0, "#2d2f32");
+                        draw_stroke (cr, radius, 5, 1, center_x, center_y, 1.0, "#4f5863");
+                        draw_stroke (cr, radius, 3, 2, center_x, center_y, 1.0, "#3b3f45");
+                    }
                 }
             } else {
-                draw_stroke (cr, radius, 4, 0, center_x, center_y + 1, 1.0, "#ffffff");
-                if (m_is_in_focus) {
-                    draw_stroke (cr, radius, 7, 0, center_x, center_y, 1.0, "#b7b7b7");
-                    draw_stroke (cr, radius, 5, 1, center_x, center_y, 1.0, "#ffffff");
-                    draw_stroke (cr, radius, 3, 2, center_x, center_y, 1.0, "#efefef");
-                    draw_stroke (cr, radius, 2, 3, center_x, center_y, 1.0, "#e9e9e9");
-                    draw_stroke (cr, radius, 1, 4, center_x, center_y, 1.0, "#e2e2e2");
+                if (Constants.USE_FALLBACK_PROGRESS_BAR_THEME) {
+                    if (m_is_in_focus) {
+                        draw_stroke (cr, radius, 7, 0, center_x, center_y, 1.0, "#D9D9D9");
+                    } else {
+                        draw_stroke (cr, radius, 7, 0, center_x, center_y, 1.0, "#EDEDED");
+                    }
                 } else {
-                    draw_stroke (cr, radius, 7, 0, center_x, center_y, 1.0, "#b8b8b8");
-                    draw_stroke (cr, radius, 5, 1, center_x, center_y, 1.0, "#ffffff");
-                    draw_stroke (cr, radius, 3, 2, center_x, center_y, 1.0, "#f5f5f5");
+                    draw_stroke (cr, radius, 4, 0, center_x, center_y + 1, 1.0, "#ffffff");
+                    if (m_is_in_focus) {
+                        draw_stroke (cr, radius, 7, 0, center_x, center_y, 1.0, "#b7b7b7");
+                        draw_stroke (cr, radius, 5, 1, center_x, center_y, 1.0, "#ffffff");
+                        draw_stroke (cr, radius, 3, 2, center_x, center_y, 1.0, "#efefef");
+                        draw_stroke (cr, radius, 2, 3, center_x, center_y, 1.0, "#e9e9e9");
+                        draw_stroke (cr, radius, 1, 4, center_x, center_y, 1.0, "#e2e2e2");
+                    } else {
+                        draw_stroke (cr, radius, 7, 0, center_x, center_y, 1.0, "#b8b8b8");
+                        draw_stroke (cr, radius, 5, 1, center_x, center_y, 1.0, "#ffffff");
+                        draw_stroke (cr, radius, 3, 2, center_x, center_y, 1.0, "#f5f5f5");
+                    }
                 }
             }
 
             // Progress fill
             double progress = (double) percentage;
-            if (progress > 0.0) {
-                if (Constants.USE_FALLBACK_PROGRESS_BAR_THEME) {
-                    if (m_is_in_focus) {
-                        draw_stroke (cr, radius, 7, 0, center_x, center_y, progress, "#F37329");
+            if (dark) {
+                if (progress > 0.0) {
+                    if (Constants.USE_FALLBACK_PROGRESS_BAR_THEME) {
+                        if (m_is_in_focus) {
+                            draw_stroke (cr, radius, 7, 0, center_x, center_y, progress, "#F37329");
+                        } else {
+                            draw_stroke (cr, radius, 7, 0, center_x, center_y, progress, "#585858");
+                        }
                     } else {
-                        draw_stroke (cr, radius, 7, 0, center_x, center_y, progress, "#A7A7A7");
+                        if (m_is_in_focus) {
+                            draw_stroke (cr, radius, 7, 0, center_x, center_y, progress, "#e76419");
+                            draw_stroke (cr, radius, 5, 1, center_x, center_y, progress, "#ffcbac");
+                            draw_stroke (cr, radius, 3, 2, center_x, center_y, progress, "#fe9c63");
+                            draw_stroke (cr, radius, 2, 3, center_x, center_y, progress, "#fd9356");
+                            draw_stroke (cr, radius, 1, 4, center_x, center_y, progress, "#fc8946");
+                        } else {
+                            draw_stroke (cr, radius, 7, 0, center_x, center_y, progress, "#292b2d");
+                            draw_stroke (cr, radius, 5, 1, center_x, center_y, progress, "#3d434a");
+                            draw_stroke (cr, radius, 3, 2, center_x, center_y, progress, "#32363a");
+                        }
                     }
-                } else {
-                    if (m_is_in_focus) {
-                        draw_stroke (cr, radius, 7, 0, center_x, center_y, progress, "#e76419");
-                        draw_stroke (cr, radius, 5, 1, center_x, center_y, progress, "#ffcbac");
-                        draw_stroke (cr, radius, 3, 2, center_x, center_y, progress, "#fe9c63");
-                        draw_stroke (cr, radius, 2, 3, center_x, center_y, progress, "#fd9356");
-                        draw_stroke (cr, radius, 1, 4, center_x, center_y, progress, "#fc8946");
+                }
+            } else {
+                if (progress > 0.0) {
+                    if (Constants.USE_FALLBACK_PROGRESS_BAR_THEME) {
+                        if (m_is_in_focus) {
+                            draw_stroke (cr, radius, 7, 0, center_x, center_y, progress, "#F37329");
+                        } else {
+                            draw_stroke (cr, radius, 7, 0, center_x, center_y, progress, "#A7A7A7");
+                        }
                     } else {
-                        draw_stroke (cr, radius, 7, 0, center_x, center_y, progress, "#a7a7a7");
-                        draw_stroke (cr, radius, 5, 1, center_x, center_y, progress, "#e2e2e2");
-                        draw_stroke (cr, radius, 3, 2, center_x, center_y, progress, "#d0d0d0");
+                        if (m_is_in_focus) {
+                            draw_stroke (cr, radius, 7, 0, center_x, center_y, progress, "#e76419");
+                            draw_stroke (cr, radius, 5, 1, center_x, center_y, progress, "#ffcbac");
+                            draw_stroke (cr, radius, 3, 2, center_x, center_y, progress, "#fe9c63");
+                            draw_stroke (cr, radius, 2, 3, center_x, center_y, progress, "#fd9356");
+                            draw_stroke (cr, radius, 1, 4, center_x, center_y, progress, "#fc8946");
+                        } else {
+                            draw_stroke (cr, radius, 7, 0, center_x, center_y, progress, "#a7a7a7");
+                            draw_stroke (cr, radius, 5, 1, center_x, center_y, progress, "#e2e2e2");
+                            draw_stroke (cr, radius, 3, 2, center_x, center_y, progress, "#d0d0d0");
+                        }
                     }
                 }
             }
