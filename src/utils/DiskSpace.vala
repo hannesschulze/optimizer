@@ -218,5 +218,35 @@ namespace Optimizer.Utils {
 
             return mounts;
         }
+
+        public static uint64 get_total_disk_space () {
+            uint64 total = get_disk_space_for_partition ("/");
+            Gee.ArrayList<string> mounts = new Gee.ArrayList<string>.wrap (get_mounts ());
+
+            if (mounts.contains ("/home")) {
+                total += get_disk_space_for_partition ("/home");
+            }
+            if (mounts.contains ("/var")) {
+                total += get_disk_space_for_partition ("/var");
+            }
+            if (mounts.contains ("/var/cache")) {
+                total += get_disk_space_for_partition ("/var/cache");
+            }
+
+            return total;
+        }
+
+        private static uint64 get_disk_space_for_partition (string mount) {
+            var root_mount = GLib.File.new_for_path (mount);
+            try {
+                var info = root_mount.query_filesystem_info (GLib.FileAttribute.FILESYSTEM_SIZE, null);
+                uint64 total_attr = info.get_attribute_uint64 (GLib.FileAttribute.FILESYSTEM_SIZE);
+
+                return total_attr;
+            } catch (Error e) {
+                warning (e.message);
+                return 0;
+            }
+        }
     }
 }
