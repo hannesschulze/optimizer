@@ -426,7 +426,29 @@ namespace Optimizer.Views {
 	                result_toast.title = _("Finished cleaning up %s").printf
 	                    (got_error ? _("with errors!") : _("with no errors"));
 	                result_toast.send_notification ();
-                    clean_up_button.sensitive = true;
+
+                    // Recalculate
+                    storage_label_revealer.reveal_child = true;
+                    storage_bar_revealer.reveal_child = false;
+                    clean_up_button.sensitive = false;
+                    var all_folders = new Gee.HashMap<string, string> ();
+                    if (package_cache_location != null) {
+                        all_folders[package_cache_location[0]] = package_cache_location[1];
+                    }
+                    all_folders["/var/crash"] = "crash";
+                    all_folders["/var/log"] = "";
+                    all_folders[Path.build_filename (Environment.get_home_dir (), ".cache")] = "";
+                    all_folders[Path.build_filename (Environment.get_home_dir (), ".local/share/Trash/files")] = "";
+                    all_folders[Path.build_filename (Environment.get_home_dir (), ".local/share/Trash/info")] = "trashinfo";
+
+                    Utils.DiskSpace.get_formatted_file_list.begin (all_folders, (obj, res) => {
+                        var unordered_folders = Utils.DiskSpace.get_formatted_file_list.end (res);
+                        handle_formatted_list (unordered_folders);
+
+                        storage_label_revealer.reveal_child = false;
+                        storage_bar_revealer.reveal_child = true;
+                        clean_up_button.sensitive = true;
+                    });
                 });
             } catch (SpawnError err) {
                 stderr.printf ("Could not spawn command: %s\n", err.message);
