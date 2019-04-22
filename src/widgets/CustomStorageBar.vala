@@ -226,7 +226,7 @@ public class Optimizer.Widgets.CustomStorageBar : Gtk.Box {
         }
 
         free_space.size = free;
-        description_label.label = _("%s out of %s can be deleted").printf (GLib.format_size (storage - free), GLib.format_size (storage));
+        description_label.label = _("%s out of %s can be deleted").printf (GLib.format_size (storage - free, FormatSizeFlags.IEC_UNITS), GLib.format_size (storage, FormatSizeFlags.IEC_UNITS));
     }
 
     /**
@@ -263,7 +263,7 @@ public class Optimizer.Widgets.CustomStorageBar : Gtk.Box {
                     visible = true;
                     legend_item.no_show_all = false;
                     legend_item.visible = true;
-                    size_label.label = GLib.format_size (_size);
+                    size_label.label = GLib.format_size (_size, FormatSizeFlags.IEC_UNITS);
                     queue_resize ();
                 }
             }

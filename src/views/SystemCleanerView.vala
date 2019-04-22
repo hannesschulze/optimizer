@@ -121,6 +121,7 @@ namespace Optimizer.Views {
                 var unordered_folders = Utils.DiskSpace.get_formatted_file_list.end (res);
                 handle_formatted_list (unordered_folders);
 
+                // Hide label, show StorageBar
                 storage_label_revealer.reveal_child = false;
                 storage_bar_revealer.reveal_child = true;
                 clean_up_button.sensitive = true;
@@ -229,6 +230,9 @@ namespace Optimizer.Views {
             }
         }
 
+        /**
+         * Add entries to the folder_list and update the StorageBar
+         */
         private void handle_formatted_list (Utils.DiskSpace.FormattedList[] unordered_folders) {
             folder_list = new Gee.HashMap<string, Utils.DiskSpace.FormattedList?> ();
             foreach (var folder in unordered_folders) {
