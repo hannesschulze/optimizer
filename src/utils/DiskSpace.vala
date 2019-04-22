@@ -34,6 +34,7 @@ namespace Optimizer.Utils {
             public string heading;
             public string file_list;
             public uint64 folder_size;
+            public string path;
         }
 
         public static async FormattedList[] get_formatted_file_list (Gee.HashMap<string, string> selected_folders) {
@@ -55,6 +56,7 @@ namespace Optimizer.Utils {
                         GLib.format_size (current_size, FormatSizeFlags.IEC_UNITS));
                     item.file_list = file_list;
                     item.folder_size = current_size;
+                    item.path = folder.key;
                     result += item;
                 }
 
@@ -147,6 +149,106 @@ namespace Optimizer.Utils {
             }
 
             return true;
+        }
+
+        public static string[] get_mounts () {
+            // We only want to show partitions mounted on every boot, so
+            // we will simply parse the /etc/fstab file
+            var fstab_file = File.new_for_path ("/etc/fstab");
+            if (!fstab_file.query_exists ()) {
+                stderr.printf ("/etc/fstab doesn't exist (how did you do that?)\n");
+                return { "/" };
+            }
+
+            string[] mounts = { };
+
+            try {
+                var data_input_stream = new DataInputStream (fstab_file.read ());
+                string line;
+
+                // Go through the lines
+                while ((line = data_input_stream.read_line (null)) != null) {
+                    // Skip comments
+                    if (line.@get (0) == '#') {
+                        continue;
+                    }
+
+                    // Trim spaces and create an array
+                    string[] values = { };
+                    StringBuilder current_value = new StringBuilder ();
+                    foreach (var current_char in line.data) {
+                        if (current_char == ' ') {
+                            if (current_value.str != "") {
+                                values += current_value.str;
+                            }
+                            current_value = new StringBuilder ();
+                        } else {
+                            current_value.append_unichar (current_char);
+                        }
+                    }
+                    if (current_value.str != "") {
+                        values += current_value.str;
+                    }
+
+                    // Check if this is a valid entry
+                    if (values.length > 3) {
+                        // The path isn't allowed to be none (e.g. swap)
+                        if (values[1] == "none") {
+                            continue;
+                        }
+
+                        // The path has to start with '/'
+                        if (values[1].@get (0) != '/') {
+                            continue;
+                        }
+
+                        // Check if the path exists
+                        var mount_file = File.new_for_path (values[1]);
+                        if (!mount_file.query_exists ()) {
+                            stderr.printf ("%s doesn't exist, ignoring it\n", values[1]);
+                            continue;
+                        }
+
+                        // Add this path to the array
+                        mounts += values[1];
+                    }
+                }
+            } catch (Error err) {
+                stderr.printf ("%s\n", err.message);
+                return { "/" };
+            }
+
+            return mounts;
+        }
+
+        public static uint64 get_total_disk_space () {
+            uint64 total = get_disk_space_for_partition ("/");
+            Gee.ArrayList<string> mounts = new Gee.ArrayList<string>.wrap (get_mounts ());
+
+            if (mounts.contains ("/home")) {
+                total += get_disk_space_for_partition ("/home");
+            }
+            if (mounts.contains ("/var")) {
+                total += get_disk_space_for_partition ("/var");
+            }
+            if (mounts.contains ("/var/cache")) {
+                total += get_disk_space_for_partition ("/var/cache");
+            }
+
+            return total;
+        }
+
+        private static uint64 get_disk_space_for_partition (string mount) {
+            var root_mount = GLib.File.new_for_path (mount);
+            try {
+                var info = root_mount.query_filesystem_info (GLib.FileAttribute.FILESYSTEM_SIZE, null);
+                uint64 total_attr = info.get_attribute_uint64 (GLib.FileAttribute.FILESYSTEM_SIZE);
+
+                return total_attr;
+            } catch (Error e) {
+                warning (e.message);
+                return 0;
+            }
         }
     }
 }

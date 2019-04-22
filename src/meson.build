@@ -27,6 +27,7 @@ optimizer_sources = files(
   'widgets/HeaderBar.vala',
   'widgets/CircularProgressBar.vala',
   'widgets/SystemInfo.vala',
+  'widgets/CustomStorageBar.vala',
   'Application.vala',
   'Main.vala',
   'Window.vala',
