@@ -12,6 +12,22 @@
     <binary>com.github.hannesschulze.optimizer</binary>
   </provides>
   <releases>
+    <release version="1.2.0" date="2019-04-23">
+      <description>
+        <p>Visualize the files that can be deleted</p>
+        <ul>
+          <li>A new visualizer of the files that can be deleted in the system cleaner</li>
+          <li>You won't get asked if you want to continue when the selected directories are already empty</li>
+          <li>You can now "Select All" items in the system cleaner</li>
+          <li>The column sizes in the processes overview are adjusted automatically</li>
+          <li>A new dark mode</li>
+          <li>The "Clean Up" button gets deactivated when it is already in progress, so you don't accidentally hit it twice</li>
+          <li>Spanish translations thanks to @SrGMC</li>
+          <li>Lithuanian translations thanks to @welaq</li>
+          <li>Dutch translations thanks to @Vistaus</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.1.0" date="2019-03-12">
       <description>
         <p>Get a detailed overview of the deleted files</p>
