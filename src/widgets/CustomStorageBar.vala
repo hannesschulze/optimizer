@@ -195,11 +195,9 @@ public class Optimizer.Widgets.CustomStorageBar : Gtk.Box {
             index++;
         });
 
-        free_space = new FillBlock (ItemDescription.TRASH, storage);
-        used_space = new FillBlock (ItemDescription.TRASH, total_usage);
+        free_space = new FillBlock (ItemDescription.OTHER, storage);
+        used_space = new FillBlock (ItemDescription.OTHER, total_usage);
         free_space.get_style_context ().add_class ("empty-block");
-        free_space.get_style_context ().remove_class ("app");
-        used_space.get_style_context ().remove_class ("app");
         blocks.set (index++, used_space);
         blocks.set (index++, free_space);
         fillblock_box.add (used_space);
@@ -216,14 +214,8 @@ public class Optimizer.Widgets.CustomStorageBar : Gtk.Box {
             user_size += block.size;
         }
 
-        uint64 free;
-        if (user_size > total_usage) {
-            free = storage - user_size;
-            used_space.size = 0;
-        } else {
-            free = storage - total_usage;
-            used_space.size = total_usage - user_size;
-        }
+        uint64 free = storage - user_size;
+        used_space.size = total_usage - user_size;
 
         free_space.size = free;
         description_label.label = _("%s out of %s can be deleted").printf (GLib.format_size (storage - free, FormatSizeFlags.IEC_UNITS), GLib.format_size (storage, FormatSizeFlags.IEC_UNITS));

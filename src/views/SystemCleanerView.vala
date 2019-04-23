@@ -90,7 +90,9 @@ namespace Optimizer.Views {
             storage_label_revealer.transition_type = Gtk.RevealerTransitionType.NONE;
             storage_label_revealer.reveal_child = true;
 
-            storage_bar = new CustomStorageBar (Utils.DiskSpace.get_total_disk_space ());
+            uint64 total_disk_space, used_disk_space;
+            total_disk_space = Utils.DiskSpace.get_total_disk_space (out used_disk_space);
+            storage_bar = new CustomStorageBar.with_total_usage (total_disk_space, used_disk_space);
             storage_bar.margin_start = 24;
             storage_bar.margin_end = 24;
             storage_bar_revealer = new Gtk.Revealer ();
@@ -452,6 +454,9 @@ namespace Optimizer.Views {
 
                     Utils.DiskSpace.get_formatted_file_list.begin (all_folders, (obj, res) => {
                         var unordered_folders = Utils.DiskSpace.get_formatted_file_list.end (res);
+                        uint64 used_disk_space;
+                        Utils.DiskSpace.get_total_disk_space (out used_disk_space);
+                        storage_bar.total_usage = used_disk_space;
                         handle_formatted_list (unordered_folders);
 
                         storage_label_revealer.reveal_child = false;

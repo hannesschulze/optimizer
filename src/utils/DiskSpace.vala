@@ -221,32 +221,42 @@ namespace Optimizer.Utils {
             return mounts;
         }
 
-        public static uint64 get_total_disk_space () {
-            uint64 total = get_disk_space_for_partition ("/");
+        public static uint64 get_total_disk_space (out uint64 used) {
+            uint64 total = get_disk_space_for_partition ("/", out used);
             Gee.ArrayList<string> mounts = new Gee.ArrayList<string>.wrap (get_mounts ());
 
             if (mounts.contains ("/home")) {
-                total += get_disk_space_for_partition ("/home");
+                uint64 new_used;
+                total += get_disk_space_for_partition ("/home", out new_used);
+                used += new_used;
             }
             if (mounts.contains ("/var")) {
-                total += get_disk_space_for_partition ("/var");
+                uint64 new_used;
+                total += get_disk_space_for_partition ("/var", out new_used);
+                used += new_used;
             }
             if (mounts.contains ("/var/cache")) {
-                total += get_disk_space_for_partition ("/var/cache");
+                uint64 new_used;
+                total += get_disk_space_for_partition ("/var/cache", out new_used);
+                used += new_used;
             }
 
             return total;
         }
 
-        private static uint64 get_disk_space_for_partition (string mount) {
+        private static uint64 get_disk_space_for_partition (string mount, out uint64 used) {
             var root_mount = GLib.File.new_for_path (mount);
             try {
                 var info = root_mount.query_filesystem_info (GLib.FileAttribute.FILESYSTEM_SIZE, null);
                 uint64 total_attr = info.get_attribute_uint64 (GLib.FileAttribute.FILESYSTEM_SIZE);
 
+                info = root_mount.query_filesystem_info (GLib.FileAttribute.FILESYSTEM_USED, null);
+                used = info.get_attribute_uint64 (GLib.FileAttribute.FILESYSTEM_USED);
+
                 return total_attr;
             } catch (Error e) {
                 warning (e.message);
+                used = 0;
                 return 0;
             }
         }
