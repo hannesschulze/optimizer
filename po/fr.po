@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.hannesschulze.optimizer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-20 21:23+0200\n"
+"POT-Creation-Date: 2019-04-23 10:38+0200\n"
 "PO-Revision-Date: 2019-03-23 15:24+0100\n"
 "Last-Translator: NathanBnm\n"
 "Language-Team: Français\n"
@@ -41,43 +41,90 @@ msgstr ""
 "fichiers inutiles de votre disque."
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:17
+msgid "Visualize the files that can be deleted"
+msgstr ""
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:19
+msgid "A new visualizer of the files that can be deleted in the system cleaner"
+msgstr ""
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:20
+msgid ""
+"You won't get asked if you want to continue when the selected directories "
+"are already empty"
+msgstr ""
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:21
+msgid "You can now \"Select All\" items in the system cleaner"
+msgstr ""
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:22
+msgid "The column sizes in the processes overview are adjusted automatically"
+msgstr ""
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:23
+msgid "A new dark mode"
+msgstr ""
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:24
+msgid ""
+"The \"Clean Up\" button gets deactivated when it is already in progress, so "
+"you don't accidentally hit it twice"
+msgstr ""
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:25
+#, fuzzy
+msgid "Spanish translations thanks to @SrGMC"
+msgstr "Traductions en français grâce à @NathanBnm"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:26
+#, fuzzy
+msgid "Lithuanian translations thanks to @welaq"
+msgstr "Traductions en français grâce à @NathanBnm"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:27
+#, fuzzy
+msgid "Dutch translations thanks to @Vistaus"
+msgstr "Traductions en français grâce à @NathanBnm"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:33
 msgid "Get a detailed overview of the deleted files"
 msgstr "Obtenez un aperçu détaillé des fichiers supprimés"
 
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:19
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:35
 msgid "Calculating the size of the deleted files"
 msgstr "Calcul de la taille des fichiers supprimés"
 
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:20
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:36
 msgid "Showing a detailed list of those files"
 msgstr "Affichage d'une liste détaillée de ces fichiers"
 
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:21
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:37
 msgid ""
 "The circular progress bars will now get inactive when the window loses focus"
 msgstr ""
 "Les barres de progression circulaires deviennent inactives lorsque la "
 "fenêtre n'est plus au premier plan."
 
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:22
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:38
 msgid "Fix a bug where the window is too large when using French translations"
 msgstr ""
 "Correction d'un bug où la fenêtre est trop grande lors de l'utilisation de "
 "traductions en français"
 
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:23
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:39
 msgid "Fixes for French translations"
 msgstr "Corrections pour les traductions en français"
 
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:29
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:45
 msgid "French translations thanks to @NathanBnm"
 msgstr "Traductions en français grâce à @NathanBnm"
 
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:34
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:50
 msgid "Initial release"
 msgstr "Version initiale"
 
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:79
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:95
 msgid "Hannes Schulze"
 msgstr "Hannes Schulze"
 
@@ -109,71 +156,79 @@ msgstr "Débit descendant :"
 msgid "Upload:"
 msgstr "Débit montant :"
 
-#: src/views/SystemCleanerView.vala:77
-msgid "Package Caches"
-msgstr "Cache des paquets"
-
-#: src/views/SystemCleanerView.vala:98
-msgid "Crash Reports"
-msgstr "Rapports de plantage"
-
-#: src/views/SystemCleanerView.vala:112
-msgid "Application Logs"
-msgstr "Journaux d'application"
-
-#: src/views/SystemCleanerView.vala:126
-msgid "Application Caches"
-msgstr "Cache des applications"
-
-#: src/views/SystemCleanerView.vala:140
-msgid "Trash"
-msgstr "Corbeille"
-
-#: src/views/SystemCleanerView.vala:149
-msgid "Clean Up"
-msgstr "Nettoyer"
-
-#: src/views/SystemCleanerView.vala:186
-msgid "Do you want to continue?"
-msgstr "Voulez-vous continuer ?"
-
-#: src/views/SystemCleanerView.vala:192
-msgid "Continue"
-msgstr "Continuer"
-
-#: src/views/SystemCleanerView.vala:197
+#: src/views/SystemCleanerView.vala:83
 #, fuzzy
 msgid "Calculating file size…"
 msgstr "Calcul de la taille des fichiers…"
 
-#: src/views/SystemCleanerView.vala:223
+#: src/views/SystemCleanerView.vala:137 src/widgets/CustomStorageBar.vala:51
+msgid "Package Caches"
+msgstr "Cache des paquets"
+
+#: src/views/SystemCleanerView.vala:158 src/widgets/CustomStorageBar.vala:53
+msgid "Crash Reports"
+msgstr "Rapports de plantage"
+
+#: src/views/SystemCleanerView.vala:172 src/widgets/CustomStorageBar.vala:55
+msgid "Application Logs"
+msgstr "Journaux d'application"
+
+#: src/views/SystemCleanerView.vala:186 src/widgets/CustomStorageBar.vala:57
+msgid "Application Caches"
+msgstr "Cache des applications"
+
+#: src/views/SystemCleanerView.vala:200 src/widgets/CustomStorageBar.vala:59
+msgid "Trash"
+msgstr "Corbeille"
+
+#: src/views/SystemCleanerView.vala:213
+msgid "Select all"
+msgstr ""
+
+#: src/views/SystemCleanerView.vala:219
+msgid "Clean Up"
+msgstr "Nettoyer"
+
+#: src/views/SystemCleanerView.vala:310
+msgid "Do you want to continue?"
+msgstr "Voulez-vous continuer ?"
+
+#: src/views/SystemCleanerView.vala:316
+msgid "Continue"
+msgstr "Continuer"
+
+#: src/views/SystemCleanerView.vala:342
 #, fuzzy, c-format
 msgid "This will delete the following files (%s):"
 msgstr "Cette action supprimera les fichiers suivants (%s) :"
 
-#: src/views/SystemCleanerView.vala:229
+#: src/views/SystemCleanerView.vala:348
 #, fuzzy
 msgid "Deleting selected files…"
 msgstr "Suppression des fichiers sélectionnés…"
 
-#: src/views/SystemCleanerView.vala:247
+#: src/views/SystemCleanerView.vala:365
+msgid "The selected items are already empty"
+msgstr ""
+
+#: src/views/SystemCleanerView.vala:369
 msgid "No items selected"
 msgstr "Aucun élément sélectionné"
 
-#: src/views/SystemCleanerView.vala:267
+#: src/views/SystemCleanerView.vala:389
 msgid "Finished cleaning up with no errors"
 msgstr "Le nettoyage s'est terminé sans erreur"
 
-#: src/views/SystemCleanerView.vala:313
+#: src/views/SystemCleanerView.vala:435
 #, c-format
 msgid "Finished cleaning up %s"
 msgstr "Le nettoyage s'est terminé %s"
 
-#: src/views/SystemCleanerView.vala:314
+#: src/views/SystemCleanerView.vala:436
 msgid "with errors!"
 msgstr "avec des erreurs"
 
-#: src/views/SystemCleanerView.vala:314
+#: src/views/SystemCleanerView.vala:436
 msgid "with no errors"
 msgstr "sans erreur"
 
@@ -185,24 +240,24 @@ msgstr "Arrêter le processus"
 msgid "PID"
 msgstr "PID"
 
-#: src/views/ProcessesView.vala:100
+#: src/views/ProcessesView.vala:99
 msgid "Total Memory"
 msgstr "Mémoire totale"
 
-#: src/views/ProcessesView.vala:118
+#: src/views/ProcessesView.vala:116
 msgid "% Memory"
 msgstr "% Mémoire"
 
-#: src/views/ProcessesView.vala:134
+#: src/views/ProcessesView.vala:131
 msgid "User"
 msgstr "Utilisateur"
 
-#: src/views/ProcessesView.vala:143
+#: src/views/ProcessesView.vala:139
 #, c-format
 msgid "% CPU"
 msgstr "% CPU"
 
-#: src/views/ProcessesView.vala:158
+#: src/views/ProcessesView.vala:153
 msgid "Process"
 msgstr "Processus"
 
@@ -226,7 +281,7 @@ msgstr "Partition surveillée"
 msgid "Quit"
 msgstr "Quitter"
 
-#: src/widgets/CircularProgressBar.vala:194
+#: src/widgets/CircularProgressBar.vala:245
 #, c-format
 msgid "%d Percent"
 msgstr "%d Pourcent"
@@ -274,6 +329,15 @@ msgstr "Quatre Coeurs"
 #: src/widgets/SystemInfo.vala:166
 msgid "Cores"
 msgstr "Coeurs"
+
+#: src/widgets/CustomStorageBar.vala:61
+msgid "Other"
+msgstr ""
+
+#: src/widgets/CustomStorageBar.vala:229
+#, c-format
+msgid "%s out of %s can be deleted"
+msgstr ""
 
 #: src/Main.vala:37
 msgid "Options"

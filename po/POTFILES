@@ -13,6 +13,7 @@ src/views/AppView.vala
 src/widgets/HeaderBar.vala
 src/widgets/CircularProgressBar.vala
 src/widgets/SystemInfo.vala
+src/widgets/CustomStorageBar.vala
 src/Application.vala
 src/Main.vala
 src/Window.vala
