@@ -12,6 +12,14 @@
     <binary>com.github.hannesschulze.optimizer</binary>
   </provides>
   <releases>
+    <release version="1.2.1" date="2019-04-23">
+      <description>
+        <ul>
+          <li>Russian translations thanks to @tim77</li>
+          <li>Updated Dutch translations</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.2.0" date="2019-04-23">
       <description>
         <p>Visualize the files that can be deleted</p>

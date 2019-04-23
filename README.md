@@ -19,7 +19,7 @@
     <img src="https://img.shields.io/badge/License-GPL--3.0-blue.svg">
   </a>
   <a href="https://github.com/hannesschulze/optimizer/releases">
-    <img src="https://img.shields.io/badge/Release-v%201.2.0-orange.svg">
+    <img src="https://img.shields.io/badge/Release-v%201.2.1-orange.svg">
   </a>
 </p>
 
