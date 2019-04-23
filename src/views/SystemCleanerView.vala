@@ -238,9 +238,7 @@ namespace Optimizer.Views {
         private void handle_formatted_list (Utils.DiskSpace.FormattedList[] unordered_folders) {
             folder_list = new Gee.HashMap<string, Utils.DiskSpace.FormattedList?> ();
             foreach (var folder in unordered_folders) {
-                if (folder.path == package_cache_location[0]) {
-                    storage_bar.update_block_size (CustomStorageBar.ItemDescription.PACKAGE_CACHES, folder.folder_size);
-                } else if (folder.path == "/var/crash") {
+                if (folder.path == "/var/crash") {
                     storage_bar.update_block_size (CustomStorageBar.ItemDescription.CRASH_REPORTS, folder.folder_size);
                 } else if (folder.path == "/var/log") {
                     storage_bar.update_block_size (CustomStorageBar.ItemDescription.APPLICATION_LOGS, folder.folder_size);
@@ -249,6 +247,13 @@ namespace Optimizer.Views {
                 } else if (folder.path == Path.build_filename (Environment.get_home_dir (), ".local/share/Trash/files")) {
                     storage_bar.update_block_size (CustomStorageBar.ItemDescription.TRASH, folder.folder_size);
                 }
+
+                if (package_cache_location != null) {
+                    if (folder.path == package_cache_location[0]) {
+                        storage_bar.update_block_size (CustomStorageBar.ItemDescription.PACKAGE_CACHES, folder.folder_size);
+                    }
+                }
+
                 folder_list[folder.path] = folder;
             }
             storage_bar.show_all ();
