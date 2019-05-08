@@ -40,7 +40,7 @@ These dependencies must be present before building:
  - `libwnck-3-dev`
 
 
-Use the following command to install the dependencies on Elementary:
+Use the following command to install the dependencies on elementary OS:
 ```shell
 sudo apt install elementary-sdk libgtop2-dev libwnck-3-dev
 ```
