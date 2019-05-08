@@ -47,7 +47,7 @@ sudo apt install elementary-sdk libgtop2-dev libwnck-3-dev
  
 Use the following command to install the dependencies on other Debian-based systems:
 ```shell
-apt install meson valac appstream-util cmake libgranite-dev libgtop2-dev libwnck-3-dev
+apt install meson valac appstream-util libgranite-dev libgtop2-dev libwnck-3-dev
 ```
  
 ### Building
