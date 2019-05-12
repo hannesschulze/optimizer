@@ -54,7 +54,6 @@ msgid "Upload:"
 msgstr "Débit montant :"
 
 #: src/views/SystemCleanerView.vala:83
-#, fuzzy
 msgid "Calculating file size…"
 msgstr "Calcul de la taille des fichiers…"
 
@@ -80,7 +79,7 @@ msgstr "Corbeille"
 
 #: src/views/SystemCleanerView.vala:215
 msgid "Select all"
-msgstr ""
+msgstr "Tout sélectionner"
 
 #: src/views/SystemCleanerView.vala:221
 msgid "Clean Up"
@@ -95,18 +94,17 @@ msgid "Continue"
 msgstr "Continuer"
 
 #: src/views/SystemCleanerView.vala:349
-#, fuzzy, c-format
+#, c-format
 msgid "This will delete the following files (%s):"
 msgstr "Cette action supprimera les fichiers suivants (%s) :"
 
 #: src/views/SystemCleanerView.vala:355
-#, fuzzy
 msgid "Deleting selected files…"
 msgstr "Suppression des fichiers sélectionnés…"
 
 #: src/views/SystemCleanerView.vala:372
 msgid "The selected items are already empty"
-msgstr ""
+msgstr "Les éléments sélectionnés sont déjà nettoyés"
 
 #: src/views/SystemCleanerView.vala:376
 msgid "No items selected"
@@ -229,12 +227,12 @@ msgstr "Coeurs"
 
 #: src/widgets/CustomStorageBar.vala:61
 msgid "Other"
-msgstr ""
+msgstr "Autre"
 
 #: src/widgets/CustomStorageBar.vala:221
 #, c-format
 msgid "%s out of %s can be deleted"
-msgstr ""
+msgstr "%s sur %s peuvent être supprimés"
 
 #: src/Main.vala:37
 msgid "Options"

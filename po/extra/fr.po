@@ -40,61 +40,59 @@ msgstr ""
 "fichiers inutiles de votre disque."
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:18
-#, fuzzy
 msgid "Russian translations thanks to @tim77"
-msgstr "Traductions en français grâce à @NathanBnm"
+msgstr "Traductions en russe grâce à @tim77"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:19
-#, fuzzy
 msgid "Updated Dutch translations"
-msgstr "Corrections pour les traductions en français"
+msgstr "Mise à jour des traductions en néerlandais"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:25
 msgid "Visualize the files that can be deleted"
-msgstr ""
+msgstr "Visualisez les fichiers qui peuvent être supprimés"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:27
 msgid "A new visualizer of the files that can be deleted in the system cleaner"
-msgstr ""
+msgstr "Une nouvelle façon de visualiser les fichiers qui peuvent être supprimés dans le nettoyeur du système"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:28
 msgid ""
 "You won't get asked if you want to continue when the selected directories "
 "are already empty"
 msgstr ""
+"Vous n'aurez pas de confirmation si les éléments sélectionnés sont déjà vides"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:29
 msgid "You can now \"Select All\" items in the system cleaner"
-msgstr ""
+msgstr "Vous pouvez désormais « Tout sélectionner » dans le nettoyeur du système"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:30
 msgid "The column sizes in the processes overview are adjusted automatically"
-msgstr ""
+msgstr "La taille des colonnes dans la vue des processus est ajustée automatiquement"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:31
 msgid "A new dark mode"
-msgstr ""
+msgstr "Nouveau thème sombre"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:32
 msgid ""
 "The \"Clean Up\" button gets deactivated when it is already in progress, so "
 "you don't accidentally hit it twice"
 msgstr ""
+"Le bouton « Nettoyer » est désormais désactivé pendant le nettoyage, pour "
+"éviter que vous n'appuyez accidentellement deux fois dessus"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:33
-#, fuzzy
 msgid "Spanish translations thanks to @SrGMC"
-msgstr "Traductions en français grâce à @NathanBnm"
+msgstr "Traductions en espagnol grâce à @SrGMC"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:34
-#, fuzzy
 msgid "Lithuanian translations thanks to @welaq"
-msgstr "Traductions en français grâce à @NathanBnm"
+msgstr "Traductions en lithuanien grâce à @welaq"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:35
-#, fuzzy
 msgid "Dutch translations thanks to @Vistaus"
-msgstr "Traductions en français grâce à @NathanBnm"
+msgstr "Traductions en néerlandais grâce à @Vistaus"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:41
 msgid "Get a detailed overview of the deleted files"
