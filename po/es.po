@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.hannesschulze.optimizer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-12 10:22+0200\n"
+"POT-Creation-Date: 2019-05-12 10:38+0200\n"
 "PO-Revision-Date: 2019-05-12 10:12+0200\n"
 "Last-Translator: SrGMC\n"
 "Language-Team: none\n"
@@ -175,6 +175,14 @@ msgstr "Particion supervisada"
 #: src/widgets/HeaderBar.vala:83
 msgid "Quit"
 msgstr "Salir"
+
+#: src/widgets/HeaderBar.vala:92
+msgid "Light background"
+msgstr ""
+
+#: src/widgets/HeaderBar.vala:93
+msgid "Dark background"
+msgstr ""
 
 #: src/widgets/CircularProgressBar.vala:245
 #, c-format
