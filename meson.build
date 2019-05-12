@@ -1,6 +1,4 @@
-project('com.github.hannesschulze.optimizer', ['c', 'vala'],        version: '1.2.1',
-  meson_version: '>= 0.40.0',
-)
+project('com.github.hannesschulze.optimizer', 'c', 'vala', version: '1.2.1')
 
 i18n = import('i18n')
 
@@ -12,8 +10,6 @@ c_args = [
 
 use_fallback_theme = get_option ('use_fallback_theme')
 
-subdir('data')
-subdir('po')
 subdir('src')
 
 optimizer_deps = [
@@ -30,13 +26,16 @@ optimizer_deps = [
 
 gnome = import('gnome')
 
-optimizer_sources += gnome.compile_resources('optimizer-resources',
-  'data/com.github.hannesschulze.optimizer.gresource.xml',
+optimizer_sources += gnome.compile_resources(
+  'optimizer-resources',
+  join_paths('data', meson.project_name() + '.gresource.xml'),
   source_dir: 'data',
   c_name: 'optimizer'
 )
 
-executable('com.github.hannesschulze.optimizer', optimizer_sources,
+executable(
+  meson.project_name(),
+  optimizer_sources,
   dependencies: optimizer_deps,
   install: true,
   c_args: c_args,
@@ -45,5 +44,8 @@ executable('com.github.hannesschulze.optimizer', optimizer_sources,
     '--target-glib=2.50'
   ]
 )
+
+subdir('data')
+subdir('po')
 
 meson.add_install_script('build-aux/meson/postinstall.py')
