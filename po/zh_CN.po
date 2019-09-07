@@ -326,14 +326,6 @@ msgstr "核心数"
 msgid "Other"
 msgstr "其他"
 
-# 注释：
-# 添加注释
-#
-# 格式：
-# C
-#
-# 路径：
-# src/widgets/CustomStorageBar.vala:229
 #: src/widgets/CustomStorageBar.vala:229
 #, c-format
 msgid "%s out of %s can be deleted"
