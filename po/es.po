@@ -79,7 +79,7 @@ msgstr ""
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:25
 #, fuzzy
 msgid "Spanish translations thanks to @SrGMC"
-msgstr "Traducciones al español gracias a @SrGMC"
+msgstr "Traducciones al español gracias a @SrGMC y @capitantrueno"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:26
 #, fuzzy
