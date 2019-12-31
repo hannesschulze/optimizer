@@ -29,6 +29,7 @@ namespace Optimizer.Views {
      */
     public class DashboardView : Gtk.Grid {
         private CircularProgressBar cpu_usage;
+        private CircularProgressBar gpu_usage;
         private CircularProgressBar ram_usage;
         private CircularProgressBar disk_usage;
 
@@ -37,6 +38,7 @@ namespace Optimizer.Views {
         private Gtk.ProgressBar     upload_speed;
 
         private SystemInfo          system_info;
+        private NVidiaInfo          nvidia_info;
 
         /**
          * Constructs a new {@code DashboardView} object.
@@ -49,24 +51,41 @@ namespace Optimizer.Views {
             valign = Gtk.Align.CENTER;
             column_homogeneous = true;
 
+            var components_grid = new Gtk.Grid ();
+            components_grid.column_spacing = 24;
+            components_grid.row_spacing = 12;
+            components_grid.row_homogeneous = true;
+            components_grid.halign = Gtk.Align.CENTER;
+            attach (components_grid, 0, 0, 3, 1);
+
+            int component_grid_count = 0;
             cpu_usage = new CircularProgressBar ();
             cpu_usage.description = _("CPU").up ();
             cpu_usage.percentage = 0.0;
             cpu_usage.halign = Gtk.Align.END;
             cpu_usage.margin_start = 24;
-            attach (cpu_usage, 0, 0, 1, 1);
+            components_grid.attach (cpu_usage, component_grid_count++, 0, 1, 1);
+
+            nvidia_info = NVidiaInfo.get_instance();
+            if (nvidia_info.IsNvScreen)
+            {
+                gpu_usage = new CircularProgressBar ();
+                gpu_usage.description = _("GPU").up ();
+                gpu_usage.percentage = 0.0;
+                components_grid.attach (gpu_usage, component_grid_count++, 0, 1, 1);
+            }
 
             ram_usage = new CircularProgressBar ();
             ram_usage.description = _("RAM").up ();
             ram_usage.percentage = 0.0;
-            attach (ram_usage, 1, 0, 1, 1);
+            components_grid.attach (ram_usage, component_grid_count++, 0, 1, 1);
 
             disk_usage = new CircularProgressBar ();
             disk_usage.description = _("Disk").up ();
             disk_usage.percentage = 0.0;
             disk_usage.halign = Gtk.Align.START;
             disk_usage.margin_end = 24;
-            attach (disk_usage, 2, 0, 1, 1);
+            components_grid.attach (disk_usage, component_grid_count++, 0, 1, 1);
 
             network_grid = new Gtk.Grid ();
             network_grid.column_spacing = 24;
@@ -115,6 +134,7 @@ namespace Optimizer.Views {
 
             // CPU usage
             cpu_usage.percentage = ((double) resources.get_cpu_usage ()) / 100;
+            gpu_usage.percentage = ((double) nvidia_info.get_gpu_usage ()) / 100;
 
             // Memory usage
             string total_memory = "";

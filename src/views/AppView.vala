@@ -16,6 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using Optimizer.Utils;
+
 namespace Optimizer.Views {
 
     /**
@@ -27,6 +29,7 @@ namespace Optimizer.Views {
         private DashboardView     dashboard_view;
         private SystemCleanerView system_cleaner_view;
         private ProcessesView     processes_view;
+        private NVidiaView        nvidia_view;
 
         /**
          * Constructs a new {@code AppView} object.
@@ -43,6 +46,13 @@ namespace Optimizer.Views {
 
             processes_view = new ProcessesView ();
             add_titled (processes_view, "processes", _("Processes"));
+
+            NVidiaInfo nvidia_info = NVidiaInfo.get_instance ();
+
+            if (nvidia_info.IsNvScreen) {
+                nvidia_view = new NVidiaView ();
+                add_titled (nvidia_view, "nvidia", _("NVidia"));
+            }
         }
     }
 }
