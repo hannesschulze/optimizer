@@ -26,17 +26,6 @@ public class Main {
         { null }
     };
 
-    public static void entry_point() {
-        X.Display dpy = new X.Display(null);
-        int event_basep, error_basep;
-        bool ret = false;
-        ret = XNVCTRL.QueryExtension(dpy, out event_basep, out error_basep);
-        if (!ret)
-        {
-            stderr.printf ("The NV-CONTROL X extension does not exist on '%s'.\n", dpy.display_string());
-        }
-    }
-
     /**
      * Main method. Responsible for starting the {@code Application} class.
      *

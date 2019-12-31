@@ -40,6 +40,8 @@ namespace Optimizer.Views {
         private SystemInfo          system_info;
         private NVidiaInfo          nvidia_info;
 
+        private bool has_gpu_support;
+
         /**
          * Constructs a new {@code DashboardView} object.
          */
@@ -69,6 +71,7 @@ namespace Optimizer.Views {
             nvidia_info = NVidiaInfo.get_instance();
             if (nvidia_info.IsNvScreen)
             {
+                has_gpu_support = true;
                 gpu_usage = new CircularProgressBar ();
                 gpu_usage.description = _("GPU").up ();
                 gpu_usage.percentage = 0.0;
@@ -134,7 +137,12 @@ namespace Optimizer.Views {
 
             // CPU usage
             cpu_usage.percentage = ((double) resources.get_cpu_usage ()) / 100;
-            gpu_usage.percentage = ((double) nvidia_info.get_gpu_usage ()) / 100;
+
+            // GPU usage
+            if (has_gpu_support)
+            {
+                gpu_usage.percentage = ((double) nvidia_info.get_gpu_usage ()) / 100;
+            }
 
             // Memory usage
             string total_memory = "";
