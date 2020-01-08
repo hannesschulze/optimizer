@@ -9,8 +9,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-04-23 10:38+0200\n"
 "PO-Revision-Date: 2019-04-19 11:46+0200\n"
-"Last-Translator: SrGMC\n"
-"Language-Team: Español\n"
+"Last-Translator: Mario Rodrigo (@capitantrueno)\n"
+"Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -42,50 +42,54 @@ msgstr ""
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:17
 msgid "Visualize the files that can be deleted"
-msgstr ""
+msgstr "Descubre qué ficheros pueden ser eliminados"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:19
 msgid "A new visualizer of the files that can be deleted in the system cleaner"
-msgstr ""
+msgstr "Una nueva forma de conocer qué ficheros pueden ser eliminados en el limpiador del sistema"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:20
 msgid ""
 "You won't get asked if you want to continue when the selected directories "
 "are already empty"
 msgstr ""
+"No serás preguntado si quieres continuar cuando los directorios seleccionados "
+"ya estén vacíos"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:21
 msgid "You can now \"Select All\" items in the system cleaner"
-msgstr ""
+msgstr "Ahora puedes \"Seleccionar Todos\" los elementos en el limpiador del sistema"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:22
 msgid "The column sizes in the processes overview are adjusted automatically"
-msgstr ""
+msgstr "El tamaño de las columnas en la vista general de procesos se ajusta automáticamente"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:23
 msgid "A new dark mode"
-msgstr ""
+msgstr "Un nuevo modo oscuro"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:24
 msgid ""
 "The \"Clean Up\" button gets deactivated when it is already in progress, so "
 "you don't accidentally hit it twice"
 msgstr ""
+"El botón \"Limpiar\" se desactiva cuando está en marcha, así "
+"se evita que accidentalmente lo pulse dos veces"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:25
 #, fuzzy
 msgid "Spanish translations thanks to @SrGMC"
-msgstr "Traducciones al francés gracias a @NathanBnm"
+msgstr "Traducciones al español gracias a @SrGMC y @capitantrueno"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:26
 #, fuzzy
 msgid "Lithuanian translations thanks to @welaq"
-msgstr "Traducciones al francés gracias a @NathanBnm"
+msgstr "Traducciones al lituano @welaq"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:27
 #, fuzzy
 msgid "Dutch translations thanks to @Vistaus"
-msgstr "Traducciones al francés gracias a @NathanBnm"
+msgstr "Traducciones al neerlandés gracias a @Vistaus"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:33
 msgid "Get a detailed overview of the deleted files"
@@ -182,7 +186,7 @@ msgstr "Papelera"
 
 #: src/views/SystemCleanerView.vala:213
 msgid "Select all"
-msgstr ""
+msgstr "Seleccionar todos"
 
 #: src/views/SystemCleanerView.vala:219
 msgid "Clean Up"
@@ -207,7 +211,7 @@ msgstr "Eliminando archivos seleccionados…"
 
 #: src/views/SystemCleanerView.vala:365
 msgid "The selected items are already empty"
-msgstr ""
+msgstr "Los elementos seleccionados ya están limpios"
 
 #: src/views/SystemCleanerView.vala:369
 msgid "No items selected"
@@ -330,12 +334,12 @@ msgstr "Núcleos"
 
 #: src/widgets/CustomStorageBar.vala:61
 msgid "Other"
-msgstr ""
+msgstr "Otros"
 
 #: src/widgets/CustomStorageBar.vala:229
 #, c-format
 msgid "%s out of %s can be deleted"
-msgstr ""
+msgstr "%s de %s pueden ser borrados"
 
 #: src/Main.vala:37
 msgid "Options"
