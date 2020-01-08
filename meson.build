@@ -12,6 +12,10 @@ c_args = [
 
 use_fallback_theme = get_option ('use_fallback_theme')
 
+libXNVCtrl_proj = subproject ('libXNVCtrl')
+
+libXNCtrl_dep = libXNVCtrl_proj.get_variable('libXNCtrl_dependency')
+
 subdir('data')
 subdir('po')
 subdir('src')
@@ -24,6 +28,8 @@ optimizer_deps = [
   dependency('gdk-x11-3.0'),
   dependency('libgtop-2.0'),
   dependency('libwnck-3.0'),
+  dependency('x11'),
+  libXNCtrl_dep,
   meson.get_compiler('c').find_library('m'),
   meson.get_compiler('vala').find_library('posix'),
 ]
@@ -42,7 +48,8 @@ executable('com.github.hannesschulze.optimizer', optimizer_sources,
   c_args: c_args,
   vala_args: [
     '--vapidir=' + meson.source_root() + '/vapi/',
-    '--target-glib=2.50'
+    '--target-glib=2.50',
+    '--pkg=libXNCtrl'
   ]
 )
 
