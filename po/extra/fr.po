@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-12 10:22+0200\n"
+"POT-Creation-Date: 2020-01-10 15:53+0100\n"
 "PO-Revision-Date: 2019-05-12 10:12+0200\n"
 "Last-Translator: NathanBnm\n"
 "Language-Team: none\n"
@@ -53,7 +53,9 @@ msgstr "Visualisez les fichiers qui peuvent être supprimés"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:27
 msgid "A new visualizer of the files that can be deleted in the system cleaner"
-msgstr "Une nouvelle façon de visualiser les fichiers qui peuvent être supprimés dans le nettoyeur du système"
+msgstr ""
+"Une nouvelle façon de visualiser les fichiers qui peuvent être supprimés "
+"dans le nettoyeur du système"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:28
 msgid ""
@@ -64,11 +66,13 @@ msgstr ""
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:29
 msgid "You can now \"Select All\" items in the system cleaner"
-msgstr "Vous pouvez désormais « Tout sélectionner » dans le nettoyeur du système"
+msgstr ""
+"Vous pouvez désormais « Tout sélectionner » dans le nettoyeur du système"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:30
 msgid "The column sizes in the processes overview are adjusted automatically"
-msgstr "La taille des colonnes dans la vue des processus est ajustée automatiquement"
+msgstr ""
+"La taille des colonnes dans la vue des processus est ajustée automatiquement"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:31
 msgid "A new dark mode"

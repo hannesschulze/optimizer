@@ -1,15 +1,15 @@
 # Spanish translations for extra package.
 # Copyright (C) 2019 THE extra'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extra package.
-# SrGMC, 2019.
+# Mario Rodrigo (@capitantrueno), 2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-12 10:22+0200\n"
+"POT-Creation-Date: 2020-01-10 15:53+0100\n"
 "PO-Revision-Date: 2019-05-12 10:12+0200\n"
-"Last-Translator: SrGMC\n"
+"Last-Translator: Mario Rodrigo (@capitantrueno)\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -20,28 +20,27 @@ msgstr ""
 #: data/com.github.hannesschulze.optimizer.desktop.in:3
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:6
 msgid "Optimizer"
-msgstr "Optimizador"
+msgstr ""
 
 #: data/com.github.hannesschulze.optimizer.desktop.in:4
 msgid "com.github.hannesschulze.optimizer"
-msgstr "com.github.hannesschulze.optimizer"
+msgstr ""
 
 #: data/com.github.hannesschulze.optimizer.desktop.in:6
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:7
 msgid "Clean up your system"
-msgstr "Limpiar tu sistema"
+msgstr ""
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:9
 msgid ""
 "Find out what's eating up your system resources and delete unnecessary files "
 "from your disk."
 msgstr ""
-"Descubre qué está consumiendo los recursos de tu sistema y elimina archivos "
-"innecesarios de tu disco."
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:18
+#, fuzzy
 msgid "Russian translations thanks to @tim77"
-msgstr ""
+msgstr "Traducciones al lituano @welaq"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:19
 #, fuzzy
@@ -50,47 +49,59 @@ msgstr "Arreglos para las traducciones francesas"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:25
 msgid "Visualize the files that can be deleted"
-msgstr ""
+msgstr "Descubre qué ficheros pueden ser eliminados"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:27
 msgid "A new visualizer of the files that can be deleted in the system cleaner"
 msgstr ""
+"Una nueva forma de conocer qué ficheros pueden ser eliminados en el "
+"limpiador del sistema"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:28
 msgid ""
 "You won't get asked if you want to continue when the selected directories "
 "are already empty"
 msgstr ""
+"No serás preguntado si quieres continuar cuando los directorios "
+"seleccionados ya estén vacíos"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:29
 msgid "You can now \"Select All\" items in the system cleaner"
 msgstr ""
+"Ahora puedes \"Seleccionar Todos\" los elementos en el limpiador del sistema"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:30
 msgid "The column sizes in the processes overview are adjusted automatically"
 msgstr ""
+"El tamaño de las columnas en la vista general de procesos se ajusta "
+"automáticamente"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:31
 msgid "A new dark mode"
-msgstr ""
+msgstr "Un nuevo modo oscuro"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:32
 msgid ""
 "The \"Clean Up\" button gets deactivated when it is already in progress, so "
 "you don't accidentally hit it twice"
 msgstr ""
+"El botón \"Limpiar\" se desactiva cuando está en marcha, así se evita que "
+"accidentalmente lo pulse dos veces"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:33
+#, fuzzy
 msgid "Spanish translations thanks to @SrGMC"
-msgstr ""
+msgstr "Traducciones al español gracias a @SrGMC y @capitantrueno"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:34
+#, fuzzy
 msgid "Lithuanian translations thanks to @welaq"
-msgstr ""
+msgstr "Traducciones al lituano @welaq"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:35
+#, fuzzy
 msgid "Dutch translations thanks to @Vistaus"
-msgstr ""
+msgstr "Traducciones al neerlandés gracias a @Vistaus"
 
 #: data/com.github.hannesschulze.optimizer.appdata.xml.in:41
 msgid "Get a detailed overview of the deleted files"

@@ -1,15 +1,15 @@
 # Spanish translations for com.github.hannesschulze.optimizer package.
 # Copyright (C) 2019 THE com.github.hannesschulze.optimizer'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.hannesschulze.optimizer package.
-# SrGMC, 2019.
+# Mario Rodrigo (@capitantrueno), 2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.hannesschulze.optimizer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-12 10:38+0200\n"
-"PO-Revision-Date: 2019-05-12 10:12+0200\n"
-"Last-Translator: SrGMC\n"
+"POT-Creation-Date: 2020-01-10 15:53+0100\n"
+"PO-Revision-Date: 2019-04-19 11:46+0200\n"
+"Last-Translator: Mario Rodrigo (@capitantrueno)\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -79,7 +79,7 @@ msgstr "Papelera"
 
 #: src/views/SystemCleanerView.vala:215
 msgid "Select all"
-msgstr ""
+msgstr "Seleccionar todos"
 
 #: src/views/SystemCleanerView.vala:221
 msgid "Clean Up"
@@ -104,7 +104,7 @@ msgstr "Eliminando archivos seleccionados…"
 
 #: src/views/SystemCleanerView.vala:372
 msgid "The selected items are already empty"
-msgstr ""
+msgstr "Los elementos seleccionados ya están limpios"
 
 #: src/views/SystemCleanerView.vala:376
 msgid "No items selected"
@@ -235,12 +235,12 @@ msgstr "Núcleos"
 
 #: src/widgets/CustomStorageBar.vala:61
 msgid "Other"
-msgstr ""
+msgstr "Otros"
 
 #: src/widgets/CustomStorageBar.vala:221
 #, c-format
 msgid "%s out of %s can be deleted"
-msgstr ""
+msgstr "%s de %s pueden ser borrados"
 
 #: src/Main.vala:37
 msgid "Options"
