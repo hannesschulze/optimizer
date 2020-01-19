@@ -1,5 +1,3 @@
-data/com.github.hannesschulze.optimizer.desktop.in
-data/com.github.hannesschulze.optimizer.appdata.xml.in
 src/configs/Constants.vala
 src/configs/Settings.vala
 src/controllers/AppController.vala
