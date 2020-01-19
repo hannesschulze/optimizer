@@ -1,13 +1,13 @@
 # Spanish translations for com.github.hannesschulze.optimizer package.
 # Copyright (C) 2019 THE com.github.hannesschulze.optimizer'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.hannesschulze.optimizer package.
-# Automatically generated, 2019.
+# Mario Rodrigo (@capitantrueno), 2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.hannesschulze.optimizer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 10:38+0200\n"
+"POT-Creation-Date: 2020-01-10 15:53+0100\n"
 "PO-Revision-Date: 2019-04-19 11:46+0200\n"
 "Last-Translator: Mario Rodrigo (@capitantrueno)\n"
 "Language-Team: none\n"
@@ -17,21 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: data/com.github.hannesschulze.optimizer.desktop.in:3
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:6
-msgid "Optimizer"
-msgstr "Optimizador"
-
-#: data/com.github.hannesschulze.optimizer.desktop.in:4
-msgid "com.github.hannesschulze.optimizer"
-msgstr "com.github.hannesschulze.optimizer"
-
-#: data/com.github.hannesschulze.optimizer.desktop.in:6
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:7
-msgid "Clean up your system"
-msgstr "Limpiar tu sistema"
-
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:9
 #: src/configs/Constants.vala:34
 msgid ""
 "Find out what's eating up your system resources and delete unnecessary files "
@@ -39,98 +24,6 @@ msgid ""
 msgstr ""
 "Descubre qué está consumiendo los recursos de tu sistema y elimina archivos "
 "innecesarios de tu disco."
-
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:17
-msgid "Visualize the files that can be deleted"
-msgstr "Descubre qué ficheros pueden ser eliminados"
-
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:19
-msgid "A new visualizer of the files that can be deleted in the system cleaner"
-msgstr "Una nueva forma de conocer qué ficheros pueden ser eliminados en el limpiador del sistema"
-
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:20
-msgid ""
-"You won't get asked if you want to continue when the selected directories "
-"are already empty"
-msgstr ""
-"No serás preguntado si quieres continuar cuando los directorios seleccionados "
-"ya estén vacíos"
-
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:21
-msgid "You can now \"Select All\" items in the system cleaner"
-msgstr "Ahora puedes \"Seleccionar Todos\" los elementos en el limpiador del sistema"
-
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:22
-msgid "The column sizes in the processes overview are adjusted automatically"
-msgstr "El tamaño de las columnas en la vista general de procesos se ajusta automáticamente"
-
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:23
-msgid "A new dark mode"
-msgstr "Un nuevo modo oscuro"
-
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:24
-msgid ""
-"The \"Clean Up\" button gets deactivated when it is already in progress, so "
-"you don't accidentally hit it twice"
-msgstr ""
-"El botón \"Limpiar\" se desactiva cuando está en marcha, así "
-"se evita que accidentalmente lo pulse dos veces"
-
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:25
-#, fuzzy
-msgid "Spanish translations thanks to @SrGMC"
-msgstr "Traducciones al español gracias a @SrGMC y @capitantrueno"
-
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:26
-#, fuzzy
-msgid "Lithuanian translations thanks to @welaq"
-msgstr "Traducciones al lituano @welaq"
-
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:27
-#, fuzzy
-msgid "Dutch translations thanks to @Vistaus"
-msgstr "Traducciones al neerlandés gracias a @Vistaus"
-
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:33
-msgid "Get a detailed overview of the deleted files"
-msgstr "Obtén una vista general detallada de los archivos eliminados"
-
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:35
-msgid "Calculating the size of the deleted files"
-msgstr "Calculando tamaño de archivos eliminados"
-
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:36
-msgid "Showing a detailed list of those files"
-msgstr "Mostrando vista detallada de esos archivos"
-
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:37
-msgid ""
-"The circular progress bars will now get inactive when the window loses focus"
-msgstr ""
-"Las barras de progreso circulares se desactivarán cuando la ventana pierda "
-"su enfoque."
-
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:38
-msgid "Fix a bug where the window is too large when using French translations"
-msgstr ""
-"Se ha corregido un error por el que la ventana era demasiado grande con las "
-"traducciones al francés."
-
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:39
-msgid "Fixes for French translations"
-msgstr "Arreglos para las traducciones francesas"
-
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:45
-msgid "French translations thanks to @NathanBnm"
-msgstr "Traducciones al francés gracias a @NathanBnm"
-
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:50
-msgid "Initial release"
-msgstr "Lanzamiento Inicial"
-
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:95
-msgid "Hannes Schulze"
-msgstr "Hannes Schulze"
 
 #: src/configs/Constants.vala:35
 msgid "Translators"
@@ -164,73 +57,73 @@ msgstr "Subida:"
 msgid "Calculating file size…"
 msgstr "Calculando tamaño de archivos…"
 
-#: src/views/SystemCleanerView.vala:137 src/widgets/CustomStorageBar.vala:51
+#: src/views/SystemCleanerView.vala:139 src/widgets/CustomStorageBar.vala:51
 msgid "Package Caches"
 msgstr "Caché de Paquetes"
 
-#: src/views/SystemCleanerView.vala:158 src/widgets/CustomStorageBar.vala:53
+#: src/views/SystemCleanerView.vala:160 src/widgets/CustomStorageBar.vala:53
 msgid "Crash Reports"
 msgstr "Informes de Fallos"
 
-#: src/views/SystemCleanerView.vala:172 src/widgets/CustomStorageBar.vala:55
+#: src/views/SystemCleanerView.vala:174 src/widgets/CustomStorageBar.vala:55
 msgid "Application Logs"
 msgstr "Informes de Aplicación"
 
-#: src/views/SystemCleanerView.vala:186 src/widgets/CustomStorageBar.vala:57
+#: src/views/SystemCleanerView.vala:188 src/widgets/CustomStorageBar.vala:57
 msgid "Application Caches"
 msgstr "Caché de Aplicaciones"
 
-#: src/views/SystemCleanerView.vala:200 src/widgets/CustomStorageBar.vala:59
+#: src/views/SystemCleanerView.vala:202 src/widgets/CustomStorageBar.vala:59
 msgid "Trash"
 msgstr "Papelera"
 
-#: src/views/SystemCleanerView.vala:213
+#: src/views/SystemCleanerView.vala:215
 msgid "Select all"
 msgstr "Seleccionar todos"
 
-#: src/views/SystemCleanerView.vala:219
+#: src/views/SystemCleanerView.vala:221
 msgid "Clean Up"
 msgstr "Limpiar"
 
-#: src/views/SystemCleanerView.vala:310
+#: src/views/SystemCleanerView.vala:317
 msgid "Do you want to continue?"
 msgstr "¿Deseas continuar?"
 
-#: src/views/SystemCleanerView.vala:316
+#: src/views/SystemCleanerView.vala:323
 msgid "Continue"
 msgstr "Continuar"
 
-#: src/views/SystemCleanerView.vala:342
+#: src/views/SystemCleanerView.vala:349
 #, c-format
 msgid "This will delete the following files (%s):"
 msgstr "Esto eliminirá los siguientes archivos (%s):"
 
-#: src/views/SystemCleanerView.vala:348
+#: src/views/SystemCleanerView.vala:355
 msgid "Deleting selected files…"
 msgstr "Eliminando archivos seleccionados…"
 
-#: src/views/SystemCleanerView.vala:365
+#: src/views/SystemCleanerView.vala:372
 msgid "The selected items are already empty"
 msgstr "Los elementos seleccionados ya están limpios"
 
-#: src/views/SystemCleanerView.vala:369
+#: src/views/SystemCleanerView.vala:376
 msgid "No items selected"
 msgstr "Ningún elemento seleccionado"
 
-#: src/views/SystemCleanerView.vala:389
+#: src/views/SystemCleanerView.vala:396
 msgid "Finished cleaning up with no errors"
 msgstr "Limpieza terminada sin errores"
 
-#: src/views/SystemCleanerView.vala:435
+#: src/views/SystemCleanerView.vala:442
 #, c-format
 msgid "Finished cleaning up %s"
 msgstr "Limpieza terminada %s"
 
-#: src/views/SystemCleanerView.vala:436
+#: src/views/SystemCleanerView.vala:443
 msgid "with errors!"
 msgstr "con errores"
 
-#: src/views/SystemCleanerView.vala:436
+#: src/views/SystemCleanerView.vala:443
 msgid "with no errors"
 msgstr "sin errores"
 
@@ -282,6 +175,14 @@ msgstr "Particion supervisada"
 #: src/widgets/HeaderBar.vala:83
 msgid "Quit"
 msgstr "Salir"
+
+#: src/widgets/HeaderBar.vala:92
+msgid "Light background"
+msgstr ""
+
+#: src/widgets/HeaderBar.vala:93
+msgid "Dark background"
+msgstr ""
 
 #: src/widgets/CircularProgressBar.vala:245
 #, c-format
@@ -336,7 +237,7 @@ msgstr "Núcleos"
 msgid "Other"
 msgstr "Otros"
 
-#: src/widgets/CustomStorageBar.vala:229
+#: src/widgets/CustomStorageBar.vala:221
 #, c-format
 msgid "%s out of %s can be deleted"
 msgstr "%s de %s pueden ser borrados"

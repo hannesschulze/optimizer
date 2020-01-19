@@ -1,14 +1,13 @@
 # Chinese translations for com.github.hannesschulze.optimizer package.
 # Copyright (C) 2019 THE com.github.hannesschulze.optimizer'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.hannesschulze.optimizer package.
-# Automatically generated, 2019.
 # Chojan Shang <psiace@outlook.com>, 2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.hannesschulze.optimizer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 10:38+0200\n"
+"POT-Creation-Date: 2020-01-10 15:53+0100\n"
 "PO-Revision-Date: 2019-09-08 00:51+0800\n"
 "Last-Translator: Chojan Shang <psiace@outlook.com>\n"
 "Language-Team: Chinese - China <www-zh-cn-translators@gnu.org>\n"
@@ -19,108 +18,11 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0\n"
 "X-Generator: Gtranslator 3.32.1\n"
 
-#: data/com.github.hannesschulze.optimizer.desktop.in:3
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:6
-msgid "Optimizer"
-msgstr "优化器"
-
-#: data/com.github.hannesschulze.optimizer.desktop.in:4
-msgid "com.github.hannesschulze.optimizer"
-msgstr "com.github.hannesschulze.optimizer"
-
-#: data/com.github.hannesschulze.optimizer.desktop.in:6
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:7
-msgid "Clean up your system"
-msgstr "让你的系统保持清爽"
-
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:9
 #: src/configs/Constants.vala:34
 msgid ""
 "Find out what's eating up your system resources and delete unnecessary files "
 "from your disk."
-msgstr "找出那些消耗系统资源的内容并从磁盘中删去不必要的文件。"
-
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:17
-msgid "Visualize the files that can be deleted"
-msgstr "将可以被删除的文件进行可视化"
-
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:19
-msgid "A new visualizer of the files that can be deleted in the system cleaner"
-msgstr "一个新的可视化工具，面向那些可以在系统清理工具中删除的文件"
-
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:20
-msgid ""
-"You won't get asked if you want to continue when the selected directories "
-"are already empty"
-msgstr "如果所选的目录为空，本程序不会询问您是否仍要继续操作"
-
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:21
-msgid "You can now \"Select All\" items in the system cleaner"
-msgstr "你现在可以在系统清理工具中「选择全部」待清理项"
-
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:22
-msgid "The column sizes in the processes overview are adjusted automatically"
-msgstr "进程概览工具中，列的大小会自动调整"
-
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:23
-msgid "A new dark mode"
-msgstr "新的暗色风格"
-
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:24
-msgid ""
-"The \"Clean Up\" button gets deactivated when it is already in progress, so "
-"you don't accidentally hit it twice"
 msgstr ""
-"「即刻清理」按钮会在操作执行的过程中被停用，所以你完全不用担心意外点中它两次"
-
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:25
-msgid "Spanish translations thanks to @SrGMC"
-msgstr "感谢 @SrGMC 的西班牙语翻译"
-
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:26
-msgid "Lithuanian translations thanks to @welaq"
-msgstr "感谢 @welaq 的立陶宛语翻译"
-
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:27
-msgid "Dutch translations thanks to @Vistaus"
-msgstr "感谢 @Vistaus 的荷兰语翻译"
-
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:33
-msgid "Get a detailed overview of the deleted files"
-msgstr "获取被删除文件的详情概览"
-
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:35
-msgid "Calculating the size of the deleted files"
-msgstr "计算被删除文件的大小"
-
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:36
-msgid "Showing a detailed list of those files"
-msgstr "显示这些文件的详尽列表"
-
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:37
-msgid ""
-"The circular progress bars will now get inactive when the window loses focus"
-msgstr "当程序的窗口失去关注时，环形进度条现在将变成非活动状态"
-
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:38
-msgid "Fix a bug where the window is too large when using French translations"
-msgstr "修复错误：当采用法语翻译显示时，窗口看上去太大"
-
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:39
-msgid "Fixes for French translations"
-msgstr "修正法语翻译"
-
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:45
-msgid "French translations thanks to @NathanBnm"
-msgstr "感谢 @NathanBnm 的法语翻译"
-
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:50
-msgid "Initial release"
-msgstr "初始版本"
-
-#: data/com.github.hannesschulze.optimizer.appdata.xml.in:95
-msgid "Hannes Schulze"
-msgstr "Hannes Schulze"
 
 #: src/configs/Constants.vala:35
 msgid "Translators"
@@ -154,73 +56,73 @@ msgstr "上传："
 msgid "Calculating file size…"
 msgstr "正在计算文件大小……"
 
-#: src/views/SystemCleanerView.vala:137 src/widgets/CustomStorageBar.vala:51
+#: src/views/SystemCleanerView.vala:139 src/widgets/CustomStorageBar.vala:51
 msgid "Package Caches"
 msgstr "包缓存"
 
-#: src/views/SystemCleanerView.vala:158 src/widgets/CustomStorageBar.vala:53
+#: src/views/SystemCleanerView.vala:160 src/widgets/CustomStorageBar.vala:53
 msgid "Crash Reports"
 msgstr "崩溃报告"
 
-#: src/views/SystemCleanerView.vala:172 src/widgets/CustomStorageBar.vala:55
+#: src/views/SystemCleanerView.vala:174 src/widgets/CustomStorageBar.vala:55
 msgid "Application Logs"
 msgstr "应用程序日志"
 
-#: src/views/SystemCleanerView.vala:186 src/widgets/CustomStorageBar.vala:57
+#: src/views/SystemCleanerView.vala:188 src/widgets/CustomStorageBar.vala:57
 msgid "Application Caches"
 msgstr "应用程序缓存"
 
-#: src/views/SystemCleanerView.vala:200 src/widgets/CustomStorageBar.vala:59
+#: src/views/SystemCleanerView.vala:202 src/widgets/CustomStorageBar.vala:59
 msgid "Trash"
 msgstr "垃圾"
 
-#: src/views/SystemCleanerView.vala:213
+#: src/views/SystemCleanerView.vala:215
 msgid "Select all"
 msgstr "选择全部"
 
-#: src/views/SystemCleanerView.vala:219
+#: src/views/SystemCleanerView.vala:221
 msgid "Clean Up"
 msgstr "即刻清理"
 
-#: src/views/SystemCleanerView.vala:310
+#: src/views/SystemCleanerView.vala:317
 msgid "Do you want to continue?"
 msgstr "你确定要继续执行吗？"
 
-#: src/views/SystemCleanerView.vala:316
+#: src/views/SystemCleanerView.vala:323
 msgid "Continue"
 msgstr "继续"
 
-#: src/views/SystemCleanerView.vala:342
+#: src/views/SystemCleanerView.vala:349
 #, c-format
 msgid "This will delete the following files (%s):"
 msgstr "本次操作将会删除下列文件（%s）："
 
-#: src/views/SystemCleanerView.vala:348
+#: src/views/SystemCleanerView.vala:355
 msgid "Deleting selected files…"
 msgstr "正在删除选中的文件……"
 
-#: src/views/SystemCleanerView.vala:365
+#: src/views/SystemCleanerView.vala:372
 msgid "The selected items are already empty"
 msgstr "所选的待清理项已经是空的啦"
 
-#: src/views/SystemCleanerView.vala:369
+#: src/views/SystemCleanerView.vala:376
 msgid "No items selected"
 msgstr "未选择待清理项"
 
-#: src/views/SystemCleanerView.vala:389
+#: src/views/SystemCleanerView.vala:396
 msgid "Finished cleaning up with no errors"
 msgstr "清理完毕，没有发生任何错误"
 
-#: src/views/SystemCleanerView.vala:435
+#: src/views/SystemCleanerView.vala:442
 #, c-format
 msgid "Finished cleaning up %s"
 msgstr "已完成 %s 的清理"
 
-#: src/views/SystemCleanerView.vala:436
+#: src/views/SystemCleanerView.vala:443
 msgid "with errors!"
 msgstr "出错啦！"
 
-#: src/views/SystemCleanerView.vala:436
+#: src/views/SystemCleanerView.vala:443
 msgid "with no errors"
 msgstr "没有错误"
 
@@ -272,6 +174,14 @@ msgstr "监控分区"
 #: src/widgets/HeaderBar.vala:83
 msgid "Quit"
 msgstr "退出"
+
+#: src/widgets/HeaderBar.vala:92
+msgid "Light background"
+msgstr ""
+
+#: src/widgets/HeaderBar.vala:93
+msgid "Dark background"
+msgstr ""
 
 #: src/widgets/CircularProgressBar.vala:245
 #, c-format
@@ -326,7 +236,7 @@ msgstr "核心数"
 msgid "Other"
 msgstr "其他"
 
-#: src/widgets/CustomStorageBar.vala:229
+#: src/widgets/CustomStorageBar.vala:221
 #, c-format
 msgid "%s out of %s can be deleted"
 msgstr "可以释放 %s 的空间，总空间为 %s"

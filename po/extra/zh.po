@@ -1,0 +1,129 @@
+# Chinese translations for extra package.
+# Copyright (C) 2019 THE extra'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the extra package.
+# Chojan Shang <psiace@outlook.com>, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: extra\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-01-10 15:53+0100\n"
+"PO-Revision-Date: 2019-05-12 10:12+0200\n"
+"Last-Translator: Chojan Shang <psiace@outlook.com>\n"
+"Language-Team: Chinese - China <www-zh-cn-translators@gnu.org>\n"
+"Language: zh\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/com.github.hannesschulze.optimizer.desktop.in:3
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:6
+msgid "Optimizer"
+msgstr "优化器"
+
+#: data/com.github.hannesschulze.optimizer.desktop.in:4
+msgid "com.github.hannesschulze.optimizer"
+msgstr "com.github.hannesschulze.optimizer"
+
+#: data/com.github.hannesschulze.optimizer.desktop.in:6
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:7
+msgid "Clean up your system"
+msgstr "让你的系统保持清爽"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:9
+msgid ""
+"Find out what's eating up your system resources and delete unnecessary files "
+"from your disk."
+msgstr "找出那些消耗系统资源的内容并从磁盘中删去不必要的文件。"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:18
+#, fuzzy
+msgid "Russian translations thanks to @tim77"
+msgstr "感谢 @welaq 的立陶宛语翻译"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:19
+#, fuzzy
+msgid "Updated Dutch translations"
+msgstr "修正法语翻译"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:25
+msgid "Visualize the files that can be deleted"
+msgstr "将可以被删除的文件进行可视化"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:27
+msgid "A new visualizer of the files that can be deleted in the system cleaner"
+msgstr "一个新的可视化工具，面向那些可以在系统清理工具中删除的文件"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:28
+msgid ""
+"You won't get asked if you want to continue when the selected directories "
+"are already empty"
+msgstr "如果所选的目录为空，本程序不会询问您是否仍要继续操作"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:29
+msgid "You can now \"Select All\" items in the system cleaner"
+msgstr "你现在可以在系统清理工具中「选择全部」待清理项"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:30
+msgid "The column sizes in the processes overview are adjusted automatically"
+msgstr "进程概览工具中，列的大小会自动调整"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:31
+msgid "A new dark mode"
+msgstr "新的暗色风格"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:32
+msgid ""
+"The \"Clean Up\" button gets deactivated when it is already in progress, so "
+"you don't accidentally hit it twice"
+msgstr ""
+"「即刻清理」按钮会在操作执行的过程中被停用，所以你完全不用担心意外点中它两次"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:33
+msgid "Spanish translations thanks to @SrGMC"
+msgstr "感谢 @SrGMC 的西班牙语翻译"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:34
+msgid "Lithuanian translations thanks to @welaq"
+msgstr "感谢 @welaq 的立陶宛语翻译"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:35
+msgid "Dutch translations thanks to @Vistaus"
+msgstr "感谢 @Vistaus 的荷兰语翻译"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:41
+msgid "Get a detailed overview of the deleted files"
+msgstr "获取被删除文件的详情概览"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:43
+msgid "Calculating the size of the deleted files"
+msgstr "计算被删除文件的大小"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:44
+msgid "Showing a detailed list of those files"
+msgstr "显示这些文件的详尽列表"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:45
+msgid ""
+"The circular progress bars will now get inactive when the window loses focus"
+msgstr "当程序的窗口失去关注时，环形进度条现在将变成非活动状态"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:46
+msgid "Fix a bug where the window is too large when using French translations"
+msgstr "修复错误：当采用法语翻译显示时，窗口看上去太大"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:47
+msgid "Fixes for French translations"
+msgstr "修正法语翻译"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:53
+msgid "French translations thanks to @NathanBnm"
+msgstr "感谢 @NathanBnm 的法语翻译"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:58
+msgid "Initial release"
+msgstr "初始版本"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:103
+msgid "Hannes Schulze"
+msgstr "Hannes Schulze"
