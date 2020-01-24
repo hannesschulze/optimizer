@@ -1,6 +1,5 @@
-/* NvidiaInfo.vala
+/* AMDInfo.vala
  *
- * Copyright 2020 Matheus Maldi
  * Copyright 2020 Hannes Schulze
  *
  * This program is free software: you can redistribute it and/or modify
@@ -22,30 +21,30 @@
 namespace Optimizer.Utils.GPUUsage {
 
     /**
-     * The {@code NvidiaInfo} class is responsible for getting information about
-     * NVidia GPUs
+     * The {@code AMDInfo} class is responsible for getting information about
+     * AMD GPUs
      *
      * @since 2.0.0
      */
-    public class NvidiaInfo : Object, GPUInfo {
+    public class AMDInfo : Object, GPUInfo {
 
-        private X.Display _dpy;
-        private bool      _is_nvidia_screen;
-        private int       _default_screen;
-        private int       _number_of_gpus = -1;
+        //private Radeontop.Context _context;
+        private bool              _has_died;
+        private string            _family;
 
         public bool is_available {
-            public get { return _is_nvidia_screen; }
+            public get { return !_has_died; }
         }
+
         public string formatted_details {
             owned get {
-                return "<b>%s:</b> %d".printf (_("GPU count"), _number_of_gpus);
+                return "<b>%s:</b> %s".printf (_("GPU information"), _family);
             }
         }
         public int get_memory_usage (out string used_memory_text, out string total_memory_text) {
             used_memory_text = total_memory_text = "n/a";
 
-            string usage;
+            /*string usage;
             bool ret = XNVCTRL.QueryTargetStringAttribute (_dpy, NvTargetType.GPU, 0, 0, NvString.GPU_UTILIZATION, out usage);
             if (!ret)
                 return 0;
@@ -54,19 +53,14 @@ namespace Optimizer.Utils.GPUUsage {
             usage.scanf ("graphics=%d, memory=%d, video=%d, PCIe=%d", out graphics, out memory, out video, out pcie);
 
             total_memory_text = GLib.format_size (memory, FormatSizeFlags.IEC_UNITS);
-            used_memory_text = GLib.format_size (memory, FormatSizeFlags.IEC_UNITS);
+            used_memory_text = GLib.format_size (memory, FormatSizeFlags.IEC_UNITS);*/
 
-            // TODO: Show correct percentage
             return 100;
         }
 
-        public NvidiaInfo () {
-            _dpy = new X.Display(null);
-
-            _default_screen = XNVCTRL.DefaultScreen(_dpy);
-            _is_nvidia_screen = XNVCTRL.IsNvScreen(_dpy, _default_screen);
-
-            XNVCTRL.QueryTargetCount(_dpy, NvTargetType.GPU, out _number_of_gpus);
+        public AMDInfo () {
+            _has_died = false;
+            _family = "n/a";
         }
     }
 

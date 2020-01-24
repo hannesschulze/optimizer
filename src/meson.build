@@ -22,6 +22,7 @@ optimizer_sources = files(
   'utils/Resources.vala',
   'utils/gpuusage/GPUInfo.vala',
   'utils/gpuusage/NvidiaInfo.vala',
+  'utils/gpuusage/AMDInfo.vala',
   'views/DashboardView.vala',
   'views/SystemCleanerView.vala',
   'views/ProcessesView.vala',

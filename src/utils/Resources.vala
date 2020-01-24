@@ -190,6 +190,13 @@ namespace Optimizer.Utils {
                 gpu_info = info;
                 return;
             }
+
+            // Check for AMD
+            info = new GPUUsage.AMDInfo ();
+            if (info.is_available) {
+                gpu_info = info;
+                return;
+            }
         }
 
         public unowned GPUUsage.GPUInfo? gpu {

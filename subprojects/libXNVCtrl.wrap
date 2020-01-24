@@ -1,0 +1,4 @@
+[wrap-git]
+directory = libXNVCtrl
+url = https://github.com/msmaldi/libXNVCtrl.git
+revision = head

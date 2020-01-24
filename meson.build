@@ -11,7 +11,7 @@ c_args = [
 use_fallback_theme = get_option ('use_fallback_theme')
 
 libXNVCtrl_proj = subproject ('libXNVCtrl')
-libXNCtrl_dep = libXNVCtrl_proj.get_variable('libXNCtrl_dependency')
+libXNVCtrl_dep = libXNVCtrl_proj.get_variable('libXNVCtrl_dependency')
 
 subdir('src')
 
@@ -24,7 +24,7 @@ optimizer_deps = [
   dependency('libgtop-2.0'),
   dependency('libwnck-3.0'),
   dependency('x11'),
-  libXNCtrl_dep,
+  libXNVCtrl_dep,
   meson.get_compiler('c').find_library('m'),
   meson.get_compiler('vala').find_library('posix'),
 ]
