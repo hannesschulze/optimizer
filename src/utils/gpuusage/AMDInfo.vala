@@ -28,9 +28,12 @@ namespace Optimizer.Utils.GPUUsage {
      */
     public class AMDInfo : Object, GPUInfo {
 
-        //private Radeontop.Context _context;
-        private bool              _has_died;
-        private string            _family;
+        private Radeontop.Context? _context;
+        private bool               _has_died;
+        private string             _family;
+        private short              _radeontop_bus;
+        private uchar              _radeontop_forcemem;
+        private uint               _radeontop_device_id;
 
         public bool is_available {
             public get { return !_has_died; }
@@ -38,29 +41,60 @@ namespace Optimizer.Utils.GPUUsage {
 
         public string formatted_details {
             owned get {
-                return "<b>%s:</b> %s".printf (_("GPU information"), _family);
+                string info = "%s bus %02x, %u samples/sec".printf
+			        (_family, _radeontop_bus, 120);
+                return "<b>%s:</b> %s".printf (_("GPU information"), info);
             }
         }
         public int get_memory_usage (out string used_memory_text, out string total_memory_text) {
             used_memory_text = total_memory_text = "n/a";
 
-            /*string usage;
-            bool ret = XNVCTRL.QueryTargetStringAttribute (_dpy, NvTargetType.GPU, 0, 0, NvString.GPU_UTILIZATION, out usage);
-            if (!ret)
+            unowned Radeontop.Bits? results = _context.results;
+
+            if (results == null)
                 return 0;
 
-            int graphics, memory, video, pcie;
-            usage.scanf ("graphics=%d, memory=%d, video=%d, PCIe=%d", out graphics, out memory, out video, out pcie);
+            float total_memory = (float) (_context.vramsize / 1024 / 1024);
+            float used_memory = (float) (results.vram / 1024 / 1024);
 
-            total_memory_text = GLib.format_size (memory, FormatSizeFlags.IEC_UNITS);
-            used_memory_text = GLib.format_size (memory, FormatSizeFlags.IEC_UNITS);*/
+            total_memory_text = GLib.format_size (_context.vramsize, FormatSizeFlags.IEC_UNITS);
+            used_memory_text = GLib.format_size (results.vram, FormatSizeFlags.IEC_UNITS);
 
-            return 100;
+            return (int) (Math.round ((used_memory / total_memory) * 100));
         }
 
         public AMDInfo () {
+            Posix.seteuid (Posix.getuid ());
+
             _has_died = false;
             _family = "n/a";
+
+            _radeontop_bus = -1;
+            _radeontop_forcemem = 0;
+            _radeontop_device_id = 0;
+
+            // Try initializing radeontop
+            _context = new Radeontop.Context ((why) => {
+                _has_died = true;
+                print ("Radeontop died: %s\n", why);
+            });
+
+            Posix.seteuid (0);
+            _context.init_pci (null, ref _radeontop_bus, ref _radeontop_device_id, _radeontop_forcemem);
+            Posix.seteuid (Posix.getuid ());
+            if (_has_died) return;
+
+            // Get device family
+            int family = _context.get_family (_radeontop_device_id);
+            if (family == 0) {
+                _has_died = true;
+                return;
+            }
+            _family = Radeontop.Radeon.family_str[family];
+            if (_has_died) return;
+
+            // Start collecting data
+            _context.collect (120, 1);
         }
     }
 

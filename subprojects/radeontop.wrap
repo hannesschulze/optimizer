@@ -1,0 +1,4 @@
+[wrap-git]
+directory = radeontop
+url = https://github.com/hannesschulze/radeontop.git
+revision = head
