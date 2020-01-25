@@ -136,10 +136,8 @@ namespace Optimizer.Views {
             if (Resources.get_instance ().gpu != null) {
                 string total_memory = "";
                 string used_memory = "";
-                double memory_usage = (double) resources.gpu.get_memory_usage
-                    (out used_memory, out total_memory);
+                double memory_usage = (double) resources.gpu.usage;
                 gpu_usage.percentage = memory_usage / 100;
-                gpu_usage.custom_progress_text = "%s / %s".printf (used_memory, total_memory);
             }
 
             // Memory usage

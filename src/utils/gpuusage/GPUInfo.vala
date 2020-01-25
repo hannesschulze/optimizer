@@ -23,8 +23,7 @@ namespace Optimizer.Utils.GPUUsage {
     public interface GPUInfo : Object {
         public abstract bool is_available { public get; }
         public abstract string formatted_details { owned get; }
-        public abstract int get_memory_usage (out string used_memory_text,
-                                              out string total_memory_text);
+        public abstract int usage { public get; }
     }
 
 }

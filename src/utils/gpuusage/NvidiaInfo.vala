@@ -42,22 +42,18 @@ namespace Optimizer.Utils.GPUUsage {
                 return "<b>%s:</b> %d".printf (_("GPU count"), _number_of_gpus);
             }
         }
-        public int get_memory_usage (out string used_memory_text, out string total_memory_text) {
-            used_memory_text = total_memory_text = "n/a";
+        public int usage {
+            public get {
+                string usage;
+                bool ret = XNVCTRL.QueryTargetStringAttribute (_dpy, NvTargetType.GPU, 0, 0, NvString.GPU_UTILIZATION, out usage);
+                if (!ret)
+                    return 0;
 
-            string usage;
-            bool ret = XNVCTRL.QueryTargetStringAttribute (_dpy, NvTargetType.GPU, 0, 0, NvString.GPU_UTILIZATION, out usage);
-            if (!ret)
-                return 0;
+                int graphics, memory, video, pcie;
+                usage.scanf ("graphics=%d, memory=%d, video=%d, PCIe=%d", out graphics, out memory, out video, out pcie);
 
-            int graphics, memory, video, pcie;
-            usage.scanf ("graphics=%d, memory=%d, video=%d, PCIe=%d", out graphics, out memory, out video, out pcie);
-
-            total_memory_text = GLib.format_size (memory, FormatSizeFlags.IEC_UNITS);
-            used_memory_text = GLib.format_size (memory, FormatSizeFlags.IEC_UNITS);
-
-            // TODO: Show correct percentage
-            return 100;
+                return graphics;
+            }
         }
 
         public NvidiaInfo () {

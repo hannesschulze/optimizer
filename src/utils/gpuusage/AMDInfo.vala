@@ -31,6 +31,7 @@ namespace Optimizer.Utils.GPUUsage {
         private Radeontop.Context? _context;
         private bool               _has_died;
         private string             _family;
+        private string             _radeontop_total_memory;
         private short              _radeontop_bus;
         private uchar              _radeontop_forcemem;
         private uint               _radeontop_device_id;
@@ -41,26 +42,23 @@ namespace Optimizer.Utils.GPUUsage {
 
         public string formatted_details {
             owned get {
-                string info = "%s bus %02x, %u samples/sec".printf
-			        (_family, _radeontop_bus, 120);
+                string info = "%s, %s, bus %02x".printf
+			        (_family, _radeontop_total_memory, _radeontop_bus);
                 return "<b>%s:</b> %s".printf (_("GPU information"), info);
             }
         }
-        public int get_memory_usage (out string used_memory_text, out string total_memory_text) {
-            used_memory_text = total_memory_text = "n/a";
+        public int usage {
+            public get {
+                unowned Radeontop.Bits? results = _context.results;
 
-            unowned Radeontop.Bits? results = _context.results;
+                if (results == null)
+                    return 0;
 
-            if (results == null)
-                return 0;
+		        float k = 1.0f / 120.0f;
+		        float gui = 100 * results.gui * k;
 
-            float total_memory = (float) (_context.vramsize / 1024 / 1024);
-            float used_memory = (float) (results.vram / 1024 / 1024);
-
-            total_memory_text = GLib.format_size (_context.vramsize, FormatSizeFlags.IEC_UNITS);
-            used_memory_text = GLib.format_size (results.vram, FormatSizeFlags.IEC_UNITS);
-
-            return (int) (Math.round ((used_memory / total_memory) * 100));
+                return (int) (Math.round (gui));
+            }
         }
 
         public AMDInfo () {
@@ -95,6 +93,9 @@ namespace Optimizer.Utils.GPUUsage {
 
             // Start collecting data
             _context.collect (120, 1);
+
+            // Get total memory
+            _radeontop_total_memory = GLib.format_size (_context.vramsize, FormatSizeFlags.IEC_UNITS);
         }
     }
 
