@@ -10,8 +10,13 @@ c_args = [
 
 use_fallback_theme = get_option ('use_fallback_theme')
 
+# Nvidia support
 libXNVCtrl_proj = subproject ('libXNVCtrl')
-libXNCtrl_dep = libXNVCtrl_proj.get_variable('libXNCtrl_dependency')
+libXNVCtrl_dep = libXNVCtrl_proj.get_variable('libXNVCtrl_dependency')
+
+# AMD GPU support
+libradeontop_proj = subproject ('radeontop')
+libradeontop_dep = libradeontop_proj.get_variable('libradeontop_dep')
 
 subdir('src')
 
@@ -24,7 +29,8 @@ optimizer_deps = [
   dependency('libgtop-2.0'),
   dependency('libwnck-3.0'),
   dependency('x11'),
-  libXNCtrl_dep,
+  libXNVCtrl_dep,
+  libradeontop_dep,
   meson.get_compiler('c').find_library('m'),
   meson.get_compiler('vala').find_library('posix'),
 ]
@@ -47,7 +53,8 @@ executable(
   vala_args: [
     '--vapidir=' + meson.source_root() + '/vapi/',
     '--target-glib=2.50',
-    '--pkg=libXNCtrl'
+    '--pkg=libXNCtrl',
+    '--pkg=libradeontop'
   ]
 )
 

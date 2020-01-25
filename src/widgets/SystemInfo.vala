@@ -91,6 +91,9 @@ namespace Optimizer.Widgets {
             // Cores
             this.label += "<b>%s</b> %s".printf
                 (_("CPU Cores:"), get_cores ());
+
+            if (Utils.Resources.get_instance ().gpu != null)
+                this.label += "\n" + Utils.Resources.get_instance ().gpu.formatted_details;
         }
 
         private string get_cpu () {

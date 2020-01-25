@@ -28,19 +28,16 @@ namespace Optimizer.Views {
      * @since 1.0.0
      */
     public class DashboardView : Gtk.Grid {
-        private CircularProgressBar cpu_usage;
-        private CircularProgressBar gpu_usage;
-        private CircularProgressBar ram_usage;
-        private CircularProgressBar disk_usage;
+        private CircularProgressBar  cpu_usage;
+        private CircularProgressBar? gpu_usage;
+        private CircularProgressBar  ram_usage;
+        private CircularProgressBar  disk_usage;
 
-        private Gtk.Grid            network_grid;
-        private Gtk.ProgressBar     download_speed;
-        private Gtk.ProgressBar     upload_speed;
+        private Gtk.Grid             network_grid;
+        private Gtk.ProgressBar      download_speed;
+        private Gtk.ProgressBar      upload_speed;
 
-        private SystemInfo          system_info;
-        private NVidiaInfo          nvidia_info;
-
-        private bool has_gpu_support;
+        private SystemInfo           system_info;
 
         /**
          * Constructs a new {@code DashboardView} object.
@@ -68,10 +65,7 @@ namespace Optimizer.Views {
             cpu_usage.margin_start = 24;
             components_grid.attach (cpu_usage, component_grid_count++, 0, 1, 1);
 
-            nvidia_info = NVidiaInfo.get_instance();
-            if (nvidia_info.IsNvScreen)
-            {
-                has_gpu_support = true;
+            if (Resources.get_instance ().gpu != null) {
                 gpu_usage = new CircularProgressBar ();
                 gpu_usage.description = _("GPU").up ();
                 gpu_usage.percentage = 0.0;
@@ -139,9 +133,11 @@ namespace Optimizer.Views {
             cpu_usage.percentage = ((double) resources.get_cpu_usage ()) / 100;
 
             // GPU usage
-            if (has_gpu_support)
-            {
-                gpu_usage.percentage = ((double) nvidia_info.get_gpu_usage ()) / 100;
+            if (Resources.get_instance ().gpu != null) {
+                string total_memory = "";
+                string used_memory = "";
+                double memory_usage = (double) resources.gpu.usage;
+                gpu_usage.percentage = memory_usage / 100;
             }
 
             // Memory usage

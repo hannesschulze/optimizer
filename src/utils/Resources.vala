@@ -40,6 +40,8 @@ namespace Optimizer.Utils {
         private float last_used_cpu;
         private float last_total_cpu;
 
+        private GPUUsage.GPUInfo? gpu_info;
+
         public string mount_path { get; set; }
 
         public int get_memory_usage (out string used_memory_text,
@@ -179,6 +181,28 @@ namespace Optimizer.Utils {
             }
         }
 
+        private void init_gpu () {
+            GPUUsage.GPUInfo? info = null;
+
+            // Check for Nvidia
+            info = new GPUUsage.NvidiaInfo ();
+            if (info.is_available) {
+                gpu_info = info;
+                return;
+            }
+
+            // Check for AMD
+            info = new GPUUsage.AMDInfo ();
+            if (info.is_available) {
+                gpu_info = info;
+                return;
+            }
+        }
+
+        public unowned GPUUsage.GPUInfo? gpu {
+            get { return gpu_info; }
+        }
+
         /**
          * Constructs a new {@code Resources} object
          */
@@ -190,6 +214,8 @@ namespace Optimizer.Utils {
             max_network_down = 0;
             max_network_up = 0;
             mount_path = Configs.Settings.get_instance ().monitored_partition;
+
+            init_gpu ();
         }
 
         /**
