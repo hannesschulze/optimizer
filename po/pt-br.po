@@ -23,7 +23,7 @@ msgid ""
 "from your disk."
 msgstr ""
 "Descubra o que está sendo consumido no sistema e exclua arquivos desnecessários "
-"arquivos do seu disco."
+"do seu disco."
 
 #: src/configs/Constants.vala:35
 msgid "Translators"
