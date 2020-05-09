@@ -1,0 +1,144 @@
+# Brazilian Portuguese translations for extra package.
+# Copyright (C) 2019 THE extra'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the extra package.
+# Paulo Ricardo <paulo8448@gmail.com>, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: extra\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-08 06:21+0100\n"
+"PO-Revision-Date: 2020-05-08 06:21+0200\n"
+"Last-Translator: Paulo Ricardo <paulo8448@gmail.com>\n"
+"Language-Team: none\n"
+"Language: pt/br"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: data/com.github.hannesschulze.optimizer.desktop.in:3
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:6
+msgid "Optimizer"
+msgstr ""
+
+#: data/com.github.hannesschulze.optimizer.desktop.in:4
+msgid "com.github.hannesschulze.optimizer"
+msgstr ""
+
+#: data/com.github.hannesschulze.optimizer.desktop.in:6
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:7
+msgid "Clean up your system"
+msgstr "Limpe seu sistema"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:9
+msgid ""
+"Find out what's eating up your system resources and delete unnecessary files "
+"from your disk."
+msgstr ""
+"Descubra o que está sendo consumido no sistema e exclua arquivos desnecessários"
+"do seu disco"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:18
+#, fuzzy
+msgid "Russian translations thanks to @tim77"
+msgstr "Traduções para o russo graças a @tim77"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:19
+#, fuzzy
+msgid "Updated Dutch translations"
+msgstr "Atualização de traduções para holandês"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:25
+msgid "Visualize the files that can be deleted"
+msgstr "Visualize os arquivos que podem ser deletados"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:27
+msgid "A new visualizer of the files that can be deleted in the system cleaner"
+msgstr ""
+"Uma nova maneira de visualizar arquivos que podem ser excluídos"
+"no limpador do sistema"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:28
+msgid ""
+"You won't get asked if you want to continue when the selected directories "
+"are already empty"
+msgstr ""
+"Você não tera confirmação se os diretórios selecionados já estiveram vazios"
+
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:29
+msgid "You can now \"Select All\" items in the system cleaner"
+msgstr ""
+"Agora você pode \"Selecionar Todos\" os itens no limpador do sistema"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:30
+msgid "The column sizes in the processes overview are adjusted automatically"
+msgstr ""
+"Os tamanhos das colunas na visuaização de processos são ajustados automaticamente"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:31
+msgid "A new dark mode"
+msgstr "Um novo modo escuro"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:32
+msgid ""
+"The \"Clean Up\" button gets deactivated when it is already in progress, so "
+"you don't accidentally hit it twice"
+msgstr ""
+"o botão \"Limpar\" se desativa quando está em uso, evitando "
+"o precionamento acidental de duas vezes"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:33
+#, fuzzy
+msgid "Spanish translations thanks to @SrGMC"
+msgstr "Traduções para o espanhol graças a @SrGMC y @capitantrueno"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:34
+#, fuzzy
+msgid "Lithuanian translations thanks to @welaq"
+msgstr "Traduções para o lituano graças a @welaq"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:35
+#, fuzzy
+msgid "Dutch translations thanks to @Vistaus"
+msgstr "Traduções para o holandês graças a @Vistaus"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:41
+msgid "Get a detailed overview of the deleted files"
+msgstr "Obtenha uma visão geral detalhada dos arquivos excluídos"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:43
+msgid "Calculating the size of the deleted files"
+msgstr "Calculando o tamanho dos arquivos excluídos"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:44
+msgid "Showing a detailed list of those files"
+msgstr "Mostrando uma lista detalhada desses arquivos"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:45
+msgid ""
+"The circular progress bars will now get inactive when the window loses focus"
+msgstr ""
+"As barras circulares de progresso agora ficam inativas quando a janela perde o foco "
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:46
+msgid "Fix a bug where the window is too large when using French translations"
+msgstr ""
+"Correção de um erro em que a janela é muito grande ao usar traduções em francês "
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:47
+msgid "Fixes for French translations"
+msgstr "Correções para traduções em francês"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:53
+msgid "French translations thanks to @NathanBnm"
+msgstr "Traduções para o francês graças a @NathanBnm"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:58
+msgid "Initial release"
+msgstr "lançamento inicial"
+
+#: data/com.github.hannesschulze.optimizer.appdata.xml.in:103
+msgid "Hannes Schulze"
+msgstr "Hannes Schulze"
