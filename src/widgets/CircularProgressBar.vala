@@ -140,11 +140,15 @@ namespace Optimizer.Widgets {
                 } else {
                     if (m_is_in_focus) {
                         draw_solid_stroke (cr, radius, 0.0, 1.0, center_x, center_y, 0.18, 0.18, 0.18);
-                        draw_gradient_stroke (cr, radius, 1.0, 1.0, center_x, center_y, 0.28, 0.28, 0.28,
+                        draw_gradient_stroke (cr, radius, 1.0, 1.0, center_x, center_y, 0.32, 0.32, 0.32,
+                                              0.28, 0.28, 0.28);
+                        draw_gradient_stroke (cr, radius, 2.0, 1.0, center_x, center_y, 0.28, 0.28, 0.28,
                                               0.25, 0.25, 0.25);
                     } else {
                         draw_solid_stroke (cr, radius, 0.0, 1.0, center_x, center_y, 0.21, 0.21, 0.21);
-                        draw_gradient_stroke (cr, radius, 1.0, 1.0, center_x, center_y, 0.3, 0.3, 0.3,
+                        draw_gradient_stroke (cr, radius, 1.0, 1.0, center_x, center_y, 0.35, 0.35, 0.35,
+                                              0.32, 0.32, 0.32);
+                        draw_gradient_stroke (cr, radius, 2.0, 1.0, center_x, center_y, 0.3, 0.3, 0.3,
                                               0.29, 0.29, 0.29);
                     }
                 }
@@ -158,11 +162,15 @@ namespace Optimizer.Widgets {
                 } else {
                     if (m_is_in_focus) {
                         draw_solid_stroke (cr, radius, 0.0, 1.0, center_x, center_y, 0.79, 0.79, 0.79);
-                        draw_gradient_stroke (cr, radius, 1.0, 1.0, center_x, center_y, 0.98, 0.98, 0.98,
+                        draw_gradient_stroke (cr, radius, 1.0, 1.0, center_x, center_y, 0.99, 0.99, 0.99,
+                                              1.0, 1.0, 1.0);
+                        draw_gradient_stroke (cr, radius, 2.0, 1.0, center_x, center_y, 0.98, 0.98, 0.98,
                                               1.0, 1.0, 1.0);
                     } else {
                         draw_solid_stroke (cr, radius, 0.0, 1.0, center_x, center_y, 0.78, 0.78, 0.78);
-                        draw_gradient_stroke (cr, radius, 1.0, 1.0, center_x, center_y, 0.98, 0.98, 0.98,
+                        draw_gradient_stroke (cr, radius, 1.0, 1.0, center_x, center_y, 0.99, 0.99, 0.99,
+                                              0.99, 0.99, 0.99);
+                        draw_gradient_stroke (cr, radius, 2.0, 1.0, center_x, center_y, 0.98, 0.98, 0.98,
                                               0.99, 0.99, 0.99);
                     }
                 }
@@ -181,11 +189,15 @@ namespace Optimizer.Widgets {
                     } else {
                         if (m_is_in_focus) {
                             draw_solid_stroke (cr, radius, 0.0, progress, center_x, center_y, 0.66, 0.32, 0.11);
-                            draw_gradient_stroke (cr, radius, 1.0, progress, center_x, center_y, 0.95, 0.47, 0.20,
+                            draw_gradient_stroke (cr, radius, 1.0, progress, center_x, center_y, 0.95, 0.5, 0.25,
+                                                  0.95, 0.47, 0.2);
+                            draw_gradient_stroke (cr, radius, 2.0, progress, center_x, center_y, 0.95, 0.47, 0.20,
                                                   0.95, 0.45, 0.16);
                         } else {
                             draw_solid_stroke (cr, radius, 0.0, progress, center_x, center_y, 0.11, 0.11, 0.11);
-                            draw_solid_stroke (cr, radius, 1.0, progress, center_x, center_y, 0.15, 0.15, 0.15);
+                            draw_gradient_stroke (cr, radius, 1.0, progress, center_x, center_y, 0.2, 0.2, 0.2,
+                                                  0.18, 0.18, 0.18);
+                            draw_solid_stroke (cr, radius, 2.0, progress, center_x, center_y, 0.15, 0.15, 0.15);
                         }
                     }
                 }
@@ -200,11 +212,15 @@ namespace Optimizer.Widgets {
                     } else {
                         if (m_is_in_focus) {
                             draw_solid_stroke (cr, radius, 0.0, progress, center_x, center_y, 0.76, 0.36, 0.13);
-                            draw_gradient_stroke (cr, radius, 1.0, progress, center_x, center_y, 0.96, 0.56, 0.33,
+                            draw_gradient_stroke (cr, radius, 1.0, progress, center_x, center_y, 0.97, 0.69, 0.53,
+                                                  0.96, 0.56, 0.33);
+                            draw_gradient_stroke (cr, radius, 2.0, progress, center_x, center_y, 0.96, 0.56, 0.33,
                                                   0.95, 0.45, 0.16);
                         } else {
                             draw_solid_stroke (cr, radius, 0.0, progress, center_x, center_y, 0.70, 0.70, 0.70);
-                            draw_solid_stroke (cr, radius, 1.0, progress, center_x, center_y, 0.87, 0.87, 0.87);
+                            draw_gradient_stroke (cr, radius, 1.0, progress, center_x, center_y, 0.91, 0.91, 0.91,
+                                                  0.9, 0.9, 0.9);
+                            draw_solid_stroke (cr, radius, 2.0, progress, center_x, center_y, 0.87, 0.87, 0.87);
                         }
                     }
                 }
@@ -215,13 +231,19 @@ namespace Optimizer.Widgets {
             context.save ();
             context.add_class (Gtk.STYLE_CLASS_TROUGH);
             Gdk.RGBA color = context.get_color (context.get_state ());
+            Pango.FontDescription? baseFont;
+            context.@get (context.get_state (), "font", out baseFont, null);
+            if (baseFont == null) {
+                baseFont = new Pango.FontDescription();
+            }
             Gdk.cairo_set_source_rgba (cr, color);
 
             // Title
             layout = Pango.cairo_create_layout (cr);
             layout.set_text (description.printf ((int) (percentage * 100.0)), -1);
-            font_description = Pango.FontDescription.from_string ("Open Sans 26");
-            font_description.set_weight (Pango.Weight.ULTRALIGHT);
+            font_description = baseFont.copy ();
+            font_description.set_size (26 * Pango.SCALE);
+            font_description.set_weight (Pango.Weight.BOLD);
             layout.set_font_description (font_description);
             Pango.cairo_update_layout (cr, layout);
             layout.get_size (out width, out height);
@@ -234,7 +256,8 @@ namespace Optimizer.Widgets {
             } else {
                 layout.set_text (_("%d Percent").printf ((int) (percentage * 100.0)).up (), -1);
             }
-            font_description = Pango.FontDescription.from_string ("Open Sans 9");
+            font_description = baseFont.copy ();
+            font_description.set_size (9 * Pango.SCALE);
             font_description.set_weight (Pango.Weight.NORMAL);
             layout.set_font_description (font_description);
             Pango.cairo_update_layout (cr, layout);
