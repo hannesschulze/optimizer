@@ -16,7 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-@define-color colorAccent @ORANGE_500;
+@define-color accent_color @ORANGE_500;
+@define-color colorAccent @accent_color;
 
 .processes_view actionbar button, .processes_view actionbar entry {
   margin-top: 4px;
