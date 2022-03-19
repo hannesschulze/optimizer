@@ -28,6 +28,7 @@ namespace Optimizer.Widgets {
      */
     public class CircularProgressBar : Gtk.Bin {
         private const int MIN_DIAMETER = 80;
+        private const double LINE_WIDTH = 7.0;
         private double m_percentage = 0.0;
         private bool m_is_in_focus = true;
 
@@ -121,53 +122,56 @@ namespace Optimizer.Widgets {
 
             var center_x = (get_allocated_width () - 2) / 2;
             var center_y = (get_allocated_height () - 2) / 2;
-            var radius = calculate_radius () - 1;
+            var radius = (double) (calculate_radius () - 1);
 
             // Radius fill
             var settings = Gtk.Settings.get_default();
 		    var theme = Environment.get_variable("GTK_THEME");
-            var dark = settings.gtk_application_prefer_dark_theme || (theme != null && theme.has_suffix(":dark"));
+            var dark = settings.gtk_application_prefer_dark_theme || 
+                       (theme != null && theme.has_suffix(":dark"));
 
             if (dark) {
                 if (Constants.USE_FALLBACK_PROGRESS_BAR_THEME) {
                     if (m_is_in_focus) {
-                        draw_stroke (cr, radius, 7, 0, center_x, center_y, 1.0, "#262626");
+                        draw_solid_stroke (cr, radius, 0.0, 1.0, center_x, center_y, 0.15, 0.15, 0.15);
                     } else {
-                        draw_stroke (cr, radius, 7, 0, center_x, center_y, 1.0, "#121212");
+                        draw_solid_stroke (cr, radius, 0.0, 1.0, center_x, center_y, 0.07, 0.07, 0.07);
                     }
                 } else {
-                    draw_stroke (cr, radius, 4, 0, center_x, center_y + 1, 1.0, "#454c54");
                     if (m_is_in_focus) {
-                        draw_stroke (cr, radius, 7, 0, center_x, center_y, 1.0, "#2c2f34");
-                        draw_stroke (cr, radius, 5, 1, center_x, center_y, 1.0, "#4f5863");
-                        draw_stroke (cr, radius, 3, 2, center_x, center_y, 1.0, "#393e43");
-                        draw_stroke (cr, radius, 2, 3, center_x, center_y, 1.0, "#383c42");
-                        draw_stroke (cr, radius, 1, 4, center_x, center_y, 1.0, "#373b40");
+                        draw_solid_stroke (cr, radius, 0.0, 1.0, center_x, center_y, 0.18, 0.18, 0.18);
+                        draw_gradient_stroke (cr, radius, 1.0, 1.0, center_x, center_y, 0.32, 0.32, 0.32,
+                                              0.28, 0.28, 0.28);
+                        draw_gradient_stroke (cr, radius, 2.0, 1.0, center_x, center_y, 0.28, 0.28, 0.28,
+                                              0.25, 0.25, 0.25);
                     } else {
-                        draw_stroke (cr, radius, 7, 0, center_x, center_y, 1.0, "#2d2f32");
-                        draw_stroke (cr, radius, 5, 1, center_x, center_y, 1.0, "#4f5863");
-                        draw_stroke (cr, radius, 3, 2, center_x, center_y, 1.0, "#3b3f45");
+                        draw_solid_stroke (cr, radius, 0.0, 1.0, center_x, center_y, 0.21, 0.21, 0.21);
+                        draw_gradient_stroke (cr, radius, 1.0, 1.0, center_x, center_y, 0.35, 0.35, 0.35,
+                                              0.32, 0.32, 0.32);
+                        draw_gradient_stroke (cr, radius, 2.0, 1.0, center_x, center_y, 0.3, 0.3, 0.3,
+                                              0.29, 0.29, 0.29);
                     }
                 }
             } else {
                 if (Constants.USE_FALLBACK_PROGRESS_BAR_THEME) {
                     if (m_is_in_focus) {
-                        draw_stroke (cr, radius, 7, 0, center_x, center_y, 1.0, "#D9D9D9");
+                        draw_solid_stroke (cr, radius, 0.0, 1.0, center_x, center_y, 0.85, 0.85, 0.85);
                     } else {
-                        draw_stroke (cr, radius, 7, 0, center_x, center_y, 1.0, "#EDEDED");
+                        draw_solid_stroke (cr, radius, 0.0, 1.0, center_x, center_y, 0.93, 0.93, 0.93);
                     }
                 } else {
-                    draw_stroke (cr, radius, 4, 0, center_x, center_y + 1, 1.0, "#ffffff");
                     if (m_is_in_focus) {
-                        draw_stroke (cr, radius, 7, 0, center_x, center_y, 1.0, "#b7b7b7");
-                        draw_stroke (cr, radius, 5, 1, center_x, center_y, 1.0, "#ffffff");
-                        draw_stroke (cr, radius, 3, 2, center_x, center_y, 1.0, "#efefef");
-                        draw_stroke (cr, radius, 2, 3, center_x, center_y, 1.0, "#e9e9e9");
-                        draw_stroke (cr, radius, 1, 4, center_x, center_y, 1.0, "#e2e2e2");
+                        draw_solid_stroke (cr, radius, 0.0, 1.0, center_x, center_y, 0.79, 0.79, 0.79);
+                        draw_gradient_stroke (cr, radius, 1.0, 1.0, center_x, center_y, 0.99, 0.99, 0.99,
+                                              1.0, 1.0, 1.0);
+                        draw_gradient_stroke (cr, radius, 2.0, 1.0, center_x, center_y, 0.98, 0.98, 0.98,
+                                              1.0, 1.0, 1.0);
                     } else {
-                        draw_stroke (cr, radius, 7, 0, center_x, center_y, 1.0, "#b8b8b8");
-                        draw_stroke (cr, radius, 5, 1, center_x, center_y, 1.0, "#ffffff");
-                        draw_stroke (cr, radius, 3, 2, center_x, center_y, 1.0, "#f5f5f5");
+                        draw_solid_stroke (cr, radius, 0.0, 1.0, center_x, center_y, 0.78, 0.78, 0.78);
+                        draw_gradient_stroke (cr, radius, 1.0, 1.0, center_x, center_y, 0.99, 0.99, 0.99,
+                                              0.99, 0.99, 0.99);
+                        draw_gradient_stroke (cr, radius, 2.0, 1.0, center_x, center_y, 0.98, 0.98, 0.98,
+                                              0.99, 0.99, 0.99);
                     }
                 }
             }
@@ -178,21 +182,22 @@ namespace Optimizer.Widgets {
                 if (progress > 0.0) {
                     if (Constants.USE_FALLBACK_PROGRESS_BAR_THEME) {
                         if (m_is_in_focus) {
-                            draw_stroke (cr, radius, 7, 0, center_x, center_y, progress, "#F37329");
+                            draw_solid_stroke (cr, radius, 0.0, progress, center_x, center_y, 0.95, 0.45, 0.16);
                         } else {
-                            draw_stroke (cr, radius, 7, 0, center_x, center_y, progress, "#585858");
+                            draw_solid_stroke (cr, radius, 0.0, progress, center_x, center_y, 0.35, 0.35, 0.35);
                         }
                     } else {
                         if (m_is_in_focus) {
-                            draw_stroke (cr, radius, 7, 0, center_x, center_y, progress, "#e76419");
-                            draw_stroke (cr, radius, 5, 1, center_x, center_y, progress, "#ffcbac");
-                            draw_stroke (cr, radius, 3, 2, center_x, center_y, progress, "#fe9c63");
-                            draw_stroke (cr, radius, 2, 3, center_x, center_y, progress, "#fd9356");
-                            draw_stroke (cr, radius, 1, 4, center_x, center_y, progress, "#fc8946");
+                            draw_solid_stroke (cr, radius, 0.0, progress, center_x, center_y, 0.66, 0.32, 0.11);
+                            draw_gradient_stroke (cr, radius, 1.0, progress, center_x, center_y, 0.95, 0.5, 0.25,
+                                                  0.95, 0.47, 0.2);
+                            draw_gradient_stroke (cr, radius, 2.0, progress, center_x, center_y, 0.95, 0.47, 0.20,
+                                                  0.95, 0.45, 0.16);
                         } else {
-                            draw_stroke (cr, radius, 7, 0, center_x, center_y, progress, "#292b2d");
-                            draw_stroke (cr, radius, 5, 1, center_x, center_y, progress, "#3d434a");
-                            draw_stroke (cr, radius, 3, 2, center_x, center_y, progress, "#32363a");
+                            draw_solid_stroke (cr, radius, 0.0, progress, center_x, center_y, 0.11, 0.11, 0.11);
+                            draw_gradient_stroke (cr, radius, 1.0, progress, center_x, center_y, 0.2, 0.2, 0.2,
+                                                  0.18, 0.18, 0.18);
+                            draw_solid_stroke (cr, radius, 2.0, progress, center_x, center_y, 0.15, 0.15, 0.15);
                         }
                     }
                 }
@@ -200,21 +205,22 @@ namespace Optimizer.Widgets {
                 if (progress > 0.0) {
                     if (Constants.USE_FALLBACK_PROGRESS_BAR_THEME) {
                         if (m_is_in_focus) {
-                            draw_stroke (cr, radius, 7, 0, center_x, center_y, progress, "#F37329");
+                            draw_solid_stroke (cr, radius, 0.0, progress, center_x, center_y, 0.95, 0.45, 0.16);
                         } else {
-                            draw_stroke (cr, radius, 7, 0, center_x, center_y, progress, "#A7A7A7");
+                            draw_solid_stroke (cr, radius, 0.0, progress, center_x, center_y, 0.65, 0.65, 0.65);
                         }
                     } else {
                         if (m_is_in_focus) {
-                            draw_stroke (cr, radius, 7, 0, center_x, center_y, progress, "#e76419");
-                            draw_stroke (cr, radius, 5, 1, center_x, center_y, progress, "#ffcbac");
-                            draw_stroke (cr, radius, 3, 2, center_x, center_y, progress, "#fe9c63");
-                            draw_stroke (cr, radius, 2, 3, center_x, center_y, progress, "#fd9356");
-                            draw_stroke (cr, radius, 1, 4, center_x, center_y, progress, "#fc8946");
+                            draw_solid_stroke (cr, radius, 0.0, progress, center_x, center_y, 0.76, 0.36, 0.13);
+                            draw_gradient_stroke (cr, radius, 1.0, progress, center_x, center_y, 0.97, 0.69, 0.53,
+                                                  0.96, 0.56, 0.33);
+                            draw_gradient_stroke (cr, radius, 2.0, progress, center_x, center_y, 0.96, 0.56, 0.33,
+                                                  0.95, 0.45, 0.16);
                         } else {
-                            draw_stroke (cr, radius, 7, 0, center_x, center_y, progress, "#a7a7a7");
-                            draw_stroke (cr, radius, 5, 1, center_x, center_y, progress, "#e2e2e2");
-                            draw_stroke (cr, radius, 3, 2, center_x, center_y, progress, "#d0d0d0");
+                            draw_solid_stroke (cr, radius, 0.0, progress, center_x, center_y, 0.70, 0.70, 0.70);
+                            draw_gradient_stroke (cr, radius, 1.0, progress, center_x, center_y, 0.91, 0.91, 0.91,
+                                                  0.9, 0.9, 0.9);
+                            draw_solid_stroke (cr, radius, 2.0, progress, center_x, center_y, 0.87, 0.87, 0.87);
                         }
                     }
                 }
@@ -225,13 +231,19 @@ namespace Optimizer.Widgets {
             context.save ();
             context.add_class (Gtk.STYLE_CLASS_TROUGH);
             Gdk.RGBA color = context.get_color (context.get_state ());
+            Pango.FontDescription? baseFont;
+            context.@get (context.get_state (), "font", out baseFont, null);
+            if (baseFont == null) {
+                baseFont = new Pango.FontDescription();
+            }
             Gdk.cairo_set_source_rgba (cr, color);
 
             // Title
             layout = Pango.cairo_create_layout (cr);
             layout.set_text (description.printf ((int) (percentage * 100.0)), -1);
-            font_description = Pango.FontDescription.from_string ("Open Sans 26");
-            font_description.set_weight (Pango.Weight.ULTRALIGHT);
+            font_description = baseFont.copy ();
+            font_description.set_size (26 * Pango.SCALE);
+            font_description.set_weight (Pango.Weight.BOLD);
             layout.set_font_description (font_description);
             Pango.cairo_update_layout (cr, layout);
             layout.get_size (out width, out height);
@@ -244,7 +256,8 @@ namespace Optimizer.Widgets {
             } else {
                 layout.set_text (_("%d Percent").printf ((int) (percentage * 100.0)).up (), -1);
             }
-            font_description = Pango.FontDescription.from_string ("Open Sans 9");
+            font_description = baseFont.copy ();
+            font_description.set_size (9 * Pango.SCALE);
             font_description.set_weight (Pango.Weight.NORMAL);
             layout.set_font_description (font_description);
             Pango.cairo_update_layout (cr, layout);
@@ -258,20 +271,34 @@ namespace Optimizer.Widgets {
             return base.draw (cr);
         }
 
-        private void draw_stroke (Cairo.Context cr,
-                                  int radius, int line_width, int position,
-                                  double center_x, double center_y,
-                                  double progress, string color_code) {
-            cr.set_line_width (line_width);
-            int delta = radius - position - line_width / 2;
-            cr.arc (center_x,
-                    center_y,
-                    delta,
-                    1.5 * Math.PI,
-                    (1.5 + progress * 2) * Math.PI);
-            Gdk.RGBA color = Gdk.RGBA ();
-            color.parse (color_code);
-            Gdk.cairo_set_source_rgba (cr, color);
+        private void mask_arc (Cairo.Context cr, double radius, double shrink,
+                               double progress, double center_x, double center_y) {
+            cr.set_line_width (LINE_WIDTH - shrink * 2.0);
+            var actual_radius = radius - LINE_WIDTH * 0.5;
+            cr.arc (center_x, center_y, actual_radius, 1.5 * Math.PI,
+                    (1.5 + progress * 2.0) * Math.PI);
+        }
+
+        private void draw_solid_stroke (Cairo.Context cr, double radius, double shrink,
+                                        double progress, double center_x, double center_y,
+                                        double color_r, double color_g, double color_b) {
+            mask_arc (cr, radius, shrink, progress, center_x, center_y);
+            cr.set_source_rgb (color_r, color_g, color_b);
+            cr.stroke ();
+        }
+
+        private void draw_gradient_stroke (Cairo.Context cr, double radius, double shrink,
+                                           double progress, double center_x, double center_y,
+                                           double outer_r, double outer_g, double outer_b,
+                                           double inner_r, double inner_g, double inner_b) {
+            mask_arc (cr, radius, shrink, progress, center_x, center_y);
+            var outer_radius = radius - shrink;
+            var inner_radius = outer_radius - LINE_WIDTH;
+            var pattern = new Cairo.Pattern.radial (center_x, center_y, outer_radius,
+                                                    center_x, center_y, inner_radius);
+            pattern.add_color_stop_rgb (0.0, outer_r, outer_g, outer_b);
+            pattern.add_color_stop_rgb (1.0, inner_r, inner_g, inner_b);
+            cr.set_source (pattern);
             cr.stroke ();
         }
     }

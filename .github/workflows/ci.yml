@@ -1,0 +1,24 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: elementary/docker:odin-stable
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install Dependencies
+      run: |
+        apt-get update &&
+        apt-get install -y elementary-sdk libgtop2-dev libwnck-3-dev
+      env:
+        TZ: America/New_York
+        DEBIAN_FRONTEND: noninteractive
+    - name: Configure
+      run: meson build --prefix=/usr
+    - name: Build
+      run: ninja -C build
+    - name: Install
+      run: ninja -C build install

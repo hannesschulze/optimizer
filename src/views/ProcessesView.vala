@@ -100,7 +100,10 @@ namespace Optimizer.Views {
             column.set_cell_data_func (cell_renderer, (cell_layout, cell, tree_model, iter) => {
                 var val = Value (typeof (uint64));
                 tree_model.get_value (iter, 1, out val);
-                (cell as Gtk.CellRendererText).text = GLib.format_size ((uint64) val, GLib.FormatSizeFlags.IEC_UNITS);
+                var textCell = cell as Gtk.CellRendererText;
+                if (textCell != null) {
+                    textCell.text = GLib.format_size ((uint64) val, GLib.FormatSizeFlags.IEC_UNITS);
+                }
             });
             column.resizable = true;
             column.min_width = 60;
@@ -120,7 +123,10 @@ namespace Optimizer.Views {
 
                 float used_memory = (float) (((uint64) val) / 1024 / 1024) / 1000;
 
-                (cell as Gtk.CellRendererText).text = "%.1f%%".printf ((used_memory / total_memory) * 100);
+                var textCell = cell as Gtk.CellRendererText;
+                if (textCell != null) {
+                    textCell.text = "%.1f%%".printf ((used_memory / total_memory) * 100);
+                }
             });
             column.resizable = true;
             column.min_width = 60;
@@ -140,7 +146,10 @@ namespace Optimizer.Views {
             column.set_cell_data_func (cell_renderer, (cell_layout, cell, tree_model, iter) => {
                 var val = Value (typeof (float));
                 tree_model.get_value (iter, 3, out val);
-                (cell as Gtk.CellRendererText).text = "%.1f%%".printf ((float) val * 100);
+                var textCell = cell as Gtk.CellRendererText;
+                if (textCell != null) {
+                    textCell.text = "%.1f%%".printf ((float) val * 100);
+                }
             });
             column.resizable = true;
             column.min_width = 60;

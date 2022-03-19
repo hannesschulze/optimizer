@@ -41,7 +41,7 @@ namespace Optimizer.Utils {
             SourceFunc callback = get_formatted_file_list.callback;
             FormattedList[] output = {};
 
-            ThreadFunc<bool> run = () => {
+            new Thread<bool> ("calculating-thread", () => {
                 FormattedList[] result = {};
 
                 foreach (var folder in selected_folders.entries) {
@@ -63,8 +63,7 @@ namespace Optimizer.Utils {
                 output = result;
                 Idle.add ((owned) callback);
                 return true;
-            };
-            new Thread<bool> ("calculating-thread", run);
+            });
 
             yield;
             return output;
